@@ -11,7 +11,7 @@
 	<td>아이디</td><td>이름</td><td>나이</td>
 </tr>
 <tr align="center" >
-	<td>1</td><td>비와이</td><td>26</td>
+	<td>1</td><td>비와이!</td><td>26</td>
 </tr>
 <tr align="center" >
 	<td>2</td><td>지코</td><td>27</td>
