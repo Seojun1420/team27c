@@ -16,7 +16,6 @@
 		ArrayList<Singer> arrComedian = null;
 		Singer singer  = new Singer();
 		
-		
 	%>
 			<head>가수 리스트</head>
 		<table width="50%" border="1">
