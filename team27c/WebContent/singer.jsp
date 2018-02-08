@@ -14,16 +14,16 @@
 	<td>1</td><td>권지용</td><td>30</td>
 </tr>
 <tr align="center">
-	<td>2</td><td>대성</td><td>30</td>
+	<td>2</td><td>대성</td><td>34</td>
 </tr>
 <tr align="center">
-	<td>3</td><td>승리</td><td>30</td>
+	<td>3</td><td>승리</td><td>32</td>
 </tr>
 <tr align="center">
 	<td>4</td><td>탑</td><td>31</td>
 </tr>
 <tr align="center">
-	<td>5</td><td>탑</td><td>32</td>
+	<td>5</td><td>태양</td><td>32</td>
 </tr>
 	</table>
 	
