@@ -23,14 +23,9 @@
 	<td>4</td><td>ž</td><td>30</td>
 </tr>
 <tr align="center">
-	<td>5</td><td>ž</td><td>30</td>
+	<td>5</td><td>ž</td><td>35</td>
 </tr>
 	</table>
-	
-	
-	
-	
-	
 	
 </head>
 <body>
