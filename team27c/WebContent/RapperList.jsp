@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 
 <title></title>
-<head>래퍼 목록</head>
+<head>래퍼  목록</head>
 <table width="50%" border="1">
 <tr align="center" >
 	<td>아이디</td><td>이름</td><td>나이</td>
