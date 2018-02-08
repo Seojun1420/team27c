@@ -21,7 +21,7 @@ public class SingerDao {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
-			
+		
 			Class.forName("com.mysql.jdbc.Driver");
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?" +
 					"useUnicode=true&characterEncoding=euckr";
