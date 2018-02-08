@@ -3,9 +3,23 @@
 <!DOCTYPE html>
 <html>
 <body>
-<head>team27c</head>
-	<table>
-	<tr>
+<form action = ""> </form>
+		<table>team 27c </table>
+		<input type = "submit" value= "±èÀçÈñ">
+		
+		<input type = "submit" value= "±è¹®±â">
+		
+		<input type = "submit" value= "µµÁ¤¸¸">
+		
+		<input type = "submit" value= "ÀÓ°¡Çö">
+		
+		<input type = "submit" value= "¹ÚÁöÇÏ">
+		
+		<input type = "submit" value= "¿Õ¼­ÁØ">
+		
+
+
+<!-- 	<tr>
 		<td>ÆÀ¿ø</td>
 		<td>ÆÀ¿øÀÇ ¿ªÇÒ</td>
 	</tr>	
@@ -32,9 +46,9 @@
 	<tr>
 		<td>¿Õ¼­ÁØ</td>
 		<td>singer</td>
-	</tr>	
+	</tr>	 -->
 	
-	</table>
+
 	<ul>
 		<li><a href="<%= request.getContextPath() %>/actorList.jsp">actor</a></li>
  		<li><a href="<%= request.getContextPath() %>/actressL.jsp">actress</a></li>
