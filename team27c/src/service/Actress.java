@@ -24,6 +24,7 @@ public class Actress {
 		this.actressAge = actressAge;
 	}
 	
+	
 
 	
 }
