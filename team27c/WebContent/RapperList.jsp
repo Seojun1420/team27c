@@ -17,7 +17,7 @@
 	<td>2</td><td>지코</td><td>27</td>
 </tr>
 <tr align="center" >
-	<td>3</td><td>개코</td><td>38</td>
+	<td>3</td><td>개코</td><td>37</td>
 </tr>
 <tr align="center" >
 	<td>4</td><td>도끼</td><td>29</td>
