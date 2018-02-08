@@ -5,6 +5,7 @@
 <body>
 <form action = ""> </form>
 		<table>team 27c </table>
+
 		<input type = "submit" value= "±èÀçÈñ">
 		
 		<input type = "submit" value= "±è¹®±â">
@@ -16,8 +17,8 @@
 		<input type = "submit" value= "¹ÚÁöÇÏ">
 		
 		<input type = "submit" value= "¿Õ¼­ÁØ">
-		
 
+		
 	<ul>
 		<li><a href="<%= request.getContextPath() %>/actorList.jsp">actor</a></li>
  		<li><a href="<%= request.getContextPath() %>/actressL.jsp">actress</a></li>
