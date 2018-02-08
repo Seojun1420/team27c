@@ -18,10 +18,6 @@
 		<input type = "submit" value= "¿Õ¼­ÁØ">
 		
 
-
-
-	
-
 	<ul>
 		<li><a href="<%= request.getContextPath() %>/actorList.jsp">actor</a></li>
  		<li><a href="<%= request.getContextPath() %>/actressL.jsp">actress</a></li>
