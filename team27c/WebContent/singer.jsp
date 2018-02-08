@@ -20,10 +20,10 @@
 	<td>3</td><td>승리</td><td>30</td>
 </tr>
 <tr align="center">
-	<td>4</td><td>탑</td><td>30</td>
+	<td>4</td><td>탑</td><td>31</td>
 </tr>
 <tr align="center">
-	<td>5</td><td>탑</td><td>35</td>
+	<td>5</td><td>탑</td><td>32</td>
 </tr>
 	</table>
 	
