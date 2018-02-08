@@ -25,10 +25,10 @@ public class ActorDao {
 					String dbPass = "java0000";
 					
 					conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-					pstmt = conn.prepareStatement("select * from actor");
+					pstmt = conn.prepareStatement("select actor_id,actor_name,actor_age from actor;"); 
 					rs = pstmt.executeQuery();
 					
-					Actor
+					actor=new ArrayList<Actor>();
 					
 				}catch {
 					
