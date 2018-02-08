@@ -34,6 +34,7 @@ public class SingerDao {
 			pstmt = conn.prepareStatement("SELECT * FROM Singer");
 			rs = pstmt.executeQuery();
 			
+			
 			while(rs.next()) {
 				Singer singer = new Singer();
 				singer.setSinger_Id(rs.getInt("Singer_Id"));
