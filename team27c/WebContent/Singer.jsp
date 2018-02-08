@@ -13,6 +13,7 @@
 	<body>
 	Singer.jsp
 	
+	
 	<%
 		ArrayList<Singer> arrComedian = null;
 		Singer singer  = new Singer();
