@@ -6,31 +6,31 @@
 <head>team27c</head>
 	<table>
 	<tr>
-		<td>ÆÀ¿ø</td>
-		<td>ÆÀ¿øÀÇ ¿ªÇÒ</td>
+		<td>íŒ€ì›</td>
+		<td>íŒ€ì›ì˜ ì—­í• </td>
 	</tr>	
 	<tr>
-		<td>±è¹®±â</td>
+		<td>ê¹€ë¬¸ê¸°</td>
 		<td>actress</td>
 	</tr>	
 	<tr>
-		<td>µµÁ¤¸¸</td>
+		<td>ë„ì •ë§Œ</td>
 		<td>anaunseo</td>
 	</tr>	
 	<tr>
-		<td>±èÀçÈñ</td>
-		<td>singer</td>
+		<td>ê¹€ì¬í¬</td>
+		<td>actor</td>
 	</tr>	
 	<tr>
-		<td>ÀÓ°¡Çö</td>
+		<td>ì„ê°€í˜„</td>
 		<td>comedian</td>
 	</tr>	
 	<tr>
-		<td>¹ÚÁöÇÏ</td>
+		<td>ë°•ì§€í•˜</td>
 		<td>rapper</td>
 	</tr>	
 	<tr>
-		<td>¿Õ¼­ÁØ</td>
+		<td>ì™•ì„œì¤€</td>
 		<td>singer</td>
 	</tr>	
 	
