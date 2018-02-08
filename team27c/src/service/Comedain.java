@@ -1,27 +1,27 @@
 package service;
 public class Comedain {
-	private String CId;
-	private String CName;
-	private String CAge;
+	private String ComedianId;
+	private String ComedianName;
+	private String ComedianAge;
+	public String getComedianId() {
+		return ComedianId;
+	}
+	public void setComedianId(String comedianId) {
+		ComedianId = comedianId;
+	}
+	public String getComedianName() {
+		return ComedianName;
+	}
+	public void setComedianName(String comedianName) {
+		ComedianName = comedianName;
+	}
+	public String getComedianAge() {
+		return ComedianAge;
+	}
+	public void setComedianAge(String comedianAge) {
+		ComedianAge = comedianAge;
+	}
 	
-	public String getCId() {
-		return CId;
-	}
-	public void setCId(String cId) {
-		CId = cId;
-	}
-	public String getCName() {
-		return CName;
-	}
-	public void setCName(String cName) {
-		CName = cName;
-	}
-	public String getCAge() {
-		return CAge;
-	}
-	public void setCAge(String cAge) {
-		CAge = cAge;
-	}
 	
 	
 }
