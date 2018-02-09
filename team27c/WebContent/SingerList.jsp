@@ -6,6 +6,7 @@
    <%@ page import = "service.Singer" %>
    <%@ page import = "service.SingerDao" %>
 
+
 <%
 	SingerDao singer = new SingerDao();
 	ArrayList<Singer> arraySinger = new ArrayList<Singer>(); 
