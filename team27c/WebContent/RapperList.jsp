@@ -3,33 +3,49 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<%@ page import = "service.RapperDao"%>
+<%@ page import = "service.Rapper"%>
+<%@ page import = "java.util.ArrayList" %>
 
-<title></title>
-<head>래퍼  목록</head>
-<table width="50%" border="1">
-<tr align="center" >
-	<td>아이디</td><td>이름</td><td>나이</td>
-</tr>
-<tr align="center" >
-	<td>1</td><td>비와이!</td><td>26</td>
-</tr>
-<tr align="center" >
-	<td>2</td><td>지코</td><td>27</td>
-</tr>
-<tr align="center" >
-	<td>3</td><td>개코</td><td>37</td>
-</tr>
-<tr align="center" >
-	<td>4</td><td>도끼</td><td>29</td>
-</tr>
-<tr align="center" >
-	<td>5</td><td>버벌진트</td><td>39</td>
-</tr>
-</table>
-
-
+<title>래퍼 목록</title>
 </head>
 <body>
+
+	<table border="1">
+		
+		<tr>
+		
+			<th>래퍼 순서</th>
+			<th>래퍼 이름</th>
+			<th>래퍼 나이</th>
+		</tr>
+		
+
+<%
+ArrayList<Rapper> list = new ArrayList<Rapper>();
+RapperDao rapperDao = new RapperDao();
+list=rapperDao.selectRapperList();
+System.out.println(list.size());
+
+
+
+
+	for(Rapper rapper : list) { // for()
+
+%>
+	<tr>
+		<td><%=rapper.getRapperId() %></td>
+		<td><%=rapper.getRapperName() %></td>
+		<td><%=rapper.getRapperAge() %></td>
+	</tr>
+<%
+	}
+%>
+
+
+
+</table>
+
 
 </body>
 </html>
