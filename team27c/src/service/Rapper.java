@@ -11,7 +11,7 @@ public class Rapper {
 		return RapperId;//이곳부터는 소스 생성으로 생성한다.
 	}
 	public void setRapperId(int rapperId) {
-		RapperId = rapperId;//set은 값을 세팅하고
+		RapperId = rapperId;//set은 값을 세팅하고!
 	}
 	public String getRapperName() {//get 은 값을 가져온다. 리턴이 필요하다.
 		return RapperName;
