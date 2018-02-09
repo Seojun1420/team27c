@@ -7,61 +7,59 @@
 <title>Insert title here</title> 
 </head> 
 <body> 
+	<header>
+			<h1 align ="center">team27c</h1>
+	</header>
 
-		<table>
-					<tr>
-						<td> 팀명  : team27c </td>
-					</tr> 
-			<tr>
-				<td>
-				<img src="team1.jpg" > <br><br>
-				</td>
-				<td>팀장 : 왕서준  </td>
-				<td>역할 : SingerList</td>
+	
+		<table> 
+		
+		<tr>
+				<th>팀원</th>
+				<th>역할</th>
+				<th>사진</th>
 			</tr>
 			<tr>
-				<td>
-				<img src="team2.jpg" > <br><br>
-				</td>
+				<td>팀장 : 왕서준  </td>
+				<td>역할 : singerList</td>
+				<td><img src="wsj.jpg"style="width: 150px; height: auto;"> <br><br></td>
+			</tr>
+			<tr>
 				<td>팀원 : 김재희 </td>
 				<td>역할 : Actor</td>
+				<td><img src="kjh.jpg"style="width: 150px; height: auto;" > <br><br></td>
 			</tr>
 			<tr>
-			<td>
-				<img src="team3.jpg" > <br><br>
-				</td>
 				<td>팀원 : 김문기 </td>
 				<td>역할 : actressList</td>
+				<td><img src="kmg.jpg"style="width: 150px; height: auto;" > <br><br></td>
 			</tr>
 			<tr>
-				<td>
-				<img src="team4.jpg" > <br><br>
-				</td>
 				<td>팀원 : 도정만  </td>
 				<td>역할 : anaunseoList</td>
+				<td><img src="djm.jpg"style="width: 150px; height: auto;" > <br><br></td>
 			</tr>
 			<tr>
-				<td>
-				<img src="team5.jpg" > <br><br>
-				</td>
 				<td>팀원 : 임가현  </td>
 				<td>역할 : comedianList</td>
+				<td><img src="lgh.jpg"style="width: 150px; height: auto;"> <br><br></td>
 			</tr>
 			<tr>
-				<td>
-				<img src="team6.jpg" > <br><br>
-				</td>
 				<td>팀원 : 박지하  </td>
-				<td>역할 : RapperList</td>
+				<td>역할 : rapperList</td>
+				<td><img src="pjh.jpg" style="width: 150px; height: auto;"> <br><br></td>
 			</tr>
 		</table>
+		<nav style="float: center">
 		<ul>
 			<li><a href="<%= request.getContextPath() %>/actorList.jsp">Actor</a></li>
 			<li><a href="<%= request.getContextPath() %>/actressList.jsp">actressList</a></li>
 			<li><a href="<%= request.getContextPath() %>/anaunseoList.jsp">anaunseoList</a></li>
 			<li><a href="<%= request.getContextPath() %>/comedianList.jsp">comedianList</a></li>
-			<li><a href="<%= request.getContextPath() %>/RapperList.jsp">RapperList</a></li>
-			<li><a href="<%= request.getContextPath() %>/SingerList.jsp">SingerList</a></li>
+			<li><a href="<%= request.getContextPath() %>/rapperList.jsp">rapperList</a></li>
+			<li><a href="<%= request.getContextPath() %>/singerList.jsp">singerList</a></li>
+			
+			
 		</ul>
 </body>
 </html>
