@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class RapperDao {
 
 
-	public ArrayList<Rapper> selectRapperList() throws SQLException, ClassNotFoundException {
+	public ArrayList<Rapper> selectRapperList() {
 		ArrayList<Rapper> list = new ArrayList<Rapper>();
 		PreparedStatement pstmt = null;//이부분을 잘 모르는데 잘 모르는건 심각한거겠지? 방법 자체는 오류나는 거 클릭해서 수정하는걸로 알고있다.
 		
@@ -40,8 +40,8 @@ public class RapperDao {
 			
 			while(rs.next()) {//반복문의 일종인 whil문 사용 조건이 false 가 될 떄 까지 반복한다. 아까 rs를 썻다 안썻다 conn을썻다가 connection을썻다 해서 틀렸다.
 				//rs ,conn으로 줄였으면 줄인거로만 통일해서 쓰자.
-				Rapper rapper;//선생님의 설명을듣고 while 문 밖에 있던 것을 아래로 옮김.
-				rapper = new Rapper();
+				//선생님의 설명을듣고 while 문 밖에 있던 것을 아래로 옮김.
+				Rapper rapper = new Rapper();
 				rapper.setRapperId(rs.getInt("RapperId"));
 				rapper.setRapperName(rs.getString("RapperName"));
 				rapper.setRapperAge(rs.getInt("RapperAge"));
@@ -49,12 +49,17 @@ public class RapperDao {
 				//Rapper rapper = new Rapper 하면 오류가 떴던것으로 기억한다.
 				
 			}
+			
 		
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
 		}finally{
 			//객체 종료(close)// 가장 마지막에 열린 순서로 닫아준다. 아까 순서 틀려서 오류났다.
-			if (rs != null) try { rs.close(); } catch(SQLException ex) {}			
-			if (pstmt != null) try {pstmt.close();}catch(SQLException ex) {}
-			if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+			if (rs != null) try { rs.close(); } catch(SQLException e) {}			
+			if (pstmt != null) try {pstmt.close();}catch(SQLException e) {}
+			if (conn != null) try { conn.close(); } catch(SQLException e) {}
 		}
 		
 		return list;//리스트 종료
