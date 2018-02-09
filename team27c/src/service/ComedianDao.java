@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ComedianDao {
-
 	public ArrayList<ComedianDao> selectComedainList() throws ClassNotFoundException, SQLException {
 		ArrayList<ComedianDao> arrComedian = new ArrayList<ComedianDao>();
 			
