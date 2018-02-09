@@ -2,14 +2,14 @@
 package service;
 public class Comedian {
 	
-	private String ComedianId;
+	private int ComedianId;
 	private String ComedianName;
-	private String ComedianAge;
+	private int ComedianAge;
 	
-	public String getComedianId() {
+	public int getComedianId() {
 		return ComedianId;
 	}
-	public void setComedianId(String comedianId) {
+	public void setComedianId(int comedianId) {
 		ComedianId = comedianId;
 	}
 	public String getComedianName() {
@@ -18,16 +18,17 @@ public class Comedian {
 	public void setComedianName(String comedianName) {
 		ComedianName = comedianName;
 	}
-	public String getComedianAge() {
+	public int getComedianAge() {
 		return ComedianAge;
 	}
-	public void setComedianAge(String comedianAge) {
+	public void setComedianAge(int comedianAge) {
 		ComedianAge = comedianAge;
 	}
 	@Override
 	public String toString() {
-		return "Comedain [ComedianId=" + ComedianId + ", ComedianName=" + ComedianName + ", ComedianAge=" + ComedianAge
-				+ "]";
+		return "Comedian [ComedianId=" + ComedianId + ", ComedianName=" + ComedianName + ", ComedianAge=" + ComedianAge+ "]";
 	}
+	
+	
 	
 }
