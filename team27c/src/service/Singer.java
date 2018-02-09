@@ -22,4 +22,6 @@ public class Singer {
 	public void setSinger_Age(int singer_Age) {
 		Singer_Age = singer_Age;
 	}
+	
+	
 }
