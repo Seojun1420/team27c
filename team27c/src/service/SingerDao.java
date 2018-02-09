@@ -41,8 +41,8 @@ public class SingerDao {
 				singer.setSinger_Age(rs.getInt("singer_age"));
 				arrlist.add(singer);
 			}
-		
-		
+
+	
 			for(Singer s: arrlist) {
 				System.out.println(s.getSinger_Id());
 				System.out.println(s.getSinger_Name());
