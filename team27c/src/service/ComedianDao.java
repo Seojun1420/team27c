@@ -17,6 +17,7 @@ public class ComedianDao {
 		PreparedStatement pstmt = null;
 		// Connection 객체는 자바를 DB에 연결할 수 있게 해준다. 초기값은 null
 		Connection conn = null;
+		
 		// ResultSet : 한번에 한 행씩 리터하는 질의어의 결과. 초기값은 null
 		ResultSet rs = null;
 		
