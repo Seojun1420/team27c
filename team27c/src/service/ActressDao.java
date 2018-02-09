@@ -48,7 +48,6 @@ public class ActressDao {
 				System.out.println(s.getActressAge());
 		
 			}
-	
 		
 		}catch(ClassNotFoundException c) {
 			System.out.println("dzz");
