@@ -2,15 +2,9 @@
 <!DOCTYPE html>
 
 <%@page import="service.ActressDao" %>
-<%@page import=java.util.ArrayList"" %>
-
 
 <%
 	
 	ActressDao act= new ActressDao();
 	act.selectActress();
-	
 %>
-
-
-
