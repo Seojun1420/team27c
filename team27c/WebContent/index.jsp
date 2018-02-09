@@ -17,7 +17,7 @@
 			</tr>
 			<tr>
 				<td>ÆÀ¿ø : ±èÀçÈñ </td>
-				<td>¿ªÇÒ : actress</td>
+				<td>¿ªÇÒ : Actor</td>
 			</tr>
 			<tr>
 				<td>ÆÀ¿ø : ±è¹®±â </td>
@@ -25,7 +25,7 @@
 			</tr>
 			<tr>
 				<td>ÆÀ¿ø : µµÁ¤¸¸  </td>
-				<td>¿ªÇÒ : Announcer</td>
+				<td>¿ªÇÒ : anaunseo</td>
 			</tr>
 			<tr>
 				<td>ÆÀ¿ø : ÀÓ°¡Çö  </td>
@@ -38,9 +38,9 @@
 		</table>
 		<ul>
 			
-			<li><a href="<%= request.getContextPath() %>/actressL.jsp">actress</a></li>
+			<li><a href="<%= request.getContextPath() %>/actorList.jsp">Actor</a></li>
 			<li><a href="<%= request.getContextPath() %>/actressList.jsp">actressList</a></li>
-			<li><a href="<%= request.getContextPath() %>/Annonucer.jsp">Announcer</a></li>
+			<li><a href="<%= request.getContextPath() %>/anaunseo.jsp">anaunseo</a></li>
 			<li><a href="<%= request.getContextPath() %>/comedianList.jsp">comedianList</a></li>
 			<li><a href="<%= request.getContextPath() %>/RapperList.jsp">RapperList</a></li>
 			<li><a href="<%= request.getContextPath() %>/Singer.jsp">Singer</a></li>
