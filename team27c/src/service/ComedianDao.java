@@ -34,14 +34,26 @@ public class ComedianDao {
 			resultset = preparedStatement.executeQuery();
 			
 						
-			//while문 : 특정 조건을 만족할 때 까지 반복한다.  
+			/*while문 : 특정 조건을 만족할 때 까지 반복하는 역할로, 실행한 DB쿼리를 한줄씩 읽어들인다.
+			 * while문이 실행되면 객체가 생성되어 resultset.next()메스드를 이용하여 읽어온 정보를 셋팅해준다.
+			 * 접근지정자가 private이므로 세터메소드를 통해서 셋팅이 가능하다. 셋팅된 값은 arrlist.add(comedian)에 담겨, 다시 ArrayList에 담긴다.*/
 			while(resultset.next()) {
 				Comedian comedian = new Comedian();
 				comedian.setComedianId(resultset.getInt("comedianId")); //get 부분은 Comedian.java의 private랑 맞춰써줘야한다, 
 				comedian.setComedianName(resultset.getString("comedianName"));
-				comedian.setComedianAge(resultset.getInt("comedianAgd"));
+				comedian.setComedianAge(resultset.getInt("comedianAge"));
 				arrlist.add(comedian);
 			}
+			for(Comedian s: arrlist) { //for문을 이용해 list에 값이 잘담겨 졌는지 확인해준다.
+				System.out.println(s.getComedianId());
+				System.out.println(s.getComedianName());
+				System.out.println(s.getComedianAge());
+		
+			}
+		/*try~catch구문(예워처리하다) :구문 안에서 에러(예외처리)의 내용을 확인할 수 있다.
+		 * try예약어와 {}를 사용하여 그 안에 오류가 나는 소스를 담아두면, try에서 에러를 감지하는 역할을 한다.
+		 * 만약 try에서 에러를 감지했다면, 이러와 관련된 내용을 catch로 넘겨서 예외처리(에러)를 해주게 된다.
+		 * 이 '과정을 예외처리를 한다'라고 한다.*/
 		} catch (SQLException ex) {
 			ex.getStackTrace();
 			System.out.println(ex.getMessage());	

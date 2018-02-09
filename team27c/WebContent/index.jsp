@@ -7,31 +7,50 @@
 <title>Insert title here</title> 
 </head> 
 <body> 
+
 		<table>
+					<tr>
+						<td> ÆÀ¸í  : team27c </td>
+					</tr> 
 			<tr>
-				<td>ÆÀ¸í  : team27c </td>
-			</tr> 
-			<tr>
+				<td>
+				<img src="team1.jpg" > <br><br>
+				</td>
 				<td>ÆÀÀå : ¿Õ¼­ÁØ  </td>
 				<td>¿ªÇÒ : SingerList</td>
 			</tr>
 			<tr>
+				<td>
+				<img src="team2.jpg" > <br><br>
+				</td>
 				<td>ÆÀ¿ø : ±èÀçÈñ </td>
 				<td>¿ªÇÒ : Actor</td>
 			</tr>
 			<tr>
+			<td>
+				<img src="team3.jpg" > <br><br>
+				</td>
 				<td>ÆÀ¿ø : ±è¹®±â </td>
 				<td>¿ªÇÒ : actressList</td>
 			</tr>
 			<tr>
+				<td>
+				<img src="team4.jpg" > <br><br>
+				</td>
 				<td>ÆÀ¿ø : µµÁ¤¸¸  </td>
 				<td>¿ªÇÒ : anaunseoList</td>
 			</tr>
 			<tr>
+				<td>
+				<img src="team5.jpg" > <br><br>
+				</td>
 				<td>ÆÀ¿ø : ÀÓ°¡Çö  </td>
 				<td>¿ªÇÒ : comedianList</td>
 			</tr>
 			<tr>
+				<td>
+				<img src="team6.jpg" > <br><br>
+				</td>
 				<td>ÆÀ¿ø : ¹ÚÁöÇÏ  </td>
 				<td>¿ªÇÒ : RapperList</td>
 			</tr>
