@@ -9,9 +9,9 @@
 <body> 
 
 		<table>
-			<tr>
-				<td>ÆÀ¸í  : team27c </td>
-			</tr> 
+					<tr>
+						<td> ÆÀ¸í  : team27c </td>
+					</tr> 
 			<tr>
 				<td>
 				<img src="team1.jpg" > <br><br>
