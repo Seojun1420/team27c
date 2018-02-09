@@ -1,3 +1,4 @@
+//team27c ±è¹®±â
 package service;
 
 import service.Actress;
@@ -27,7 +28,7 @@ public class ActressDao {
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			System.out.println(conn + "db¿¬°á");
 			
-			pstmt = conn.prepareStatement("select actress_id,actress_name,actress_age from actress");
+			pstmt = conn.prepareStatement("select actress_id,actress_name,actress_age from actress order by actress_id AS");
 			rs=pstmt.executeQuery();
 			
 			System.out.println(pstmt);
@@ -51,9 +52,15 @@ public class ActressDao {
 			}
 		
 		}catch(ClassNotFoundException c) {
-			System.out.println("dzz");
+			c.printStackTrace();
 		}catch(SQLException s) {
 			s.printStackTrace();
+		}finally {
+			if(rs != null) try {rs.close();} catch(SQLException ex) {}
+			if(pstmt != null) try {pstmt.close();} catch(SQLException ex) {}
+			if(conn != null) try {conn.close();} catch(SQLException ex) {}
+				
+			
 		}
 		return arrlist;
 		
