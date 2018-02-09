@@ -13,7 +13,7 @@
 			</tr> 
 			<tr>
 				<td>ÆÀÀå : ¿Õ¼­ÁØ  </td>
-				<td>¿ªÇÒ : Singer</td>
+				<td>¿ªÇÒ : SingerList</td>
 			</tr>
 			<tr>
 				<td>ÆÀ¿ø : ±èÀçÈñ </td>
@@ -25,7 +25,7 @@
 			</tr>
 			<tr>
 				<td>ÆÀ¿ø : µµÁ¤¸¸  </td>
-				<td>¿ªÇÒ : anaunseo</td>
+				<td>¿ªÇÒ : anaunseoList</td>
 			</tr>
 			<tr>
 				<td>ÆÀ¿ø : ÀÓ°¡Çö  </td>
@@ -39,10 +39,10 @@
 		<ul>
 			<li><a href="<%= request.getContextPath() %>/actorList.jsp">Actor</a></li>
 			<li><a href="<%= request.getContextPath() %>/actressList.jsp">actressList</a></li>
-			<li><a href="<%= request.getContextPath() %>/anaunseo.jsp">anaunseo</a></li>
+			<li><a href="<%= request.getContextPath() %>/anaunseoList.jsp">anaunseoList</a></li>
 			<li><a href="<%= request.getContextPath() %>/comedianList.jsp">comedianList</a></li>
 			<li><a href="<%= request.getContextPath() %>/RapperList.jsp">RapperList</a></li>
-			<li><a href="<%= request.getContextPath() %>/Singer.jsp">Singer</a></li>
+			<li><a href="<%= request.getContextPath() %>/SingerList.jsp">SingerList</a></li>
 		</ul>
 </body>
 </html>
