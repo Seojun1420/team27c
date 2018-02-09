@@ -1,3 +1,4 @@
+//team27c ±Ë¿Á»Ò
 package service;
 
 public class Actor {
@@ -22,6 +23,10 @@ public class Actor {
 	}
 	public void setActorAge(int actorAge) {
 		this.actorAge = actorAge;
+	}
+	@Override	//toString ∏∏µÈ∞Ì 
+	public String toString() {
+		return "Actor [actorId=" + actorId + ", actorName=" + actorName + ", actorAge=" + actorAge + "]";
 	}
 	
 }

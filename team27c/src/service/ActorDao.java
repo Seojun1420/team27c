@@ -1,3 +1,4 @@
+//team27c 김재희
 package service;
 
 import java.sql.Connection;
@@ -9,50 +10,57 @@ import java.util.ArrayList;
 
 public class ActorDao {
 	
-	public ArrayList<Actor> selectActorList() {		//selectorActorList 선언 
+	public ActorDao() {}
+	
+	public int insertActor(Actor actor) {
+		System.out.println(actor);
 		
-		ArrayList<Actor> arrayActor = null;					//arayActor변수를 null로 초기화하고
-		Connection connection = null;						// 그외 connection과 preparedStatement
-		PreparedStatement preparedStatement = null; 		//resultSet도  null로 초기화
-		ResultSet resultSet = null;					
+		return 0;
+	}
+	
+	public ArrayList<Actor> selectActorList() {					
 		
-		ArrayList<Actor> arrlist = new ArrayList<Actor>(); // 객체참조변수 arrlist에 ArrayList<Actor>의
-															// 생성된 객체의 주소값을 할당해준다.
+		ArrayList<Actor> list = new ArrayList<Actor>(); 
+		
+		ArrayList<Actor> arrayActor = null;					
+		Connection connection = null;						
+		PreparedStatement Statement = null; 		
+		ResultSet resultSet = null;				
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
-			String dbUser = "root";
-			String dbPass = "java0000";
-			
-			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass); 
-			//db연결
-			
-			preparedStatement = connection.prepareStatement("select actor_id,actor_name,actor_age from actor");
-			//select 쿼리문을 실행할 준비를한다. *로 전체조회를 할 수는 있지만 actorList.jsp의 테이블에 불러오기 위해 컬럼을 각각 조회하는 select문을 써주었다. 
-			
-			resultSet = preparedStatement.executeQuery();
-			
-			while(resultSet.next()) {
-				Actor actor = new Actor();
-				actor.setActorId(resultSet.getInt("actor_id"));
-				actor.setActorName(resultSet.getString("actor_name"));
-				actor.setActorAge(resultSet.getInt("actor_age"));
-				arrlist.add(actor);
-			}
-		} catch (SQLException ex) {
-			ex.getStackTrace();
-			System.out.println(ex.getMessage());	
+				Class.forName("com.mysql.jdbc.Driver");
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+				String dbUser = "root";
+				String dbPass = "java0000";
+				String sql = "SELECT actor_id as actorId,actor_name as actorName,actor_age as actorAge FROM actor";
+				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass); 
+				Statement = connection.prepareStatement(sql);
+				resultSet = Statement.executeQuery();
+				
+				while(resultSet.next()) {
+					Actor actor = new Actor();
+					int actorId = resultSet.getInt("actorId");
+					String actorName = resultSet.getString("actorName");
+					int actorAge = resultSet.getInt("actorAge");
+					
+					actor.setActorId(actorId);
+					actor.setActorName(actorName);
+					actor.setActorAge(actorAge);
+					list.add(actor);
+				}
+			// 단위테스트 코드
+			System.out.println(list.size()+"7");
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+			e.printStackTrace();	
+		} catch (SQLException e) {
+			e.printStackTrace();	
 		}finally {
 			if(resultSet == null) try {resultSet.close();} catch(SQLException ex) {}
-			if(preparedStatement == null) try {resultSet.close();} catch(SQLException ex) {}
+			if(Statement == null) try {resultSet.close();} catch(SQLException ex) {}
 			if(connection == null) try {resultSet.close();} catch(SQLException ex) {}
 		}
 		
-		return arrlist;
+		return list;
 		
 		
 		
