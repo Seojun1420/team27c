@@ -32,15 +32,16 @@ public class ActressDao {
 			
 			System.out.println(pstmt);
 			
-			Actress actress = new Actress();
+			Actress actress = null;
 			
 			while(rs.next()) {
+				actress = new Actress();
 				actress.setActressId(rs.getString("actress_id"));
 				actress.setActressName(rs.getString("actress_name"));
 				actress.setActressAge(rs.getString("actress_age"));
-				
+				arrlist.add(actress);
 			}
-			arrlist.add(actress);
+		
 		
 			for(Actress s: arrlist) {
 				System.out.println(s.getActressId());
