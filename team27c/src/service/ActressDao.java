@@ -15,6 +15,8 @@ public class ActressDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		Actress actress = new Actress();
+		
 	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -33,15 +35,12 @@ public class ActressDao {
 			
 			
 			while(rs.next()) {
-				arrlist.get(0).setActressId(rs.getString("actress_id"));
-				arrlist.get(0).setActressName(rs.getString("actress_name"));
-				arrlist.get(0).setActressAge(rs.getString("actress_age"));
+				actress.setActressId(rs.getString("actress_id"));
+				actress.setActressName(rs.getString("atress_name"));
+				actress.setActressAge(rs.getString("actress_age"));
 			}
-			
-			System.out.println(	arrlist.get(0).getActressId());
-			System.out.println(	arrlist.get(0).getActressName());
-			System.out.println(	arrlist.get(0).getActressAge());
-			
+			arrlist.add(actress);
+		
 			//return arrlist;
 	
 		}catch(SQLException s) {
