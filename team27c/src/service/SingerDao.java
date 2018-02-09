@@ -27,7 +27,7 @@ public class SingerDao {
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			System.out.println(conn + "db¿¬°á");
 			
-			pstmt = conn.prepareStatement("select singer_id,singer_name,singer_age from singer");
+			pstmt = conn.prepareStatement("select singer_id as singer_id, singer_name, singer_age from singer");
 			rs=pstmt.executeQuery();
 			
 			System.out.println(pstmt);
