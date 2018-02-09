@@ -1,3 +1,4 @@
+<!-- team27c 왕서준 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -10,6 +11,11 @@
 	ArrayList<Singer> arraySinger = new ArrayList<Singer>(); 
 	arraySinger= singer.selectSinger();
 	
+	
+	/* selectSinger 메서드를 실행하고 리턴받은 값이 ArrayList이기 때문에 
+	 	그내용을  리턴 받을려면 같은 타입인 ArrayList로 정보를 받아야하기 때문에
+	 	Singer에서도 ArrayList를 선언한다
+	*/
 %>
 <table border="1">
 	<tr>

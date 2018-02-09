@@ -1,52 +1,63 @@
+//team27c 왕서준
 package service;
 
+import service.Singer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import service.Singer;
-
+import java.sql.ResultSet;
 
 public class SingerDao {
-	
-	public static void main(String[] agrs) {
-	
-	}
+
+	public ArrayList<Singer> selectSinger(){
 		
-		public ArrayList<Singer> selectSingerList() throws ClassNotFoundException, SQLException{
-			
-			ArrayList<Singer> arrSinger = new ArrayList<Singer>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-		
-			Class.forName("com.mysql.jdbc.Driver");
-			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?" +
-					"useUnicode=true&characterEncoding=euckr";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Singer> arrSinger= new ArrayList<Singer>();
+	
+		try {
+			Class.forName("com.mysql.jdbc.Driver"); //드라이버 로딩을 위한 드라이버파일입니다.
+
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
+
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			System.out.println(conn + "db연결");
 			
-			pstmt = conn.prepareStatement("SELECT * FROM Singer");
-			rs = pstmt.executeQuery();
+			pstmt = conn.prepareStatement("select singer_id as singer_id, singer_name, singer_age from singer");
+			rs=pstmt.executeQuery();
 			
+			System.out.println(pstmt);
+			
+			Singer singer = null;
 			
 			while(rs.next()) {
-				Singer singer = new Singer();
-				singer.setSinger_Id(rs.getInt("Singer_Id"));
-				singer.setSinger_Name(rs.getString("Singer_Name"));
-				singer.setSinger_Age(rs.getInt("Singer_Age"));
+				singer = new Singer();
+				singer.setSinger_Id(rs.getInt("singer_id"));
+				singer.setSinger_Name(rs.getString("singer_name"));
+				singer.setSinger_Age(rs.getInt("singer_age"));
 				arrSinger.add(singer);
 			}
-			
-			if (rs != null) try { rs.close(); } catch(SQLException ex) {}
-			if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
-			if (conn != null) try { conn.close(); } catch(SQLException ex) {}
-			
-			return arrSinger;
+
+	
+			for(Singer s: arrSinger) {
+				System.out.println(s.getSinger_Id());
+				System.out.println(s.getSinger_Name());
+				System.out.println(s.getSinger_Age());
+			}
+		
+		}catch(ClassNotFoundException c) {
+			System.out.println("dzz");
+		}catch(SQLException s) {
+			s.printStackTrace();
 		}
+		return arrSinger; //배열리턴
+		
+
 	}
 
+}
