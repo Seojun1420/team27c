@@ -29,14 +29,14 @@ public class ActorDao {
 			//db연결
 			
 			preparedStatement = connection.prepareStatement("select actor_id,actor_name,actor_age from actor");
-			//select 쿼리문을 실행할 준비를한다. *로 전체조회를 할 수는 있지만 actorList.jsp의 테이블에 각각 불러오기 위해 컬럼을 각각 조회하는 select문을 써주었다. 
+			//select 쿼리문을 실행할 준비를한다. *로 전체조회를 할 수는 있지만 actorList.jsp의 테이블에 불러오기 위해 컬럼을 각각 조회하는 select문을 써주었다. 
 			
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
 				Actor actor = new Actor();
 				actor.setActorId(resultSet.getInt("actor_id"));
-				actor.setActorName(resultSet.getString("actor_pw"));
+				actor.setActorName(resultSet.getString("actor_name"));
 				actor.setActorAge(resultSet.getInt("actor_age"));
 				arrlist.add(actor);
 			}
