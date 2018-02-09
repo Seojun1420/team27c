@@ -2,14 +2,15 @@
 package service;
 
 public class Actress {
-	private String actressId;
+	private int actressId;
 	private String actressName;
-	private String actressAge;
+	private int actressAge;
 	
-	public String getActressId() {
+	
+	public int getActressId() {
 		return actressId;
 	}
-	public void setActressId(String actressId) {
+	public void setActressId(int actressId) {
 		this.actressId = actressId;
 	}
 	public String getActressName() {
@@ -18,16 +19,15 @@ public class Actress {
 	public void setActressName(String actressName) {
 		this.actressName = actressName;
 	}
-	public String getActressAge() {
+	public int getActressAge() {
 		return actressAge;
 	}
-	public void setActressAge(String actressAge) {
+	public void setActressAge(int actressAge) {
 		this.actressAge = actressAge;
 	}
+	@Override
+	public String toString() {
+		return "Actress [actressId=" + actressId + ", actressName=" + actressName + ", actressAge=" + actressAge + "]";
+	}
 
-	
-	
-	
-
-	
 }
