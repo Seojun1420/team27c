@@ -37,7 +37,6 @@
 			</tr>
 		</table>
 		<ul>
-			
 			<li><a href="<%= request.getContextPath() %>/actorList.jsp">Actor</a></li>
 			<li><a href="<%= request.getContextPath() %>/actressList.jsp">actressList</a></li>
 			<li><a href="<%= request.getContextPath() %>/anaunseo.jsp">anaunseo</a></li>
