@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Comedian.jsp
+ComedianList.jsp
 <%
 ArrayList<ComedianDao> arrComedian = null;
 ComedianDao comedianDao = new ComedianDao();

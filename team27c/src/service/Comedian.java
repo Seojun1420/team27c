@@ -1,5 +1,7 @@
+//ÀÓ°¡Çö
 package service;
-public class Comedain {
+public class Comedian {
+	
 	private String ComedianId;
 	private String ComedianName;
 	private String ComedianAge;
@@ -22,7 +24,10 @@ public class Comedain {
 	public void setComedianAge(String comedianAge) {
 		ComedianAge = comedianAge;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Comedain [ComedianId=" + ComedianId + ", ComedianName=" + ComedianName + ", ComedianAge=" + ComedianAge
+				+ "]";
+	}
 	
 }
