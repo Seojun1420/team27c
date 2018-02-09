@@ -47,8 +47,11 @@ public class ActorDao {
 			// 쿼리를 실행해 실행한 결과의 주소값을 resultSet에 저장한다
 			resultSet = Statement.executeQuery();
 
-			// while : 반복횟수를 알 수 없고 조건에 따라서 반복하는 경우에 사용하는 반복문이다.
-			// 객체참조변수 resultSet의 주소를 찾아가 next메서드를 실행한다
+			/*while : 반복횟수를 알 수 없고 조건에 따라서 반복하는 경우에 사용하는 반복문이다.
+			객체참조변수 resultSet의 주소를 찾아가 next메서드를 실행한다
+			Actor의 새로운 객체를 생성해 생성한 객체의 주소값을 actor객체참조변수에 할당하고
+			resultSet의 getInt메서드를 실행해서 그 결과를 int타입의 actorId에 초기화한다
+			*/
 			while (resultSet.next()) {
 				Actor actor = new Actor();
 				int actorId = resultSet.getInt("actorId");
