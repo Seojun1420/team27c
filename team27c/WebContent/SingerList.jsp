@@ -37,6 +37,12 @@
 	}
 %>
 </table>
+		<ul>
+			<td>
+		<a href="<%= request.getContextPath() %>/index.jsp">È¨¹öÆ°</a>			
+			</td>
+		</ul>
+
 		
  
 	
