@@ -4,7 +4,6 @@
 <%@page import="service.ActressDao" %>
 
 <%
-	
 	ActressDao act= new ActressDao();
 	act.selectActress();
 %>

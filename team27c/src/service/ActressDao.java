@@ -46,7 +46,7 @@ public class ActressDao {
 				System.out.println(s.getActressId());
 				System.out.println(s.getActressName());
 				System.out.println(s.getActressAge());
-			//return arrlist;
+		
 			}
 	
 		
