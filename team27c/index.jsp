@@ -37,7 +37,6 @@
 			</tr>
 			
 		</table>
-		
 		<ul>
 			
 			<li><a href="<%= request.getContextPath() %>/actressL.jsp">actress</a></li>
