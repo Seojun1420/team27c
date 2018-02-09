@@ -22,9 +22,9 @@
 	for(int i=0;i<arraySinger.size(); i++){
 %>		
 	<tr>
-		<td><%= arraySinger.get(1).getSinger_Id() %></td>
-		<td><%= arraySinger.get(1).getSinger_Name() %></td>
-		<td><%= arraySinger.get(1).getSinger_Age() %></td>
+		<td><%= arraySinger.get(i).getSinger_Id() %></td>
+		<td><%= arraySinger.get(i).getSinger_Name() %></td>
+		<td><%= arraySinger.get(i).getSinger_Age() %></td>
 	</tr>
 <%
 	}
