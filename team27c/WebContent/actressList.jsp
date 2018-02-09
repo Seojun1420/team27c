@@ -4,7 +4,12 @@
 <%@page import="java.util.ArrayList" %>
 <%@page import="service.Actress" %>
 <!DOCTYPE html>
-
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
 <table  border="1">
 	<tr>
 		<td>아이디</td>
@@ -39,3 +44,5 @@
 		}
 	%>
 </table>
+</body>
+</html>
