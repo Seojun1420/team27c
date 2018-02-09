@@ -16,7 +16,7 @@
 				<td>¿ªÇÒ : Singer</td>
 			</tr>
 			<tr>
-				<td>ÆÀ¿ø : µµÁ¤¸¸ </td>
+				<td>ÆÀ¿ø : ±èÀçÈñ </td>
 				<td>¿ªÇÒ : actress</td>
 			</tr>
 			<tr>
@@ -24,7 +24,7 @@
 				<td>¿ªÇÒ : actressList</td>
 			</tr>
 			<tr>
-				<td>ÆÀ¿ø : ±èÀçÈñ  </td>
+				<td>ÆÀ¿ø : µµÁ¤¸¸  </td>
 				<td>¿ªÇÒ : Announcer</td>
 			</tr>
 			<tr>
@@ -37,7 +37,6 @@
 			</tr>
 			
 		</table>
-		
 		<ul>
 			
 			<li><a href="<%= request.getContextPath() %>/actressL.jsp">actress</a></li>
