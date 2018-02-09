@@ -23,5 +23,4 @@ public class Singer {
 		Singer_Age = singer_Age;
 	}
 	
-	
 }
