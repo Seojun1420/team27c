@@ -22,11 +22,6 @@ public class Singer {
 	public void setSinger_Age(int singer_Age) {
 		Singer_Age = singer_Age;
 	}
-	@Override
-	public String toString() {
-		return "Singer [Singer_Id=" + Singer_Id + ", Singer_Name=" + Singer_Name + ", Singer_Age=" + Singer_Age
-				+ ", getSinger_Id()=" + getSinger_Id() + ", getSinger_Name()=" + getSinger_Name() + ", getSinger_Age()="
-				+ getSinger_Age() + "]";
-	}
+	
 	
 }
