@@ -1,3 +1,4 @@
+//team27c 왕서준
 package service;
 
 import service.Singer;
@@ -18,7 +19,7 @@ public class SingerDao {
 		ArrayList<Singer> arrSinger= new ArrayList<Singer>();
 	
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver"); //드라이버 로딩을 위한 드라이버파일입니다.
 
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
@@ -54,7 +55,7 @@ public class SingerDao {
 		}catch(SQLException s) {
 			s.printStackTrace();
 		}
-		return arrSinger;
+		return arrSinger; //배열리턴
 		
 
 	}
