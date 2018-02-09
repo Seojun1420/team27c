@@ -1,7 +1,22 @@
 package service;
 
+/*import java.sql.Connection;
+import java.util.ArrayList;
+*/
 public class Rapper {
-
+	/*public Connection conn =null;
+	String jdbcDriver = "jdbc:mysql://localhost:3306/mysql;jjdev?" +
+			"useUnicode=true&characterEncoding=euckr";
+	String dbUser = "root";
+	String dbPass = "java0000";
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+	
+	public void RapperDao() ArrayList selectRapperList() {
+		return new ArrayList<>();*/
+	/*
+	}
+	*/
+/*	public ArrayList<Rapper> */
 	private String RapperId;
 	private String RapperName;
 	private String RapperAge;
