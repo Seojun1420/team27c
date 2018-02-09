@@ -13,12 +13,14 @@
 </head>
 	<body>
 	Anaunseo List
-		<table border="1">			
-			<tr>
-				<td>아이디</td>
-				<td>이름</td>
-				<td>나이</td>
-			</tr>
+		<table border="1">
+			<thead>			
+				<tr>
+					<th>아이디</th>
+					<th>이름</th>
+					<th>나이</th>
+				</tr>
+			</thead>
 		<%
 			/* AnaunseoDao 클래스의 selectAnaunseoList 메서드를 호출하기 위해 
 			new AnaunseoDao()를 통해 객체를 생성해주고 참조값을 AnaunseoDao 클래스 타입의 
