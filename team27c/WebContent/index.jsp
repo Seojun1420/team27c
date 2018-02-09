@@ -45,6 +45,5 @@
 			<li><a href="<%= request.getContextPath() %>/RapperList.jsp">RapperList</a></li>
 			<li><a href="<%= request.getContextPath() %>/Singer.jsp">Singer</a></li>
 		</ul>
-
 </body>
 </html>
