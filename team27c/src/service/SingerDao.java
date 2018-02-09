@@ -11,11 +11,11 @@ import java.sql.ResultSet;
 public class SingerDao {
 
 	public ArrayList<Singer> selectSinger(){
-		ArrayList<Singer> arrlist = new ArrayList<Singer>();
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+		ArrayList<Singer> arrSinger= new ArrayList<Singer>();
 	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -39,15 +39,14 @@ public class SingerDao {
 				singer.setSinger_Id(rs.getInt("singer_id"));
 				singer.setSinger_Name(rs.getString("singer_name"));
 				singer.setSinger_Age(rs.getInt("singer_age"));
-				arrlist.add(singer);
+				arrSinger.add(singer);
 			}
 
 	
-			for(Singer s: arrlist) {
+			for(Singer s: arrSinger) {
 				System.out.println(s.getSinger_Id());
 				System.out.println(s.getSinger_Name());
 				System.out.println(s.getSinger_Age());
-		
 			}
 		
 		}catch(ClassNotFoundException c) {
@@ -55,7 +54,7 @@ public class SingerDao {
 		}catch(SQLException s) {
 			s.printStackTrace();
 		}
-		return arrlist;
+		return arrSinger;
 		
 
 	}
