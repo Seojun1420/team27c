@@ -17,7 +17,6 @@ public class AnaunseoDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			//mysql 드라이버 로딩
-			System.out.println("드라이버로딩성공");
 			
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 		    String dbUser = "root";
@@ -56,7 +55,6 @@ public class AnaunseoDao {
 			    //셋팅된 anaunseo 객체참조변수를 list에 추가해준다.
 		    }
 		    //단위테스트 코드
-		    System.out.println(list.size()+"list 사이즈 5");
 		}catch(SQLException e){ //Class.forName
 			e.printStackTrace();
 		}catch(ClassNotFoundException e) { //jdbc
@@ -68,5 +66,22 @@ public class AnaunseoDao {
 		}
 		return list;
 		
-	}	
+	}
+	/*public void insertAnaunseoList() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+		    String dbUser = "root";
+		    String dbPass = "java0000";
+		    String sql = "";			
+		}catch(SQLException e){ //Class.forName
+			e.printStackTrace();
+		}catch(ClassNotFoundException e) { //jdbc
+			e.printStackTrace();
+		}finally{		
+			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
+			if (statement != null) try { statement.close(); } catch(SQLException e) {}			
+			if (connection != null) try { connection.close(); } catch(SQLException e) {}
+		}
+	}*/
 }
