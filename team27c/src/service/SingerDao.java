@@ -14,8 +14,7 @@ public class SingerDao {
 	
 	public static void main(String[] agrs) {
 		
-		
-		
+
 	}
 		
 		public ArrayList<Singer> selectSingerList() throws ClassNotFoundException, SQLException{
