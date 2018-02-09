@@ -68,18 +68,24 @@ public class AnaunseoDao {
 		return list;
 		
 	}
-	public void insertAnaunseoList() {
+	public void insertAnaunseoList(Anaunseo anaunseo) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("드라이버로딩성공");
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 		    String dbUser = "root";
 		    String dbPass = "java0000";
-		    String sql = "INSERT INTO jjdev VALUES(?,?,?)";
+		    String sql = "INSERT INTO anaunseo VALUES(?,?,?)";	
 		    
 		    connection=DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+		    System.out.println("디비연결성공");
 		    statement=connection.prepareStatement(sql);
-		  /*  statement.setString(1, anunserName);
-		    statement.setString(1, anunserAge);*/
+		    statement.setInt(1, anaunseo.getAnaunseoId());
+		    statement.setString(2, anaunseo.getAnaunseoName());
+		    statement.setInt(3, anaunseo.getAnaunseoAge());
+		    
+		    statement.executeUpdate();
+		    System.out.println("업데이트 성공");
 		    
 		}catch(SQLException e){ //Class.forName
 			e.printStackTrace();
