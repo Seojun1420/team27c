@@ -15,7 +15,6 @@ public class ActressDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		Actress actress = new Actress();
 		
 	
 		try {
@@ -33,20 +32,27 @@ public class ActressDao {
 			
 			System.out.println(pstmt);
 			
+			Actress actress = new Actress();
 			
 			while(rs.next()) {
 				actress.setActressId(rs.getString("actress_id"));
-				actress.setActressName(rs.getString("atress_name"));
+				actress.setActressName(rs.getString("actress_name"));
 				actress.setActressAge(rs.getString("actress_age"));
+				
 			}
 			arrlist.add(actress);
 		
-			//return arrlist;
-	
-		}catch(SQLException s) {
-			
+			for(Actress s: arrlist) {
+				System.out.println(s.getActressId());
+				System.out.println(s.getActressName());
+				System.out.println(s.getActressAge());
+		
+			}
+		
 		}catch(ClassNotFoundException c) {
-			
+			System.out.println("dzz");
+		}catch(SQLException s) {
+			s.printStackTrace();
 		}
 		return arrlist;
 		
