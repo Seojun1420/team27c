@@ -21,7 +21,7 @@ public class AnaunseoDao {
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 		    String dbUser = "root";
 		    String dbPass = "java0000";
-		    String sql = "SELECT anaunseo_id as anaunseoId, anaunseo_name as anaunseoName, anaunseo_age as anaunseoAge FROM anaunseo ORDER BY anaunseo_name";
+		    String sql = "SELECT anaunseo_id as anaunseoId, anaunseo_name as anaunseoName, anaunseo_age as anaunseoAge FROM anaunseo ORDER BY anaunseo_id DESC";
 		    //mysql 연결을 위해 ip, port, dbid, dbpw, db명 입력
 		      
 		    connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
@@ -35,15 +35,16 @@ public class AnaunseoDao {
 		     * statement 객체참조 변수에 할당된 참조값을 찾아가 executeQuery 메서드를 호출하면 준비된 쿼리 실행 후
 		     *  실행결과를 rs 객체참조변수에 참조값을 할당한다.		    
 		     */
-		    Anaunseo anaunseo;
-		    // db에서 값을 받아와 저장할 Anaunseo 클래스타입의 anaunseo 객체 참조변수를 선언한다.
 		    while(rs.next()) {
 		    	/*  
 		    	 * while문을 사용해서 ResultSet 객체내부의 next 메서드를 호출하면 실행결과가 있다면 true임으로 
 		    	 * while문 안의 블럭이 실행된다. 그리고 다음 실행결과를 확인해서 true 이면 반복을 false 이면 while문을 종료 하게 된다.
 		    	 */
-			    anaunseo = new Anaunseo();
-			    //Anaunseo생성자 메서드를 호출해 객체를 생성한 후 그 참조값을 anaunseo 객체참조 변수에 할당한다.
+		    	Anaunseo anaunseo = new Anaunseo();
+			    /*
+			     * Anaunseo생성자 메서드를 호출해 객체를 생성한 후 그 참조값을 anaunseo 객체참조 변수에 할당한다.
+			     * db에서 값을 받아와 저장할 Anaunseo 클래스타입의 anaunseo 객체 참조변수를 선언한다.
+			     */
 			    anaunseo.setAnaunseoId(rs.getInt("anaunseoId"));
 			    anaunseo.setAnaunseoName(rs.getString("anaunseoName"));
 			    anaunseo.setAnaunseoAge(rs.getInt("anaunseoAge"));
@@ -67,13 +68,25 @@ public class AnaunseoDao {
 		return list;
 		
 	}
-	/*public void insertAnaunseoList() {
+	public void insertAnaunseoList(Anaunseo anaunseo) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("드라이버로딩성공");
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 		    String dbUser = "root";
 		    String dbPass = "java0000";
-		    String sql = "";			
+		    String sql = "INSERT INTO anaunseo VALUES(?,?,?)";	
+		    
+		    connection=DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+		    System.out.println("디비연결성공");
+		    statement=connection.prepareStatement(sql);
+		    statement.setInt(1, anaunseo.getAnaunseoId());
+		    statement.setString(2, anaunseo.getAnaunseoName());
+		    statement.setInt(3, anaunseo.getAnaunseoAge());
+		    
+		    statement.executeUpdate();
+		    System.out.println("업데이트 성공");
+		    
 		}catch(SQLException e){ //Class.forName
 			e.printStackTrace();
 		}catch(ClassNotFoundException e) { //jdbc
@@ -83,5 +96,5 @@ public class AnaunseoDao {
 			if (statement != null) try { statement.close(); } catch(SQLException e) {}			
 			if (connection != null) try { connection.close(); } catch(SQLException e) {}
 		}
-	}*/
+	}
 }
