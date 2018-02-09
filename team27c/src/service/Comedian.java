@@ -1,4 +1,4 @@
-//임가현
+//team27c 임가현
 package service;
 public class Comedian {
 	
@@ -24,6 +24,7 @@ public class Comedian {
 	public void setComedianAge(int comedianAge) {
 		ComedianAge = comedianAge;
 	}
+	// 오버라이딩 : 오버라이딩은 '메소드 재정의'를 하는 것으로, '메소드 재정의' 란 기존에 있던 메소드를 다시 정의하여 사용하는것이다.
 	@Override
 	public String toString() {
 		return "Comedian [ComedianId=" + ComedianId + ", ComedianName=" + ComedianName + ", ComedianAge=" + ComedianAge+ "]";

@@ -1,4 +1,4 @@
-<!-- 임가현 -->
+<!-- team27c 임가현 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import = "service.Comedian" %>
 <%@ page import = "service.ComedianDao" %>
