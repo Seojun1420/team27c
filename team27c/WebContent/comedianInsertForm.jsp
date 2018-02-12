@@ -12,10 +12,6 @@
 			<table border="1">
 
 				<tr>
-					<td>comedian Id</td>
-					<td><input type="text" name="comedian_id" size="10"></td>
-				</tr>
-				<tr>
 					<td>comedian Name</td>
 					<td><input type="text" name="comedian_name" size="10"></td>
 				</tr>
@@ -24,8 +20,7 @@
 					<td><input type="text" name="comedian_age" size="10"></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Home"></td>
-					<td><input type="submit" value="Complete"></td>
+					<td><input type="submit" value="회원가입"></td>
 				</tr>
 			</table>
 
