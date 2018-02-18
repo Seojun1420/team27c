@@ -9,16 +9,48 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ActorDao {
+	//Connection,prparedStatement,ResultSet클래스의 변수connection,statement,resultSet을 null로 초기화 한다.
+	Connection connection = null;
+	PreparedStatement statement = null;
+	ResultSet resultSet = null;
+
+	public void insertActorList(Actor actor) {
+		try {	
+				/*드라이버로딩, db연결을 한다.*/
+				Class.forName("com.mysql.jdbc.Driver");
+				System.out.println("드라이버로딩");
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+				String dbUser = "root";
+				String dbPass = "java0000";
+				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+				System.out.println("DB연결");
+				
+				/*connection객체참조변수의 주소를 찾아가 insert쿼리문을 매개변수로 prepareStatement메서드를 실행해
+				 쿼리실행을 위한 준비를 한다.
+				 각각의 물음표 자리에 actor의 get메서드를 실행해 겟팅해온 데이터들을 순서대로 참조변수statement 주소
+				 를 찾아가 set메서드를 사용해 입력해준다. 그리고 쿼리문장을 실행*/
+				statement = connection.prepareStatement("INSERT INTO actor VALUES (?, ?, ?)");
+				statement.setInt(1, actor.getActorId());
+				statement.setString(2, actor.getActorName());
+				statement.setInt(3, actor.getActorAge());
+				statement.executeUpdate();
+		
+		// 닫아준다.		
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (statement != null) try {statement.close();} catch (SQLException ex) {}
+			if (connection != null) try {connection.close();} catch (SQLException ex) {}
+		}
+	}
+	
 
 	// ArrayList<Actor>리턴타입의 selectActorList메서드
 	public ArrayList<Actor> selectActorList() {
 		// ArrayList<Actor>타입으로 ArrayList<Actor>리스트의 객체를 생성해 그 주소값을 list객체참조변수에 할당한다
 		ArrayList<Actor> list = new ArrayList<Actor>();
-
-		//Connection,prparedStatement,ResultSet클래스의 변수connection,statement,resultSet을 null로 초기화 한다.
-		Connection connection = null;
-		PreparedStatement Statement = null;
-		ResultSet resultSet = null;
 
 		try {
 			// 드라이버 로딩을 시작한다
@@ -38,9 +70,9 @@ public class ActorDao {
 			// DB연결에 필요한 정보들을 담아 connection객체참조변수에 할당한다
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			// 쿼리를 실행을 위한 준비를 하고 sql에는 SELECT문이 저장되어있다.
-			Statement = connection.prepareStatement(sql);
+			statement = connection.prepareStatement(sql);
 			// 쿼리를 실행해 실행한 결과의 주소값을 resultSet에 저장한다
-			resultSet = Statement.executeQuery();
+			resultSet = statement.executeQuery();
 
 			/*while : 반복횟수를 알 수 없고 조건에 따라서 반복하는 경우에 사용하는 반복문이다.
 			while문을 실행하고 객체참조변수 resultSet의 주소를 찾아가 next메서드를 실행한다
@@ -66,7 +98,7 @@ public class ActorDao {
 			e.printStackTrace();
 		} finally {
 			if (resultSet != null) try {resultSet.close();} catch (SQLException ex) {}
-			if (Statement != null) try {Statement.close();} catch (SQLException ex) {}
+			if (statement != null) try {statement.close();} catch (SQLException ex) {}
 			if (connection != null) try {connection.close();} catch (SQLException ex) {}
 		}
 

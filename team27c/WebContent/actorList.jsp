@@ -13,13 +13,13 @@
 		<%
 		ActorDao actorDao = new ActorDao(); // ActorDao의 객체를 생성하여 객체참조변수 actorDao에 객체의 주소를 할당한다
 		%>
-
+		<h1>Actor list</h1>
 		<table border="1">
-			<thead>Actor list
+			<thead> 
 				<tr>
-					<th>번호</th>
-		     		<th>배우이름</th>
-		     		<th>배우나이</th>
+					<th>남배우번호</th>
+		     		<th>남배우이름</th>
+		     		<th>남배우나이</th>
 		  		</tr>
 	  		</thead>
 		<%		/* Actor리스트를 list로 선언해주고 actorDao객체참조변수의 주소를 찾아 selectActorList를 실행해 리턴된
@@ -35,7 +35,17 @@
 		<% 
 			}
 		%>
-		</tabel>
+		</table>
+		<br>
+		<table>
+				<tr>
+					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
+				</tr>
+				<br>
+				<tr>
+					<a href="<%= request.getContextPath() %>/insertActorForm.jsp">남배우리스트 등록하기</a>
+				</tr>
+		</table>
 
 </body>
 </html>
