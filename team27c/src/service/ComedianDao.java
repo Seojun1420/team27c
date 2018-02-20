@@ -10,8 +10,9 @@ import java.util.ArrayList;
 
 public class ComedianDao {
 	
+	@SuppressWarnings("null")
 	public ArrayList<Comedian> selectComedianList() { //ArrayList로 메소드명 selectComedianList를 선언해준다.
-		ArrayList<Comedian> arrlist = new ArrayList<Comedian>();//객체참조변수를 선언해준다.
+		ArrayList<Comedian> arraylist = new ArrayList<Comedian>();//객체참조변수를 선언해준다.
 		
 		
 		//finally절에서 close가 가능하도록 한다.
@@ -42,9 +43,9 @@ public class ComedianDao {
 				comedian.setComedianId(resultset.getInt("comedianId")); //get 부분은 Comedian.java의 private랑 맞춰써줘야한다, 
 				comedian.setComedianName(resultset.getString("comedianName"));
 				comedian.setComedianAge(resultset.getInt("comedianAge"));
-				arrlist.add(comedian);
+				arraylist.add(comedian);
 			}
-			for(Comedian s: arrlist) { //for문을 이용해 list에 값이 잘담겨 졌는지 확인해준다.
+			for(Comedian s: arraylist) { //for문을 이용해 list에 값이 잘담겨 졌는지 확인해준다.
 				System.out.println(s.getComedianId());
 				System.out.println(s.getComedianName());
 				System.out.println(s.getComedianAge());
@@ -65,7 +66,7 @@ public class ComedianDao {
 			if(preparedStatement == null) try {preparedStatement.close();} catch(SQLException ex) {}
 			if(connection == null) try {connection.close();} catch(SQLException ex) {}
 		}
-		return arrlist;
+		return arraylist;
 	
 		}
 	}

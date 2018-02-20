@@ -7,7 +7,7 @@
 		<title>comedianInsert.jsp</title>
 	</head>
 	<body>
-		<form action="<%= request.getContextPath() %>/index.jsp" method="post">
+		<form action="<%= request.getContextPath() %>/insertComedianAction.jsp" method="post">
 
 			<table border="1">
 
@@ -20,7 +20,7 @@
 					<td><input type="text" name="comedian_age" size="10"></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="회원가입"></td>
+					<td><input type="submit" value="등록하기"></td>
 				</tr>
 			</table>
 
