@@ -7,21 +7,24 @@
 <html> 
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR"> 
-<title>Insert title here</title> 
+<title>Team27c</title> 
 </head> 
-<body> 
-<table  border="1">
-	<tr>
-		<td>아이디</td>
-		<td>이름</td>
-		<td>나이</td>
-	</tr>
+<body>
+	Actress list 
+	<table  border="1">
+		<thead>
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>나이</th>
+			</tr>
+		</thead>
 <%
 	/* selectActress 메서드를 실행하고 리턴받은값이 ArrayList 이기때문에 
 		그내용을 리턴받으려면 같은 타입인 ArrayList 로정보를 받아야하기때문에
 		actressList에서도 ArrayList를 선언해준다.
 	*/
- 	ArrayList<Actress> arrList =new ArrayList<Actress>();
+ 	ArrayList<Actress> arrList = new ArrayList<Actress>();
 	/*
 		ActressDao 를 사용하기위해 객체참조변수를 선언해주고 객체를생성해 주소를할당한다.
 		그리고 주소를찾아가 메서드를 실행해준다.
@@ -35,14 +38,16 @@
 	*/
 	 for(Actress s : arrList){ 
 %>
-	<tr>
-		<td><%=s.getActressId() %></td>
-		<td><%=s.getActressName() %></td>
-		<td><%=s.getActressAge() %></td>
-	</tr>
+		<tbody>
+			<tr>
+				<td><%=s.getActressId() %></td>
+				<td><%=s.getActressName() %></td>
+				<td><%=s.getActressAge() %></td>
+			</tr>
+		</tbody>
 	<%
 		}
 	%>
-</table>
+	</table>
 </body>
 </html>

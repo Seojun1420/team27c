@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%request.setCharacterEncoding("euc-kr"); %>
 <jsp:useBean id="a" class="service.Actress"/>
 <jsp:setProperty name="a" property="*"/>
 <%@page import="service.ActressDao" %>

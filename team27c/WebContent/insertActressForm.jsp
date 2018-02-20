@@ -6,6 +6,7 @@
 <title>team271</title>
 </head>
 <body>
+<%request.setCharacterEncoding("euc-kr"); %>
 	<form action="<%=request.getContextPath()%>/insertActressAction.jsp" method="post">
 		<table border="1">
 			<tr>
