@@ -46,10 +46,10 @@
 					<td><a href="updateActorForm.jsp?actorId=<%=actor.getActorId()%>">수정</a></td>
 					<td><a href="deleteActorAction.jsp?actorId=<%=actor.getActorId()%>">삭제</a></td>
 				</tr>
+			</tbody>
 		<% 
 			}
-		%>
-			</tbody>	
+		%>	
 		</table>
 		<br>
 					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
