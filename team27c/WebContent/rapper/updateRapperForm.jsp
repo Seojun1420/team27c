@@ -21,5 +21,6 @@
 	<%=rapper.getRapperId() %>
 	<%=rapper.getRapperName() %>
 	<%=rapper.getRapperAge() %>
+	
 </body>
 </html>
