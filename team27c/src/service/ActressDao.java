@@ -12,7 +12,72 @@ import java.sql.ResultSet;
 public class ActressDao {
 	
 	
-	
+	public void updateActressAction(Actress actressDao) {
+		Connection conn=null;
+		PreparedStatement statement=null;
+		String sql="UPDATE actress SET actress_name=?,actress_age=? WHERE actress_id=?";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			
+			conn=DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
+			statement=conn.prepareStatement(sql);
+			statement.setString(1, actressDao.getActressName());
+			statement.setInt(2, actressDao.getActressAge());
+			statement.setInt(3, actressDao.getActressId());
+			
+			statement.executeUpdate();
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(statement!=null) try {statement.close();}catch(SQLException ex) {}
+			if(conn!=null) try {conn.close();}catch(SQLException ex) {}
+		}
+	}
+	public Actress updateActress(int actressId) {
+		Connection conn=null;
+		PreparedStatement statement=null;
+		ResultSet resultSet = null;
+		Actress actress = new Actress();
+		String sql = "SELECT * FROM actress WHERE actress_id=?";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000"; 
+			
+			conn=DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
+			statement=conn.prepareStatement(sql);
+			statement.setInt(1, actressId);
+			resultSet=statement.executeQuery();
+			
+			while(resultSet.next()) {
+				actress.setActressId(resultSet.getInt("actress_id"));
+				actress.setActressName(resultSet.getString("actress_name"));
+				actress.setActressAge(resultSet.getInt("actress_age"));
+				
+				
+			}
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(resultSet != null) try {resultSet.close();} catch(SQLException ex) {}
+			if(statement != null) try {statement.close();} catch(SQLException ex) {}
+			if(conn != null) try {conn.close();} catch(SQLException ex) {}		
+		}
+		return actress;
+		
+	}
 	public void deleteActress(int actressId) {
 		Connection conn=null;
 		PreparedStatement statement = null;
@@ -32,6 +97,9 @@ public class ActressDao {
 			e.printStackTrace();
 		}catch(SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(statement != null) try {statement.close();} catch(SQLException ex) {}
+			if(conn != null) try {conn.close();} catch(SQLException ex) {}		
 		}
 		
 		}
@@ -60,6 +128,9 @@ public class ActressDao {
 			e.printStackTrace();
 		}catch(SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(statement != null) try {statement.close();} catch(SQLException ex) {}
+			if(conn != null) try {conn.close();} catch(SQLException ex) {}		
 		}
 		
 	}

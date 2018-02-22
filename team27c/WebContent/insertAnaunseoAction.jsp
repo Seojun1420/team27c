@@ -20,7 +20,7 @@
 	anaunseo.setAnaunseoAge(anaunseoAge);
 	
 	AnaunseoDao anaunseoDao = new AnaunseoDao();
-	anaunseoDao.insertAnaunseoList(anaunseo);
+	anaunseoDao.insertAnaunseo(anaunseo);
 	
 	response.sendRedirect(request.getContextPath()+"/anaunseoList.jsp");
 	
