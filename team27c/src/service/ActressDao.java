@@ -11,6 +11,31 @@ import java.sql.ResultSet;
 
 public class ActressDao {
 	
+	
+	
+	public void deleteActress(int actressId) {
+		Connection conn=null;
+		PreparedStatement statement = null;
+		String sql = "DELETE FROM actress WHERE actress_id=?";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			
+			conn=DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
+			statement=conn.prepareStatement(sql);
+			statement.setInt(1, actressId);
+			statement.executeUpdate();
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		}
+	
 	public void insertActress(Actress atress) {
 		Connection conn=null;
 		PreparedStatement statement=null;

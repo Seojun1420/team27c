@@ -1,24 +1,22 @@
 <!-- team27c 김문기 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%request.setCharacterEncoding("euc-kr"); %>
-<jsp:useBean id="a" class="service.Actress"/>
-<jsp:setProperty name="a" property="*"/>
 <%@page import="service.ActressDao" %>
-<%@page import="service.Actress" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>team27</title>
+<title>deleteActressAction.jsp</title>
 </head>
 <body>
-
-<% 
-	ActressDao actressDao = new ActressDao();
-	actressDao.insertActress(a);
+<%
+	int actressId= Integer.parseInt(request.getParameter("actressId"));
+	System.out.println(actressId+":결과");
+	
+	ActressDao act = new ActressDao();
+	act.deleteActress(actressId);
+	
+	response.sendRedirect(request.getContextPath()+"/actressList.jsp");
 %>
-
-
-
 </body>
 </html>

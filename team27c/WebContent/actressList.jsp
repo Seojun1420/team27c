@@ -17,6 +17,8 @@
 				<th>여배우번호</th>
 				<th>여배우이름</th>
 				<th>여배우나이</th>
+				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 <%
@@ -36,13 +38,15 @@
 		그내용을 출력해 화면에 나타내준다.
 		접근지정자가 private 이기때문에 get 메서드를 사용해서만 값을 받아올수있다.
 	*/
-	 for(Actress s : arrList){ 
+	 for(Actress actress : arrList){ 
 %>
 		<tbody>
 			<tr>
-				<td><%=s.getActressId() %></td>
-				<td><%=s.getActressName() %></td>
-				<td><%=s.getActressAge() %></td>
+				<td><%=actress.getActressId() %></td>
+				<td><%=actress.getActressName() %></td>
+				<td><%=actress.getActressAge() %></td>
+				<td><a href="<%=request.getContextPath()%>/updateActressForm.jsp?actressId=<%=actress.getActressId()%>">수정</a></td>
+				<td><a href="<%=request.getContextPath()%>/deleteActressAction.jsp?actressId=<%=actress.getActressId()%>">삭제</a></td>
 			</tr>
 		</tbody>
 	<%

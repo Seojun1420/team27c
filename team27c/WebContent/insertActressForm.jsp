@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<!-- team27c ±è¹®±â -->
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,6 @@
 </head>
 <body>
 	<h1>Insert Actress Form</h1>
-	<%request.setCharacterEncoding("euc-kr");%>
 	<form action="<%=request.getContextPath()%>/insertActressAction.jsp"method="post">
 		<table border="1">
 			<tr>
