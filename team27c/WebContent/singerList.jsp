@@ -43,6 +43,8 @@
 		<td><%= s.getSingerId() %></td>
 		<td><%= s.getSingerName() %></td>
 		<td><%= s.getSingerAge() %></td>
+		<td><a href="updateSingerForm.jsp?singerId=<%= s.getSingerId()%>">수정</a></td>
+		<td><a href="deleteSingerAction.jsp?singerId=<%=s.getSingerId()%>">삭제</a></td>
 	</tr>
 <%
 	}

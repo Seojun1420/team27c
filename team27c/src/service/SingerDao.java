@@ -10,6 +10,44 @@ import java.util.ArrayList;
 import java.sql.ResultSet;
 
 public class SingerDao {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	public void DeleteSinger(int singerId) {
+		System.out.println(" 가수 삭제 ");	
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			String sql = "DELETE FROM singer WHERE singerId = ?";
+			
+		    conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass); 
+		    System.out.println(conn+"db연결");
+		    pstmt = conn.prepareStatement(sql);
+		    System.out.println("쿼리문 준비");
+		    pstmt.setInt(1, singerId);
+		    System.out.println("쿼리문 셋팅");
+		    System.out.println(pstmt+"<---쿼리문 셋팅");
+		
+		    pstmt.executeUpdate();
+		    System.out.println("쿼리문 실행");
+		    
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch(ClassNotFoundException e) { 
+			e.printStackTrace();
+		}finally {
+			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
+			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
+			if (conn != null) try { conn.close(); } catch(SQLException e) {}
+		}
+		
+	}
+	
+	
+	
 	
 	public ArrayList<Singer> selectSingerList(){
 		//기본적으로 필요한 변수 선언 및 ArrayList 선언
