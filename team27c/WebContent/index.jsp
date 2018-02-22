@@ -21,38 +21,38 @@
 				<td>팀장 :왕서준 </td>
 				<td> 역할: SingerList </td>
 				<td><img src="/team27c/image/wsj.jpg"style="width: 150px; height: 150px;"> <br></td>
-				<td><li><a href="<%= request.getContextPath() %>/singerList.jsp">singerList</a></li></td>
+				<td><li><a href="<%= request.getContextPath() %>/singer/singerList.jsp">singerList</a></li></td>
 			</tr>
 			<tr>
 				<td>팀원 :김재희 </td>
 				<td> 역할 : Actor </td>
 				<td><img src="/team27c/image/kjh.jpg"style="width: 150px; height: 150px;" > <br></td>
-				<td><li><a href="<%= request.getContextPath() %>/actorList.jsp">Actor</a></li></td>
+				<td><li><a href="<%= request.getContextPath() %>/actor/actorList.jsp">Actor</a></li></td>
 			</tr>
 			<tr>
 				<td>팀원 : 김문기</td>
 				<td> 역할 : ActressList </td>
 				<td><img src="/team27c/image/kmg.jpg"style="width: 150px; height: 150px;" > <br></td>
-				<td><li><a href="<%= request.getContextPath() %>/actressList.jsp">actressList</a></li></td>
+				<td><li><a href="<%= request.getContextPath() %>/actress/actressList.jsp">actressList</a></li></td>
 			</tr>
 			<tr>
 				<td>팀원 : 도정만 </td>
 				<td> 역할 : AnaunseoList </td>
 				<td><img src="/team27c/image/djm.jpg"style="width: 150px; height: 150px;" > <br></td>
-				<td><li><a href="<%= request.getContextPath() %>/anaunseoList.jsp">anaunseoList</a></li></td>
+				<td><li><a href="<%= request.getContextPath() %>/anaunseo/anaunseoList.jsp">anaunseoList</a></li></td>
 				
 			</tr>
 			<tr>
 				<td>팀원 : 임가현  </td>
 				<td> 역할 : ComedianList </td>
 				<td><img src="/team27c/image/lgh.jpg"style="width: 150px; height: 150px;"> <br></td>
-				<td><li><a href="<%= request.getContextPath() %>/comedianList.jsp">comedianList</a></li></td>
+				<td><li><a href="<%= request.getContextPath() %>/comedian/comedianList.jsp">comedianList</a></li></td>
 			</tr>
 			<tr>
 				<td>팀원 : 박지하  </td>
 				<td>역할 : RapperList </td>  
 				<td><img src="/team27c/image/pjh.jpg" style="width: 150px; height: 150px;"> <br></td>
-				<td><li><a href="<%= request.getContextPath() %>/rapperList.jsp">rapperList</a></li></td>
+				<td><li><a href="<%= request.getContextPath() %>/rapper/rapperList.jsp">rapperList</a></li></td>
 					</ul>
 			</tr>
 			
