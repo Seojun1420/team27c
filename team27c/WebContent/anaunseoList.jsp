@@ -1,6 +1,4 @@
 <!-- team27 도정만 -->
-
-
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="service.AnaunseoDao" %>
 <%@ page import="java.util.ArrayList" %>
@@ -9,16 +7,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR"> 
-<title></title>
+<title>AnaunseoList</title>
 </head>
 	<body>
-	Anaunseo List
+	<h1>Anaunseo List</h1>
 		<table border="1">
 			<thead>			
 				<tr>
-					<th>아이디</th>
-					<th>이름</th>
-					<th>나이</th>
+					<th>아나운서번호</th>
+					<th>아나운서이름</th>
+					<th>아나운서나이</th>
 				</tr>
 			</thead>
 		<%
@@ -33,19 +31,21 @@
 			ArrayList<Anaunseo>타입의 list에 할당한후
 			for문을 돌려 차례대로 출력한다. */
 		 
-			list = anaunseo.selectAnaunseoList();
-		
-		
+			list = anaunseo.selectAnaunseoList();		
 			for(Anaunseo ana : list) {
 		%> 
 				<tr>
 					<td><%= ana.getAnaunseoId() %></td>
 					<td><%= ana.getAnaunseoName() %></td>
 					<td><%= ana.getAnaunseoAge() %></td>
-				<tr>
+				</tr>
 		<%
 			}
-		%>
+		%>	
 		</table>
+		<br>
+		<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
+		<br>
+		<a href="<%= request.getContextPath() %>/insertAnaunserForm.jsp">아나운서리스트 등록하기</a>
 	</body>
 </html>

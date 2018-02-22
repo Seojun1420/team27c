@@ -21,7 +21,7 @@ public class AnaunseoDao {
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 		    String dbUser = "root";
 		    String dbPass = "java0000";
-		    String sql = "SELECT anaunseo_id as anaunseoId, anaunseo_name as anaunseoName, anaunseo_age as anaunseoAge FROM anaunseo ORDER BY anaunseo_id DESC";
+		    String sql = "SELECT anaunseo_id as anaunseoId, anaunseo_name as anaunseoName, anaunseo_age as anaunseoAge FROM anaunseo ORDER BY anaunseo_id ASC";
 		    //mysql 연결을 위해 ip, port, dbid, dbpw, db명 입력
 		      
 		    connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
