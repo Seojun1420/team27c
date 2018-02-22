@@ -14,6 +14,45 @@ public class RapperDao {
 	PreparedStatement statement = null;
 	ResultSet resultset = null;
 	
+	public Rapper selectUpdateRapper(int rapperId) {
+		String sql ="SELECT * FROM rapper WHERE rapper_id=?";
+		Rapper rapper = new Rapper();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("드라이버로딩완료");
+		
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?" + "useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			
+			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			System.out.println("DB연결");
+			
+			statement = connection.prepareStatement(sql);
+			statement.setInt(1, rapperId);
+			resultset=statement.executeQuery();
+			System.out.println(statement);
+			
+			while(resultset.next()) {
+				rapper.setRapperId(resultset.getInt("rapper_id"));
+				rapper.setRapperName(resultset.getString("rapper_name"));
+				rapper.setRapperAge(resultset.getInt("rapper_age"));
+				
+			} 
+			}catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				if (statement != null) try {statement.close();} catch (SQLException ex) {}
+				if (connection != null) try {connection.close();} catch (SQLException ex) {}
+			}
+		return rapper;
+	}
+	
+	
+	
+	
 	public void deleteRapper(int rapperId){
 		try {
 		Class.forName("com.mysql.jdbc.Driver");

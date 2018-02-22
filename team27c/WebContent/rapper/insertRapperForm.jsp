@@ -10,7 +10,7 @@
 <body>
 		<h1>Insert Rapper Form</h1>
 			<!-- POST방식으로 폼에서 입력한 정보들을 insertrapperAction.jsp로 넘겨준다. -->
-			<form action="<%= request.getContextPath() %>/insertRapperAction.jsp" method="post">
+			<form action="<%= request.getContextPath() %>/rapper/insertRapperAction.jsp" method="post">
 				<table border="1">
 					<tr>
 						<th>rapper Name</th>

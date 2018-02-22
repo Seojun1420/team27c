@@ -42,8 +42,8 @@ list=rapperDao.selectRapperList1();
 		삭제액션
 		DELETE FROM rapper WHERER actor_id = ?
  -->		
- 		<td><a href="<%= request.getContextPath() %>/updaterapper.jsp?rapperId=<%=rapper.getRapperId() %>">수정</a></td>
-		<td><a href="<%= request.getContextPath() %>/deleteRapperAction.jsp?rapperId=<%=rapper.getRapperId() %>">삭제</a></td>
+ 		<td><a href="<%= request.getContextPath() %>/rapper/updateRapperForm.jsp?rapperId=<%=rapper.getRapperId() %>">수정</a></td>
+		<td><a href="<%= request.getContextPath() %>/rapper/deleteRapperAction.jsp?rapperId=<%=rapper.getRapperId() %>">삭제</a></td>
 	</tr>
 <% 
 	}//레퍼 아이디 이름 나이 받아옴
@@ -58,7 +58,7 @@ list=rapperDao.selectRapperList1();
 		<a> </a>
 	</tr>
 	<tr>
-		<a href="<%= request.getContextPath() %>/insertRapperForm.jsp">등록하기</a>
+		<a href="<%= request.getContextPath() %>/rapper/insertRapperForm.jsp">등록하기</a>
 	</tr>
 </table>
 

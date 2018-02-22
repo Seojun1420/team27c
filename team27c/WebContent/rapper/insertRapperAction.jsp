@@ -32,7 +32,7 @@
 	
 	System.out.println(rapper + "<-- rapper 출력확인");
 	
-	response.sendRedirect(request.getContextPath() + "/rapperList.jsp");	
+	response.sendRedirect(request.getContextPath() + "/rapper/rapperList.jsp");	
 %>
 </body>
 </html>
