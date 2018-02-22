@@ -8,7 +8,7 @@
 </head>
 <body>
 		<h1>Insert Comedian Form</h1>
-			<form action="<%= request.getContextPath() %>/insertComedianAction.jsp" method="post">
+			<form action="<%= request.getContextPath() %>/comedian/insertComedianAction.jsp" method="post">
 				<table border="1">
 					<tr>
 						<td>comedian Name</td>

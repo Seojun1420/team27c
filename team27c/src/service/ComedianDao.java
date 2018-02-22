@@ -14,9 +14,10 @@ public class ComedianDao {
 	PreparedStatement preparedstatement = null;  // PreparedStatement 객체는 자주 여러번 사용되는 query를 미리 컴파일 시킴. 초기값은 null
 	Connection connection = null;  // Connection 객체는 자바를 DB에 연결할 수 있게 해준다. 초기값은 null
 	ResultSet resultset = null;  // ResultSet : 한번에 한 행씩 리턴하는 질의어의 결과. 초기값은 null
-	
+	Comedian comedian = null;
+	//select
 	@SuppressWarnings("null")
-	public ArrayList<Comedian> selectComedianList() { //ArrayList로 메소드명 selectComedianList를 선언해준다.
+	public ArrayList<Comedian> selectComedian() { //ArrayList로 메소드명 selectComedianList를 선언해준다.
 		ArrayList<Comedian> arraylist = new ArrayList<Comedian>();//객체참조변수를 선언해준다.
 		
 		try {
@@ -69,7 +70,9 @@ public class ComedianDao {
 
 	
 	
-	public void insertComedianrList(Comedian comedian) {
+	
+	//insert
+	public void insertComedian(Comedian comedian) {
 		try {	
 				Class.forName("com.mysql.jdbc.Driver"); //드라이버로딩시작
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
@@ -96,8 +99,12 @@ public class ComedianDao {
 			if (connection != null) try {connection.close();} catch (SQLException ex) {}
 		}
 	}
+
+
 	
-	public void deleteComedianrList(int comedianId) {
+	
+	//delete
+	public void deleteComedian(int comedianId) {
 		try {	
 				Class.forName("com.mysql.jdbc.Driver"); //드라이버로딩시작
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
@@ -123,6 +130,95 @@ public class ComedianDao {
 		}
 	}
 	
+	
+	
+	
+	//selectupdate
+	public Comedian selectupdateComedian(int comedianId) {
+		
+		try {	
+				Class.forName("com.mysql.jdbc.Driver"); //드라이버로딩시작
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+				String dbUser = "root";
+				String dbPass = "java0000";
+				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+				System.out.println("DB연결");
+				/*connection객체참조변수의 주소를 찾아가  prepareStatement메서드를 실행해주고, 쿼리실행을 준비한다.
+				 *쿼리문의 물음표자리에 get메서드를 실행해 겟팅해온 데이터를 순서대로 prepareStatement객체참조변수의 주소를 찾아가
+				 *set메서드를 이용해 입력해주고, 실행해준다.*/
+				preparedstatement = connection.prepareStatement("Select * From comedian Where comedian_id=?");
+				preparedstatement.setInt(1, comedianId);
+				resultset=preparedstatement.executeQuery();
+				System.out.println("쿼리실행");
+				if(resultset.next()) {
+					comedian = new Comedian();
+					comedian.setComedianId(resultset.getInt("comedian_id"));
+					comedian.setComedianName(resultset.getString("comedian_name"));
+					comedian.setComedianAge(resultset.getInt("comedian_age"));
+				}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (resultset != null) try {resultset.close();} catch (SQLException ex) {}
+			if (preparedstatement != null) try {preparedstatement.close();} catch (SQLException ex) {}
+			if (connection != null) try {connection.close();} catch (SQLException ex) {}
+		}
+		
+		return comedian;
 	}
 	
+	public void updateComedian(Comedian comedian) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			connection=DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
+			preparedstatement=connection.prepareStatement("UPDATE comedian SET comedian_name=?,comedian_age=? WHERE comedian_id=?");	
+			preparedstatement.setString(1, comedian.getComedianName());
+			preparedstatement.setInt(2, comedian.getComedianAge());
+			preparedstatement.setInt(3, comedian.getComedianId());
+			preparedstatement.executeUpdate();
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (preparedstatement != null) try {preparedstatement.close();} catch (SQLException ex) {}
+			if (connection != null) try {connection.close();} catch (SQLException ex) {}
+		}
+		}
+		
+	public void updateComedianAction(Comedian comediandao) {		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			
+			connection=DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
+			preparedstatement=connection.prepareStatement("UPDATE actress SET actress_name=?,actress_age=? WHERE actress_id=?");
+			preparedstatement.setString(1, comediandao.getComedianName());
+			preparedstatement.setInt(2, comediandao.getComedianAge());
+			preparedstatement.setInt(3, comediandao.getComedianId());
+			
+			preparedstatement.executeUpdate();
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(preparedstatement!=null) try {preparedstatement.close();}catch(SQLException ex) {}
+			if(connection!=null) try {connection.close();}catch(SQLException ex) {}
+		}
+	}
+}
+		
+
+	
+		
 	

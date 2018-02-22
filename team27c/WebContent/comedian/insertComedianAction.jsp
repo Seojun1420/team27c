@@ -28,11 +28,11 @@
 		
 		//comdiandao로 주소참조하여 DB를 연결시켜, 리턴시켜온다.
 		ComedianDao comediandao = new ComedianDao();
-		comediandao.insertComedianrList(comedian);
+		comediandao.insertComedian(comedian);
 		//출력물 확인
 		System.out.println(comedian + "<-- comedian 확인");
 		/* response내장객체 :  클라이언트에 대한 응답 처리를 하는 객체, 실행결과를 브라우저로 되돌려 줄 때 사용하는 객체이다.*/
-		response.sendRedirect(request.getContextPath() + "/comedianList.jsp");
+		response.sendRedirect(request.getContextPath() + "/comedian/comedianList.jsp");
 		%>
 		
 		

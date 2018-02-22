@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>ActorList</title>
+	<title>ComedianList</title>
 </head>
 <body>
 		<%
@@ -26,19 +26,20 @@
 				</thead>
 		<%
 			// comedian에 담긴 주소값을 찾아가, selectComedianList를 호출, 실행해준 뒤 arrList로 담는다.
-			ArrayList<Comedian> arrayList = comediandao.selectComedianList();
+			ArrayList<Comedian> arrayList = comediandao.selectComedian();
 			for(Comedian comedian : arrayList) {
 		%>
 				<tr>
 					<td><%= comedian.getComedianId() %></td>
 					<td><%= comedian.getComedianName() %></td>
 					<td><%= comedian.getComedianAge() %></td>
-					<!-- request.getParameter("comedianId")
+					<!-- request.ge
+					tParameter("comedianId")
 						삭제액션 : Delete from comedian where comedian_id=?
 						수정액션 : update comedian set comedian_name=?, comedian_age=? where comedian_id=?  
 						수정폼 : Select *form comedian where comedian_id=? -->
-					<td><a href="updateComedianForm.jsp?comedianId=<%=comedian.getComedianId()%>">수정</a></td>
-					<td><a href="<%= request.getContextPath() %>/deleteComedianAction.jsp?comedianId=<%=comedian.getComedianId()%>">삭제</a></td>
+					<td><a href="<%= request.getContextPath() %>/comedian/updateComedianForm.jsp?comedianId=<%=comedian.getComedianId()%>">수정</a></td>
+					<td><a href="<%= request.getContextPath() %>/comedian/deleteComedianAction.jsp?comedianId=<%=comedian.getComedianId()%>">삭제</a></td>
 				</tr>
 		<%
 			}
@@ -48,13 +49,13 @@
 		<br>
 		<table>
 				<tr>
-					<a href="<%= request.getContextPath() %>/index.jsp">홈으로</a>
+					<a href="<%= request.getContextPath() %>/comedian/index.jsp">홈으로</a>
 				</tr>
 				<tr>
 				<br>
 				</tr>
 				<tr>
-					<a href="<%= request.getContextPath() %>/insertComedianForm.jsp">리스트등록하기</a>
+					<a href="<%= request.getContextPath() %>/comedian/insertComedianForm.jsp">리스트등록하기</a>
 				</tr>
 		</table>	
 </body>
