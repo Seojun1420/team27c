@@ -12,11 +12,11 @@
 			<form action="<%= request.getContextPath() %>/insertActorAction.jsp" method="post">
 				<table border="1">
 					<tr>
-						<th>actor Name</th>
+						<th>남배우이름</th>
 						<td><input type="text" name="actorName" size="10"></td>
 					</tr>
 					<tr>
-						<th>actor Age</th>
+						<th>남배우나이</th>
 						<td><input type="text" name="actorAge" size="10"></td>
 					</tr>
 					<tr>
