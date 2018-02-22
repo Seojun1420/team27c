@@ -68,7 +68,7 @@ public class AnaunseoDao {
 		return list;
 		
 	}
-	public void insertAnaunseoList(Anaunseo anaunseo) {
+	public void insertAnaunseo(Anaunseo anaunseo) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("드라이버로딩성공");
@@ -97,7 +97,7 @@ public class AnaunseoDao {
 			if (connection != null) try { connection.close(); } catch(SQLException e) {}
 		}
 	}
-	public void deleteAnaunseoList(int anaunseoId) {
+	public void deleteAnaunseo(int anaunseoId) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
