@@ -54,7 +54,7 @@
 				<br>
 					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
 				<br>
-					<a href="<%= request.getContextPath() %>/singer/insertSingerAction.jsp">가수리스트 등록하기</a>
+					<a href="<%= request.getContextPath() %>/singer/insertSingerForm.jsp">가수리스트 등록하기</a>
 		
 </body>
 </html>
