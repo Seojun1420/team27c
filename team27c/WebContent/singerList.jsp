@@ -38,9 +38,9 @@
 	for(Singer s : arraySinger){
 %>		
 	<tr>
-		<td><%= s.getSinger_Id() %></td>
-		<td><%= s.getSinger_Name() %></td>
-		<td><%= s.getSinger_Age() %></td>
+		<td><%= s.getSingerId() %></td>
+		<td><%= s.getSingerName() %></td>
+		<td><%= s.getSingerAge() %></td>
 	</tr>
 <%
 	}

@@ -19,32 +19,32 @@
 			<tr>
 				<td>팀장 : 왕서준  </td>
 				<td>역할 : singerList</td>
-				<td><img src="/team27c/team27c-image/wsj.jpg"style="width: 150px; height: auto;"> <br><br></td>
+				<td><img src="/team27c/image/wsj.jpg"style="width: 150px; height: auto;"> <br><br></td>
 			</tr>
 			<tr>
 				<td>팀원 : 김재희 </td>
 				<td>역할 : Actor</td>
-				<td><img src="/team27c/team27c-image/kjh.jpg"style="width: 150px; height: auto;" > <br><br></td>
+				<td><img src="/team27c/image/kjh.jpg"style="width: 150px; height: auto;" > <br><br></td>
 			</tr>
 			<tr>
 				<td>팀원 : 김문기 </td>
 				<td>역할 : actressList</td>
-				<td><img src="/team27c/team27c-image/kmg.jpg"style="width: 150px; height: auto;" > <br><br></td>
+				<td><img src="/team27c/image/kmg.jpg"style="width: 150px; height: auto;" > <br><br></td>
 			</tr>
 			<tr>
 				<td>팀원 : 도정만  </td>
 				<td>역할 : anaunseoList</td>
-				<td><img src="/team27c/team27c-image/djm.jpg"style="width: 150px; height: auto;" > <br><br></td>
+				<td><img src="/team27c/image/djm.jpg"style="width: 150px; height: auto;" > <br><br></td>
 			</tr>
 			<tr>
 				<td>팀원 : 임가현  </td>
 				<td>역할 : comedianList</td>
-				<td><img src="/team27c/team27c-image/lgh.jpg"style="width: 150px; height: auto;"> <br><br></td>
+				<td><img src="/team27c/image/lgh.jpg"style="width: 150px; height: auto;"> <br><br></td>
 			</tr>
 			<tr>
 				<td>팀원 : 박지하  </td>
 				<td>역할 : rapperList</td>
-				<td><img src="/team27c/team27c-image/pjh.jpg" style="width: 150px; height: auto;"> <br><br></td>
+				<td><img src="/team27c/image/pjh.jpg" style="width: 150px; height: auto;"> <br><br></td>
 			</tr>
 		</table>
 		<ul>
