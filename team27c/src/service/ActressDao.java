@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 public class ActressDao {
 	
 	
-	public void updateActressAction(Actress actressDao) {
+	public void ActionUpdateActress(Actress actressDao) {
 		Connection conn=null;
 		PreparedStatement statement=null;
 		String sql="UPDATE actress SET actress_name=?,actress_age=? WHERE actress_id=?";
@@ -40,7 +40,7 @@ public class ActressDao {
 			if(conn!=null) try {conn.close();}catch(SQLException ex) {}
 		}
 	}
-	public Actress updateActress(int actressId) {
+	public Actress SelectUpdateActress(int actressId) {
 		Connection conn=null;
 		PreparedStatement statement=null;
 		ResultSet resultSet = null;
@@ -134,22 +134,6 @@ public class ActressDao {
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/*selectActress()메서드 선언 리턴타입ArrayList<Actress> 매개변수 없음 */
 	public ArrayList<Actress> selectActress(){

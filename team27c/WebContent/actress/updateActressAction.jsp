@@ -23,7 +23,7 @@
 	actress.setActressAge(actressAge);
 	
 	ActressDao actressDao = new ActressDao();
-	actressDao.updateActressAction(actress);
+	actressDao.ActionUpdateActress(actress);
 
 %>
 </body>

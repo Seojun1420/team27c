@@ -16,7 +16,7 @@
 	ActressDao act = new ActressDao();
 	act.deleteActress(actressId);
 	
-	response.sendRedirect(request.getContextPath()+"/actressList.jsp");
+	response.sendRedirect(request.getContextPath()+"/actress/actressList.jsp");
 %>
 </body>
 </html>

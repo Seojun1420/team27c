@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Insert Actress Form</h1>
-	<form action="<%=request.getContextPath()%>/insertActressAction.jsp"method="post">
+	<form action="<%=request.getContextPath()%>/actress/insertActressAction.jsp"method="post">
 		<table border="1">
 			<tr>
 				<th>여배우이름</th>

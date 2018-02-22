@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>Actress Update Form</h1>
-	<form action="<%=request.getContextPath()%>/updateActressAction.jsp" method="post">
+	<form action="<%=request.getContextPath()%>/actress/updateActressAction.jsp" method="post">
 		<table border="1">
 			<thead>
 				<tr>
@@ -24,7 +24,7 @@
 				System.out.println(actressId);
 				ActressDao actressDao = new ActressDao();
 				Actress actress = new Actress();
-				actress = actressDao.updateActress(actressId);
+				actress = actressDao.SelectUpdateActress(actressId);
 			%>
 			<tbody>
 				<tr>

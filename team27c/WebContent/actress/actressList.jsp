@@ -45,8 +45,8 @@
 				<td><%=actress.getActressId() %></td>
 				<td><%=actress.getActressName() %></td>
 				<td><%=actress.getActressAge() %></td>
-				<td><a href="<%=request.getContextPath()%>/updateActressForm.jsp?actressId=<%=actress.getActressId()%>">수정</a></td>
-				<td><a href="<%=request.getContextPath()%>/deleteActressAction.jsp?actressId=<%=actress.getActressId()%>">삭제</a></td>
+				<td><a href="<%=request.getContextPath()%>/actress/updateActressForm.jsp?actressId=<%=actress.getActressId()%>">수정</a></td>
+				<td><a href="<%=request.getContextPath()%>/actress/deleteActressAction.jsp?actressId=<%=actress.getActressId()%>">삭제</a></td>
 			</tr>
 		</tbody>
 	<%
@@ -56,7 +56,7 @@
 	<br>
 			<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
 	<br>
-			<a href="<%= request.getContextPath() %>/insertActressForm.jsp">여배우리스트 등록하기</a>
+			<a href="<%= request.getContextPath() %>/actress/insertActressForm.jsp">여배우리스트 등록하기</a>
 		
 
 	
