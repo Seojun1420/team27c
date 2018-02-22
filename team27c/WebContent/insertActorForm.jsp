@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>insertActionForm</title>
+<title>insertActorForm</title>
 </head>
 <body>
 		<h1>Insert Actor Form</h1>

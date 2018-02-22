@@ -20,8 +20,11 @@
 					<th>남배우번호</th>
 		     		<th>남배우이름</th>
 		     		<th>남배우나이</th>
+		     		<th>수정</th>
+		     		<th>삭제</th> 
 		  		</tr>
 	  		</thead>
+	  		<tbody>
 		<%		/* Actor리스트를 list로 선언해주고 actorDao객체참조변수의 주소를 찾아 selectActorList를 실행해 리턴된
 				값을 list에 저장한다. */
 				ArrayList<Actor> list = actorDao.selectActorList();
@@ -31,10 +34,22 @@
 					<td><%=actor.getActorId() %></td> 
 					<td><%=actor.getActorName() %></td>
 					<td><%=actor.getActorAge() %></td>
-				</tr>	
+					<!-- request.getParameter("actorId") -->
+					<!-- 
+						수정폼
+						SELECT * FROM actor WHERE actor_id = ?
+						수정액션
+						UPDATE actor SET actor_name=?, actor_age=?, WHERE actor_id=?
+						삭제액션
+						DELETE FROM actor WHERE actor_id=?
+					 -->
+					<td><a href="updateActorForm.jsp?actorId=<%=actor.getActorId()%>">수정</a></td>
+					<td><a href="deleteActorAction.jsp?actorId=<%=actor.getActorId()%>">삭제</a></td>
+				</tr>
 		<% 
 			}
 		%>
+			</tbody>	
 		</table>
 		<br>
 					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>

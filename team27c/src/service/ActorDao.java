@@ -13,7 +13,33 @@ public class ActorDao {
 	Connection connection = null;
 	PreparedStatement statement = null;
 	ResultSet resultSet = null;
+	
+	public void deleteActorList (int actorid) {
+		try {
+				Class.forName("com.mysql.jdbc.Driver");
+				System.out.println("드라이버로딩");
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+				String dbUser = "root";
+				String dbPass = "java0000";
+				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+				System.out.println("DB연결");
+				statement = connection.prepareStatement("DELETE FROM actor WHERE actor_id=?");
+				statement.setInt(1, actorid);
+				statement.executeUpdate();
+				System.out.println("쿼리실행");
+				
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (statement != null) try {statement.close();} catch (SQLException ex) {}
+			if (connection != null) try {connection.close();} catch (SQLException ex) {}
+		}
+		
+	}
 
+	
 	public void insertActorList(Actor actor) {
 		try {	
 				/*드라이버로딩, db연결을 한다.*/
@@ -66,7 +92,7 @@ public class ActorDao {
 			 * ORDER BY : 선택한 행을 리턴할 특정 순서를 지정한다. 순서는 열 또는 표현식 값의 오름차순 또는 내림차순 배열 순서로 정렬된다.
 			 * SELECT 쿼리 문을 String형 sql변수에 초기화한다. ORDER BY로 나이순으로 오름차순으로 정렬하였다.
 			 */
-			String sql = "SELECT actor_id as actorId,actor_name as actorName,actor_age as actorAge FROM actor ORDER BY actor_age DESC";
+			String sql = "SELECT actor_id as actorId,actor_name as actorName,actor_age as actorAge FROM actor ORDER BY actor_id ASC";
 			// DB연결에 필요한 정보들을 담아 connection객체참조변수에 할당한다
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			// 쿼리를 실행을 위한 준비를 하고 sql에는 SELECT문이 저장되어있다.
