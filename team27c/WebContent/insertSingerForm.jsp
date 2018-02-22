@@ -13,15 +13,15 @@
 		<table border="1">
 			<tr>
 				<th>가수이름</th>
-				<td><input type="text" name="singerName" size="15"></td>
+				<td><input type="text" name="singerName" size="10"></td>
 			<tr>
 			<tr>
 				<th>가수나이</th>
-				<td><input type="text" name="singerAge" size="15"></td>
+				<td><input type="text" name="singerAge" size="10"></td>
 			<tr>
 			<tr>
 				<th> Insert </th>
-				<td><input type="submit" value="등록"></td>
+				<td><input type="submit" value="등록하기"></td>
 			</tr>
 		</table>
 	</form>

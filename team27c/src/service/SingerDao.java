@@ -32,7 +32,7 @@ public class SingerDao {
 			 * SELECT 쿼리 문을 String형 sql변수에 초기화한다. ORDER BY로 나이순으로 오름차순으로 정렬하였다.
 			 */
 			
-			String sql = "select singer_id as singer_id, singer_name, singer_age from singer";
+			String sql = "select singerId as singerId, singerName, singerAge from singer";
 			//mysql 연결을 위해 ip, port, dbid, dbpw, db명 입력
 
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
