@@ -97,6 +97,32 @@ public class ComedianDao {
 		}
 	}
 	
+	public void deleteComedianrList(int comedianId) {
+		try {	
+				Class.forName("com.mysql.jdbc.Driver"); //드라이버로딩시작
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+				String dbUser = "root";
+				String dbPass = "java0000";
+				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+				System.out.println("DB연결");
+				/*connection객체참조변수의 주소를 찾아가  prepareStatement메서드를 실행해주고, 쿼리실행을 준비한다.
+				 *쿼리문의 물음표자리에 get메서드를 실행해 겟팅해온 데이터를 순서대로 prepareStatement객체참조변수의 주소를 찾아가
+				 *set메서드를 이용해 입력해주고, 실행해준다.*/
+				preparedstatement = connection.prepareStatement("DELETE FROM comedian WHERE comedian_id=?");
+				preparedstatement.setInt(1, comedianId);
+				preparedstatement.executeUpdate();
+		
+		// 닫아준다.		
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (preparedstatement != null) try {preparedstatement.close();} catch (SQLException ex) {}
+			if (connection != null) try {connection.close();} catch (SQLException ex) {}
+		}
+	}
+	
 	}
 	
 	
