@@ -14,7 +14,7 @@ public class ActorDao {
 	PreparedStatement statement = null;
 	ResultSet resultSet = null;
 	
-	public void deleteActorList (int actorid) {
+	public void deleteActorList(int actorid) {
 		try {
 				Class.forName("com.mysql.jdbc.Driver");
 				System.out.println("드라이버로딩");

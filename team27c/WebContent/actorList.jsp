@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>ActorList</title>
+	<title>acotrList.jsp</title>
 </head>
 <body>
 		<%
@@ -51,7 +51,7 @@
 			}
 		%>	
 		</table>
-		<br>
+			<br>
 					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
 					<br>
 					<a href="<%= request.getContextPath() %>/insertActorForm.jsp">남배우리스트 등록하기</a>

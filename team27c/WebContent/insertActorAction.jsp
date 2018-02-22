@@ -1,14 +1,14 @@
 <!-- team27c 김재희 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ page import = "service.Actor" %>
-<%@ page import = "service.ActorDao" %>
 <!-- 폼에서 GET과 POST 방식으로 파라미터를 넘겨 받을 때 request.setCharacterEncoding()을 통한 문자셋 인코딩이 필요함-->
 <% request.setCharacterEncoding("euc-kr"); %>
+<%@ page import = "service.Actor" %>
+<%@ page import = "service.ActorDao" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>insertActorAction</title>
+<title>insertActorAction.jsp</title>
 </head>
 <body>
 <%  
