@@ -11,7 +11,8 @@
 			<h1 align ="center">team27c</h1>
 
 	</header>
-	<table border="2"> 
+		
+	<table border="1" align ="center" > 
 
 		<tr>
 			<td>팀명 : team27c</td><td>역할</td><td>사진</td><td>역할링크</td><br><br>

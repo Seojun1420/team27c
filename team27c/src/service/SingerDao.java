@@ -14,10 +14,12 @@ public class SingerDao {
 	public void updateSingerAction(Singer singerDao) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		
 		String sql = "UPDATE singer SET singerName=?, singerAge=? WHERE singerId = ?";
 		
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
@@ -29,16 +31,19 @@ public class SingerDao {
 			pstmt.setInt(3, singerDao.getSingerId());
 			
 			pstmt.executeUpdate();
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally {
-			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
+		 //순서대로 가장 늦게 실행된 객체부터 닫아준다.
 			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
 			if (conn != null) try { conn.close(); } catch(SQLException e) {}
 		}
+		
 	}
 	
-	public void updateSinger(int singerId) {
+	public Singer updateSinger(int singerId) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -75,6 +80,7 @@ public class SingerDao {
 			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
 			if (conn != null) try { conn.close(); } catch(SQLException e) {}
 		}
+		return singer;
 	}
 
 	public void DeleteSinger(int singerId) {
@@ -112,9 +118,6 @@ public class SingerDao {
 		}
 		
 	}
-	
-	
-	
 	
 	public ArrayList<Singer> selectSingerList(){
 		//기본적으로 필요한 변수 선언 및 ArrayList 선언

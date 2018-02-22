@@ -19,7 +19,7 @@
 	//String과 int형식의 SingerName를 준비한다
 
 	
-	response.sendRedirect(request.getContextPath()+"/singerList.jsp");
+	response.sendRedirect(request.getContextPath()+"/singer/singerList.jsp");
 	System.out.println(singer + "<-- singer 출력확인");
 	
 	
