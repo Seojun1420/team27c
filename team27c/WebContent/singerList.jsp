@@ -1,6 +1,5 @@
 <!-- team27c ¿Õ¼­ÁØ -->
 
-
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 	<%@ page import = "java.util.ArrayList" %>
    	<%@ page import = "service.Singer" %>

@@ -71,7 +71,6 @@ public class SingerDao {
 		}
 		return list; //배열리턴
 		
-
 	}
 	public void insertSingerList(Singer singer) throws ClassNotFoundException, SQLException {
 		Connection conn = null;
