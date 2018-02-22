@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    <% request.setCharacterEncoding("EUC-KR"); %>  
-    <jsp:useBean id="singer" class="service.Singer"/>
-	<jsp:setProperty name="singer" property="*"/>
-    <%@ page import="service.SingerDao" %>
-	<%@ page import="service.Singer" %>
+<% request.setCharacterEncoding("EUC-KR"); %>  
+<jsp:useBean id="singer" class="service.Singer"/>
+<jsp:setProperty name="singer" property="*"/>
+<%@ page import="service.SingerDao" %>
+<%@ page import="service.Singer" %>
 <!DOCTYPE html >
 <html>
 <head>

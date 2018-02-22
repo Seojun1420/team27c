@@ -10,10 +10,77 @@ import java.util.ArrayList;
 import java.sql.ResultSet;
 
 public class SingerDao {
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
+	
+	public void updateSingerAction(Singer singerDao) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "UPDATE singer SET singerName=?, singerAge=? WHERE singerId = ?";
+		
+		try {
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			
+			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass); 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, singerDao.getSingerName());
+			pstmt.setInt(2, singerDao.getSingerAge());
+			pstmt.setInt(3, singerDao.getSingerId());
+			
+			pstmt.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
+			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
+			if (conn != null) try { conn.close(); } catch(SQLException e) {}
+		}
+	}
+	
+	public void updateSinger(int singerId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Singer singer = new Singer();
+		String sql = "SELECT * FROM singer WHERE singerId = ?";
+	
+		// 콘솔창에서 출력하기 위한 말
+		System.out.println(" 가수 업데이트 ");
+		try {
+			//db를 접속하기 위한 id, pw, 주소 설정코드이며 String은 변수형태로 사용!
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			
+			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass); 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, singerId);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				singer.setSingerId(rs.getInt("singerId"));
+				singer.setSingerName(rs.getString("singerName"));
+				singer.setSingerAge(rs.getInt("singerAge"));	
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch(ClassNotFoundException e) { 
+			e.printStackTrace();
+		}finally {
+			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
+			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
+			if (conn != null) try { conn.close(); } catch(SQLException e) {}
+		}
+	}
+
 	public void DeleteSinger(int singerId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		System.out.println(" 가수 삭제 ");	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
