@@ -13,8 +13,70 @@ public class ActorDao {
 	Connection connection = null;
 	PreparedStatement statement = null;
 	ResultSet resultSet = null;
+	Actor actor = null;
 	
-	public void deleteActorList(int actorid) {
+	public void actionUpdateActor(Actor actor) {
+		try {
+				Class.forName("com.mysql.jdbc.Driver");
+				System.out.println("드라이버로딩");
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+				String dbUser = "root";
+				String dbPass = "java0000";
+				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+				System.out.println("DB연결");
+				statement = connection.prepareStatement("UPDATE actor SET actor_name=?, actor_age=? WHERE actor_id=?");
+				statement.setString(1, actor.getActorName());
+				statement.setInt(2, actor.getActorAge());
+				statement.setInt(3, actor.getActorId());
+				statement.executeUpdate();
+				System.out.println("쿼리실행");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (statement != null) try {statement.close();} catch (SQLException ex) {}
+			if (connection != null) try {connection.close();} catch (SQLException ex) {}
+		}
+	}
+	
+
+	
+	public Actor selectUpdateActor(int actorId) {
+		try {
+				Class.forName("com.mysql.jdbc.Driver");
+				System.out.println("드라이버로딩");
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+				String dbUser = "root";
+				String dbPass = "java0000";
+				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+				System.out.println("DB연결");
+				statement = connection.prepareStatement("SELECT * FROM actor WHERE actor_id=?");
+				statement.setInt(1, actorId);
+				resultSet = statement.executeQuery();
+				System.out.println(statement + "쿼리실행");
+				if(resultSet.next()) {
+					actor = new Actor();
+					actor.setActorId(resultSet.getInt("actor_id"));
+					actor.setActorName(resultSet.getString("actor_name"));
+					actor.setActorAge(resultSet.getInt("actor_age"));
+				}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (resultSet != null) try {resultSet.close();} catch (SQLException ex) {}
+			if (statement != null) try {statement.close();} catch (SQLException ex) {}
+			if (connection != null) try {connection.close();} catch (SQLException ex) {}
+		}
+		
+		return actor;
+	}
+	
+	
+	
+	public void deleteActor(int actorId) {
 		try {
 				Class.forName("com.mysql.jdbc.Driver");
 				System.out.println("드라이버로딩");
@@ -24,7 +86,7 @@ public class ActorDao {
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				System.out.println("DB연결");
 				statement = connection.prepareStatement("DELETE FROM actor WHERE actor_id=?");
-				statement.setInt(1, actorid);
+				statement.setInt(1, actorId);
 				statement.executeUpdate();
 				System.out.println("쿼리실행");
 				
@@ -40,7 +102,7 @@ public class ActorDao {
 	}
 
 	
-	public void insertActorList(Actor actor) {
+	public void insertActor(Actor actor) {
 		try {	
 				/*드라이버로딩, db연결을 한다.*/
 				Class.forName("com.mysql.jdbc.Driver");

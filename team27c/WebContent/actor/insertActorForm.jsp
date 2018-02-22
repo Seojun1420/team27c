@@ -7,7 +7,7 @@
 <title>insertActorForm.jsp</title>
 </head>
 <body>
-		<h1>Insert Actor Form</h1>
+		<h1>insertActorForm.jsp</h1>
 			<!-- POST방식으로 폼에서 입력한 정보들을 insertActorAction.jsp로 넘겨준다. -->
 			<form action="<%= request.getContextPath() %>/insertActorAction.jsp" method="post">
 				<table border="1">
