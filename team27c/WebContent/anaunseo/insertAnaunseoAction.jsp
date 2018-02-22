@@ -22,7 +22,7 @@
 	AnaunseoDao anaunseoDao = new AnaunseoDao();
 	anaunseoDao.insertAnaunseo(anaunseo);
 	
-	response.sendRedirect(request.getContextPath()+"/anaunseoList.jsp");
+	response.sendRedirect(request.getContextPath()+"/anaunseo/anaunseoList.jsp");
 	
 %>
 

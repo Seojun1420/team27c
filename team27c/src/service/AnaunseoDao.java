@@ -11,8 +11,13 @@ import java.util.ArrayList;
 public class AnaunseoDao {
 	Connection connection = null;
 	PreparedStatement statement = null; 
-	ResultSet rs = null;	
+	ResultSet rs = null;
+	
 	public ArrayList<Anaunseo> selectAnaunseoList() {
+		/*
+		 * selectAnaunseoList 메서드는 db에 저장된 아나운서의 id와 이름, 나이를 보여 주는 메서드.
+		 * Anaunseo 클래스 타입의 ArrayList를 리턴한다.
+		 */
 		ArrayList<Anaunseo> list = new ArrayList<Anaunseo>();  		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -69,23 +74,32 @@ public class AnaunseoDao {
 		
 	}
 	public void insertAnaunseo(Anaunseo anaunseo) {
+		/*
+		 * insertAnaunseo 새로운 아나운서를 등록하는 메서드.
+		 * void 타입이므로 return은 없고, Anaunseo 클래스에 셋팅된 값을 매개변수값으로 받아온다.
+		 */
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("드라이버로딩성공");
+			//mysql 드라이버 로딩
+			
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 		    String dbUser = "root";
 		    String dbPass = "java0000";
-		    String sql = "INSERT INTO anaunseo VALUES(?,?,?)";	
+		    String sql = "INSERT INTO anaunseo VALUES(?,?,?)";
+		    //mysql 연결을 위해 ip, port, dbid, dbpw, db명 입력
+		      
+		    connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+		    /* DriverManger 클래스의 getConnection 메서드 호출한다 .
+		     * 이때  jdbcDriver, dbUser, dbpass를 매개변수 값으로 보낸다.
+		     */
 		    
-		    connection=DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-		    System.out.println("디비연결성공");
 		    statement=connection.prepareStatement(sql);
+		    //connection 객체 참조 변수에 할당된 참조값을 찾아가 prepareStatement메서드를실행하고 준비된 쿼리문을 입력한다.	
 		    statement.setInt(1, anaunseo.getAnaunseoId());
 		    statement.setString(2, anaunseo.getAnaunseoName());
-		    statement.setInt(3, anaunseo.getAnaunseoAge());
+		    statement.setInt(3, anaunseo.getAnaunseoAge());		    
 		    
 		    statement.executeUpdate();
-		    System.out.println("업데이트 성공");
 		    
 		}catch(SQLException e){ //Class.forName
 			e.printStackTrace();
@@ -121,4 +135,81 @@ public class AnaunseoDao {
 			if(connection != null) try { connection.close(); } catch(SQLException e) {}
 		}
 	}
+	public Anaunseo selectUpdateAnaunnseo(int anaunseoId) {
+		Anaunseo anaunseo = new Anaunseo();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			//mysql 드라이버 로딩
+			
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+		    String dbUser = "root";
+		    String dbPass = "java0000";
+		    String sql = "SELECT * FROM anaunseo WHERE anaunseo_id=?";
+		    //mysql 연결을 위해 ip, port, dbid, dbpw, db명 입력
+		      
+		    connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+		    /* DriverManger 클래스의 getConnection 메서드 호출한다 .
+		     * 이때  jdbcDriver, dbUser, dbpass를 매개변수 값으로 보낸다.
+		     */
+		    
+		    statement=connection.prepareStatement(sql);
+		    //connection 객체 참조 변수에 할당된 참조값을 찾아가 prepareStatement메서드를실행하고 준비된 쿼리문을 입력한다.
+		    statement.setInt(1, anaunseoId);
+		    
+		    rs=statement.executeQuery();
+		    
+		    if(rs.next()) {
+		    	
+		    	anaunseo.setAnaunseoId(rs.getInt("anaunseo_id"));
+		    	anaunseo.setAnaunseoName(rs.getString("anaunseo_name"));
+		    	anaunseo.setAnaunseoAge(rs.getInt("anaunseo_age"));
+		    	
+		    }
+		    
+		}catch(SQLException e){ //Class.forName
+			e.printStackTrace();
+		}catch(ClassNotFoundException e) { //jdbc
+			e.printStackTrace();
+		}finally{		
+			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
+			if (statement != null) try { statement.close(); } catch(SQLException e) {}			
+			if (connection != null) try { connection.close(); } catch(SQLException e) {}
+		}
+		return anaunseo;
+	}
+	public void ActionUpdateAnaunnseo(Anaunseo anaunseo) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			//mysql 드라이버 로딩
+			
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+		    String dbUser = "root";
+		    String dbPass = "java0000";
+		    String sql = "UPDATE anaunseo SET anaunseo_name=?, anaunseo_age=? WHERE anaunseo_id=?";
+		    //mysql 연결을 위해 ip, port, dbid, dbpw, db명 입력
+		      
+		    connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+		    /* DriverManger 클래스의 getConnection 메서드 호출한다 .
+		     * 이때  jdbcDriver, dbUser, dbpass를 매개변수 값으로 보낸다.
+		     */
+		    
+		    statement=connection.prepareStatement(sql);
+		    //connection 객체 참조 변수에 할당된 참조값을 찾아가 prepareStatement메서드를실행하고 준비된 쿼리문을 입력한다.
+		    statement.setString(1, anaunseo.getAnaunseoName());
+		    statement.setInt(2, anaunseo.getAnaunseoAge());
+		    statement.setInt(3, anaunseo.getAnaunseoId());
+		    
+		    statement.executeUpdate();
+		    
+		    
+		}catch(SQLException e){ //Class.forName
+			e.printStackTrace();
+		}catch(ClassNotFoundException e) { //jdbc
+			e.printStackTrace();
+		}finally{		
+			if (statement != null) try { statement.close(); } catch(SQLException e) {}//순서대로 가장 늦게 실행된 객체부터 닫아준다.	
+			if (connection != null) try { connection.close(); } catch(SQLException e) {}
+		}
+	}
+		
 }

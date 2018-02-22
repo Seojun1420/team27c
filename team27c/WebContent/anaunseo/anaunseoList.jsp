@@ -35,8 +35,8 @@
 					<td><%= ana.getAnaunseoId() %></td>
 					<td><%= ana.getAnaunseoName() %></td>
 					<td><%= ana.getAnaunseoAge() %></td>
-					<td><a href="<%= request.getContextPath() %>/updateAnaunseoForm.jsp?anaunseoId=<%= ana.getAnaunseoId()%>">수정</a></td>
-					<td><a href="<%= request.getContextPath() %>/deleteAnaunseoAction.jsp?anaunseoId=<%= ana.getAnaunseoId()%>">삭제</a></td>
+					<td><a href="<%= request.getContextPath() %>/anaunseo/updateAnaunseoForm.jsp?anaunseoId=<%= ana.getAnaunseoId()%>">수정</a></td>
+					<td><a href="<%= request.getContextPath() %>/anaunseo/deleteAnaunseoAction.jsp?anaunseoId=<%= ana.getAnaunseoId()%>">삭제</a></td>
 				</tr>
 		<%
 			}
@@ -45,6 +45,6 @@
 		<br>
 		<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
 		<br>
-		<a href="<%= request.getContextPath() %>/insertAnaunserForm.jsp">아나운서리스트 등록하기</a>
+		<a href="<%= request.getContextPath() %>/anaunseo/insertAnaunserForm.jsp">아나운서리스트 등록하기</a>
 </body>
 </html>
