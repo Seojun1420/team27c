@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,20 +7,22 @@
 <title>team271</title>
 </head>
 <body>
-<%request.setCharacterEncoding("euc-kr"); %>
-	<form action="<%=request.getContextPath()%>/insertActressAction.jsp" method="post">
+	<h1>Insert Actress Form</h1>
+	<%request.setCharacterEncoding("euc-kr");%>
+	<form action="<%=request.getContextPath()%>/insertActressAction.jsp"method="post">
 		<table border="1">
 			<tr>
-				<td>이름</td>
-				<td><input type="text" name="actressName" size="20"></td>
+				<th>여배우이름</th>
+				<td><input type="text" name="actressName" size="10"></td>
 			</tr>
 			<tr>
-				<td>나이</td>
-				<td><input type="text" name="actressAge" size="20"></td>
+				<th>여배우나이</th>
+				<td><input type="text" name="actressAge" size="10"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="등록"></td>
-			</tr> 
+				<th>Insert</th>
+				<td><input type="submit" value="등록하기"></td>
+			</tr>
 		</table>
 	</form>
 </body>

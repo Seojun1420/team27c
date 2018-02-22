@@ -10,13 +10,13 @@
 <title>Team27c</title> 
 </head> 
 <body>
-	Actress list 
+	<h1>Actress list</h1> 
 	<table  border="1">
 		<thead>
 			<tr>
-				<th>아이디</th>
-				<th>이름</th>
-				<th>나이</th>
+				<th>여배우번호</th>
+				<th>여배우이름</th>
+				<th>여배우나이</th>
 			</tr>
 		</thead>
 <%
@@ -49,5 +49,16 @@
 		}
 	%>
 	</table>
+	<br>
+	<table>
+		<tr>
+			<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
+		</tr>
+		<br>
+		<tr>
+			<a href="<%= request.getContextPath() %>/insertActressForm.jsp">여배우리스트 등록하기</a>
+		</tr>
+	</table>
+	
 </body>
 </html>
