@@ -10,9 +10,36 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class RapperDao {
-	Connection connection = null;
+	Connection connection  = null;
 	PreparedStatement statement = null;
-	ResultSet resultSet = null;
+	ResultSet resultset = null;
+	
+	public void deleteRapper(int rapperId){
+		try {
+		Class.forName("com.mysql.jdbc.Driver");
+		System.out.println("드라이버로딩완료");
+		//DB연결시작:포트번호,ip주소,DB명,DBid,DBpw 작성
+		String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?" + "useUnicode=true&characterEncoding=euckr";
+		String dbUser = "root";
+		String dbPass = "java0000";
+		connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+		System.out.println("DB연결");
+		statement = connection.prepareStatement("DELETE FROM rapper WHERE rapper_id=?");
+			statement.setInt(1,rapperId);
+			statement.executeUpdate();
+	
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+} catch (SQLException e) {
+	e.printStackTrace();
+} finally {
+	if (statement != null) try {statement.close();} catch (SQLException ex) {}
+	if (connection != null) try {connection.close();} catch (SQLException ex) {}
+}
+}
+
+
+	
 	
 	public void insertRapperList(Rapper rapper) {
 		try {
@@ -48,7 +75,7 @@ public class RapperDao {
 	}
 
 
-	public ArrayList<Rapper> selectRapperList() {
+	public ArrayList<Rapper> selectRapperList1() {
 		ArrayList<Rapper> list = new ArrayList<Rapper>();
 		PreparedStatement pstmt = null;//이부분을 잘 모르는데 잘 모르는건 심각한거겠지? 방법 자체는 오류나는 거 클릭해서 수정하는걸로 알고있다.
 		
