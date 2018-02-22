@@ -14,13 +14,29 @@
 	System.out.println(rapperId);
 	
 	RapperDao rapperDao = new RapperDao();
-	Rapper rapper = new Rapper();
-	rapper=rapperDao.selectUpdateRapper(rapperId);
+	Rapper rapper = rapperDao.selectUpdateRapper(rapperId);
 %>
 
-	<%=rapper.getRapperId() %>
-	<%=rapper.getRapperName() %>
-	<%=rapper.getRapperAge() %>
+	<h1>Update Rapper Form</h1>
+			<!-- POST방식으로 폼에서 입력한 정보들을 insertrapperAction.jsp로 넘겨준다. -->
+			<form action="<%= request.getContextPath() %>/rapper/updateRapperAction.jsp" method="post">
+				<input type="hidden" name="rapperId"value="<%=rapper.getRapperId() %>">
+				<table border="1">
+				
+					<tr>
+						<th>rapper Name</th>
+						<td><input type="text" name="rapperName" value="<%=rapper.getRapperName() %>" size="10"></td>
+					</tr>
+					<tr>
+						<th>rapper Age</th>
+						<td><input type="text" name="rapperAge" value="<%=rapper.getRapperAge() %>" size="10"></td>
+					</tr>
+					<tr>
+						<th>Update</th>
+						<td><input type="submit" value="수정하기"></td>
+					</tr>
+				</table>
+			</form>	
 	
 </body>
 </html>

@@ -14,6 +14,34 @@ public class RapperDao {
 	PreparedStatement statement = null;
 	ResultSet resultset = null;
 	
+	public void UpdateRapper(int rapperId,String rapperName,int rapperAge) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("드라이버로딩완료");
+		
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?" + "useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			
+			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			System.out.println("DB연결");
+			statement = connection.prepareStatement("UPDATE rapper SET rapper_name=?,rapper_age=? WHERE rapper_id=?");
+			statement.setString(1,rapperName);
+			statement.setInt(2,rapperAge);
+			statement.setInt(3,rapperId);
+			statement.executeUpdate();
+	
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+} catch (SQLException e) {
+	e.printStackTrace();
+} finally {
+	if (statement != null) try {statement.close();} catch (SQLException ex) {}
+	if (connection != null) try {connection.close();} catch (SQLException ex) {}
+}
+}
+
+	
 	public Rapper selectUpdateRapper(int rapperId) {
 		String sql ="SELECT * FROM rapper WHERE rapper_id=?";
 		Rapper rapper = new Rapper();

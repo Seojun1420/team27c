@@ -11,6 +11,7 @@
 </head>
 <body>
 <%	
+	request.setCharacterEncoding("euckr");
 	String rapperName = request.getParameter("rapperName");
 	int rapperAge = Integer.parseInt(request.getParameter("rapperAge"));
 	System.out.println(rapperName +","+rapperAge+ "<--rapperName,rapperAge");
