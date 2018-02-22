@@ -100,22 +100,17 @@ public class AnaunseoDao {
 	public void deleteAnaunseoList(int anaunseoId) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("드라이버로딩 성공");
+
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbId = "root";
 			String dbPw = "java0000";
 			String sql = "DELETE FROM anaunseo WHERE anaunseo_id=?";
 			
 			connection=DriverManager.getConnection(jdbcDriver, dbId, dbPw);
-			System.out.println("db연결");
 			statement=connection.prepareStatement(sql);
-			System.out.println("쿼리문 준비");
 			statement.setInt(1, anaunseoId);
-			System.out.println("쿼리문 셋팅");
-			System.out.println(statement+"<----쿼리문 셋팅");
-			
+
 			statement.executeUpdate();
-			System.out.println("쿼리 실행");
 			
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();			

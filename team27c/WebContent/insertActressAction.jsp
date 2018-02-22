@@ -1,4 +1,3 @@
-<!-- team27c ±è¹®±â -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%request.setCharacterEncoding("euc-kr"); %>
 <jsp:useBean id="a" class="service.Actress"/>
@@ -17,8 +16,5 @@
 	ActressDao actressDao = new ActressDao();
 	actressDao.insertActress(a);
 %>
-
-
-
 </body>
 </html>

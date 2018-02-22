@@ -1,7 +1,9 @@
+<!-- µµÁ¤¸¸  -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%request.setCharacterEncoding("EUC-KR"); %> 
 <%@ page import="service.AnaunseoDao" %>
 <%@ page import="service.Anaunseo" %>
-<%request.setCharacterEncoding("EUC-KR"); %>   
+  
 <!DOCTYPE html>
 <html>
 <head>
