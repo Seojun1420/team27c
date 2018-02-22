@@ -4,51 +4,50 @@
 <%@ page import = "service.ComedianDao" %>
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html >
-
-	<body>
-	ComedianList.jsp
-	
-	
-		<table border = "1"> <!-- 표 생성 -->
-			<tr>
-				<td>comedian Id</td>
-				<td>comedian Name</td>
-				<td>comedian Age</td>
-			</tr>
-		
-			<%
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<title>ActorList</title>
+</head>
+<body>
+		<%
 			ComedianDao comediandao = new ComedianDao();//comedian 객체참조변수 선언
-			ArrayList<Comedian> arrayList = comediandao.selectComedianList();// comedian에 담긴 주소값을 찾아가, selectComedianList를 호출, 실행해준 뒤 arrList로 담는다.
-				
-				for(Comedian comedian : arrayList){
-					
-			%>
-			
+		%>
+			<h1>ComedianList.jsp</h1>
+			<table border = "1"> <!-- 표 생성 -->
+				<thead>
+					<tr>
+						<td>comedian Id</td>
+						<td>comedian Name</td>
+						<td>comedian Age</td>
+					</tr>
+				</thead>
+		<%
+			// comedian에 담긴 주소값을 찾아가, selectComedianList를 호출, 실행해준 뒤 arrList로 담는다.
+			ArrayList<Comedian> arrayList = comediandao.selectComedianList();
+			for(Comedian comedian : arrayList) {
+		%>
 				<tr>
 					<td><%= comedian.getComedianId() %></td>
 					<td><%= comedian.getComedianName() %></td>
 					<td><%= comedian.getComedianAge() %></td>
 				</tr>
-				
-			
-			<%
-				}
-			%>
+		<%
+			}
+		%>
 				
 		</table>
+		<br>
 		<table>
-				<br>
 				<tr>
 					<a href="<%= request.getContextPath() %>/index.jsp">홈으로</a>
 				</tr>
 				<tr>
-					<a>	</a>
+				<br>
 				</tr>
 				<tr>
-					<a href="<%= request.getContextPath() %>/insertComedianForm.jsp">등록하기</a>
+					<a href="<%= request.getContextPath() %>/insertComedianForm.jsp">리스트등록하기</a>
 				</tr>
-		</table>
-	
-	
-	</body>
+		</table>	
+</body>
 </html>

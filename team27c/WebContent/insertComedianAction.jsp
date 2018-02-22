@@ -1,36 +1,39 @@
-<!-- team27c ÀÓ°¡Çö -->
+<!-- team27c ìž„ê°€í˜„ -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import ="service.ComedianDao" %>
 <%@ page import ="service.Comedian" %>
-<%@ page import = "java.util.ArrayList" %>
-
+<% request.setCharacterEncoding("euc-kr"); %>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-		<title>Insert title here</title>
+		<title>insertComedianAction</title>
 	</head>
 	<body>
 		<%
-		//comdiandao·Î ÁÖ¼ÒÂüÁ¶ÇÏ¿© DB¸¦ ¿¬°á½ÃÄÑ, ¸®ÅÏ½ÃÄÑ¿Â´Ù.
-		ComedianDao comediandao = new ComedianDao();
-		comediandao.selectComedianList();
-		
-		//request¿¡ ÇÒ´çµÈ ÁÖ¼Ò°ªÀ» Ã£¾Æ°¡, getParameter("comedianName")À» °ÙÆÃÇØ¿Â´Ù. ±×¸®°í °´Ã¼ÂüÁ¶º¯¼ö comedian¿¡ ÁÖ¼Ò°ªÀ» ÀúÀåÇÑ´Ù.
+		//requestì— í• ë‹¹ëœ ì£¼ì†Œê°’ì„ ì°¾ì•„ê°€, getParameter("comedianName")ì„ ê²ŸíŒ…í•´ì˜¨ë‹¤. ê·¸ë¦¬ê³  ê°ì²´ì°¸ì¡°ë³€ìˆ˜ comedianì— ì£¼ì†Œê°’ì„ ì €ìž¥í•œë‹¤.
 		String comedianName = request.getParameter("comedianName");
-		String comedianAge = request.getParameter("comedianAge");
-		//Ãâ·ÂÀ» È®ÀÎÇÏ±â À§ÇÑ ÀåÄ¡
+		int comedianAge = Integer.parseInt(request.getParameter("comedianAge"));
+		//ì¶œë ¥ì„ í™•ì¸í•˜ê¸° ìœ„í•œ ìž¥ì¹˜
 		System.out.println(comedianName + "<-comedianName");
 		System.out.println(comedianAge+ "<-comedianAge");
 		
-		//form¿¡¼­ ÀÛ¼ºÇÑ comedianÀÇ Á¤º¸¸¦ ÀÔ·ÂÇÑ´Ù. 
+		/* Comedian ìƒì„±ìž ë§¤ì„œë“œë¥¼ ìƒì„±í•˜ê³ , comedianê°ì²´ì°¸ì¡°ë³ìˆ˜ì— ì£¼ì†Œê°’ì„ í• ë‹¹í•œë‹¤. 
+		comedianì— í• ë‹¹ëœ ì£¼ì†Œë¥¼ ì°¾ì•„ê°€ ComedianNameê³¼ ComedianAgeì„ ë§¤ê°œë³€ìˆ˜ë¡œ setë©”ì„œë“œë¥¼ ì‹¤í–‰,ì…‹íŒ…í•œë‹¤.*/
 		Comedian comedian = new Comedian();
-		comedian.setComedianName(comedian.getComedianName());
-		comedian.setComedianAge(comedian.getComedianAge());
+		comedian.setComedianName(comedianName);
+		comedian.setComedianAge(comedianAge);
+		//ì¶œë ¥ë¬¼ í™•ì¸
+		System.out.println(comedian + "<-- comedian í™•ì¸");
 		
-		System.out.println(comedian + "<-- comedian È®ÀÎ");
-		
-		
+		//comdiandaoë¡œ ì£¼ì†Œì°¸ì¡°í•˜ì—¬ DBë¥¼ ì—°ê²°ì‹œì¼œ, ë¦¬í„´ì‹œì¼œì˜¨ë‹¤.
+		ComedianDao comediandao = new ComedianDao();
+		comediandao.insertComedianrList(comedian);
+		//ì¶œë ¥ë¬¼ í™•ì¸
+		System.out.println(comedian + "<-- comedian í™•ì¸");
+		/* responseë‚´ìž¥ê°ì²´ :  í´ë¼ì´ì–¸íŠ¸ì— ëŒ€í•œ ì‘ë‹µ ì²˜ë¦¬ë¥¼ í•˜ëŠ” ê°ì²´, ì‹¤í–‰ê²°ê³¼ë¥¼ ë¸Œë¼ìš°ì €ë¡œ ë˜ëŒë ¤ ì¤„ ë•Œ ì‚¬ìš©í•˜ëŠ” ê°ì²´ì´ë‹¤.*/
+		response.sendRedirect(request.getContextPath() + "/comedianList.jsp");
+		%>
 		
 		
 		
