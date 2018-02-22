@@ -1,30 +1,40 @@
 <!-- team27c 왕서준  -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="service.SingerDao" %>
+<%@ page import="service.Singer" %>
 <!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>SingerUPDATEForm.jsp</title>
+	<title>Singer UPDATE Form</title>
 </head>
 <body>
 
-		<h1> Singer UPDATE List</h1>
-		<!-- POST방식으로 폼에서 입력한 정보들을 updateSingerAction.jsp로 넘겨준다. -->
-		<form action="<%=request.getContextPath()%>/updateSingerAction.jsp" method="post">
+		<h1> Singer UPDATE Form</h1>
+		<form action="<%=request.getContextPath()%>/singer/updateSingerAction.jsp" method="post">
 		<table border="1">
-			<tr>
+			<thead>
+				<tr>
+				<th>가수번호</th>
 				<th>가수이름</th>
-				<td><input type="text" name="singerName" size="10"></td>
-			<tr>
-			<tr>
 				<th>가수나이</th>
-				<td><input type="text" name="singerAge" size="10"></td>
-			<tr>
-			<tr>
-				<th> Update </th>
-				<td><input type="submit" value="수정하기"></td>
 			</tr>
+			<%
+				int singerId = Integer.parseInt(request.getParameter("singerId"));
+				System.out.println(singerId);
+				SingerDao singerDao = new SingerDao();
+				Singer singer = new Singer();
+				singer = singerDao.updateSinger(singerId);
+			%>
+			<tbody>
+					<tr>
+				<td><input type="text" name="singerId" value="<%=singer.getSingerId() %>"readonly ></td>
+				<td><input type="text" name="singerName" value="<%=singer.getSingerName() %>"></td>
+				<td><input type="text" name="singerAge" value="<%=singer.getSingerAge() %>"></td>
+				<td><input type="submit" value="수정"></td>
+			</tr>
+			</tbody>
 		</table>
 	</form>
 </body>

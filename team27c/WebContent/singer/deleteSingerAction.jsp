@@ -16,7 +16,7 @@
 			SingerDao singerdao = new SingerDao();
 			singerdao.DeleteSinger(singerId);
 	
-			response.sendRedirect(request.getContextPath()+"/singerList.jsp");
+			response.sendRedirect(request.getContextPath()+"/singer/singerList.jsp");
 		
 			
 		

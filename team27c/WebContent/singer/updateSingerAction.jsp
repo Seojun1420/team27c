@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>Update title here</title>
+	<title>UpdateSingerAction</title>
 </head>
 <body>
 <% 
@@ -15,13 +15,14 @@
 	String singerName = request.getParameter("singerName");
 	int singerAge = Integer.parseInt(request.getParameter("singerAge"));
 	
+	
 	Singer singer = new Singer();
 	singer.setSingerId(singerId); 
 	singer.setSingerName(singerName);
 	singer.setSingerAge(singerAge);
 	
 	SingerDao singerdao = new SingerDao();
-	/* singerdao.UpdateSinger(singer); */
+	singerdao.updateSingerAction(singer);
 
 %>
 

@@ -4,7 +4,7 @@
 <% request.setCharacterEncoding("euc-kr"); %>
 <%@ page import = "service.Actor" %>
 <%@ page import = "service.ActorDao" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -28,7 +28,7 @@
 	/* ActorDao객체를 생성하고 객체의 주소값을 actorDao에 할당해준다.
 	actorDao객체참조변수의 주소를 찾아 actor를 매개변수로 insertActorList 메서드를 실행 */
 	ActorDao actorDao = new ActorDao();
-	actorDao.insertActorList(actor);
+	actorDao.insertActor(actor);
 	System.out.println(actor + "<--actor");
 	/* response내장객체 :  클라이언트에 대한 응답 처리를 하는 객체, 실행결과를 브라우저로 되돌려 줄 때 사용하는 객체 
 	response객체의 sendRedirect()메서드를 사용하여 웹 서버가 브라우저에게 지정한 페이지로 이동할 때 사용한다. */

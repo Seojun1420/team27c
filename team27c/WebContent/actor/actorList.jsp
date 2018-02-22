@@ -54,6 +54,6 @@
 			<br>
 					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
 					<br>
-					<a href="<%= request.getContextPath() %>/insertActorForm.jsp">남배우리스트 등록하기</a>
+					<a href="<%= request.getContextPath() %>/actor/insertActorForm.jsp">남배우리스트 등록하기</a>
 </body>
 </html>

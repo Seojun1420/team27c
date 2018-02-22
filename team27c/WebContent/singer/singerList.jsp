@@ -42,8 +42,8 @@
 		<td><%= s.getSingerId() %></td>
 		<td><%= s.getSingerName() %></td>
 		<td><%= s.getSingerAge() %></td>
-		<td><a href="updateSingerForm.jsp?singerId=<%= s.getSingerId()%>">수정</a></td>
-		<td><a href="deleteSingerAction.jsp?singerId=<%=s.getSingerId()%>">삭제</a></td>
+		<td><a href="<%= request.getContextPath() %>/singer/updateSingerForm.jsp?singerId=<%= s.getSingerId()%>">수정</a></td>
+		<td><a href="<%= request.getContextPath() %>/singer/deleteSingerAction.jsp?singerId=<%=s.getSingerId()%>">삭제</a></td>
 	</tr>
 <%
 	}
@@ -54,7 +54,7 @@
 				<br>
 					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
 				<br>
-					<a href="<%= request.getContextPath() %>/insertSingerForm.jsp">가수리스트 등록하기</a>
+					<a href="<%= request.getContextPath() %>/singer/insertSingerAction.jsp">가수리스트 등록하기</a>
 		
 </body>
 </html>
