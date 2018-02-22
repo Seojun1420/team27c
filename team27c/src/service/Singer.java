@@ -2,26 +2,31 @@
 package service;
 
 public class Singer {
-	private int Singer_Id;
-	private String Singer_Name;
-	private int Singer_Age;
-	public int getSinger_Id() {
-		return Singer_Id;
+	
+	private int singerId;
+	private String singerName;
+	private int singerAge;
+	public int getSingerId() {
+		return singerId;
 	}
-	public void setSinger_Id(int singer_Id) {
-		Singer_Id = singer_Id;
+	public void setSingerId(int singerId) {
+		this.singerId = singerId;
 	}
-	public String getSinger_Name() {
-		return Singer_Name;
+	public String getSingerName() {
+		return singerName;
 	}
-	public void setSinger_Name(String singer_Name) {
-		Singer_Name = singer_Name;
+	public void setSingerName(String singerName) {
+		this.singerName = singerName;
 	}
-	public int getSinger_Age() {
-		return Singer_Age;
+	public int getSingerAge() {
+		return singerAge;
 	}
-	public void setSinger_Age(int singer_Age) {
-		Singer_Age = singer_Age;
+	public void setSingerAge(int singerAge) {
+		this.singerAge = singerAge;
+	}
+	@Override	 
+	public String toString(){
+		return "Singer [singerId=" + singerId + ", signerName=" + singerName + ", singerAge=" + singerAge + "]";
 	}
 	
 	

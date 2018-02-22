@@ -53,9 +53,9 @@ public class SingerDao {
 			 */
 			while(rs.next()) {
 				singer = new Singer();
-				singer.setSinger_Id(rs.getInt("singer_id"));
-				singer.setSinger_Name(rs.getString("singer_name"));
-				singer.setSinger_Age(rs.getInt("singer_age"));
+				singer.setSingerId(rs.getInt("singerId"));
+				singer.setSingerName(rs.getString("singerName"));
+				singer.setSingerAge(rs.getInt("singerAge"));
 				list.add(singer);
 				 //셋팅된 singer 객체참조변수를 list에 추가해준다.
 			}
@@ -88,9 +88,9 @@ public class SingerDao {
 		    conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 		    System.out.println("디비연결성공");
 		    pstmt = conn.prepareStatement(sql);
-		    pstmt.setInt(1, singer.getSinger_Id());
-		    pstmt.setString(2, singer.getSinger_Name());
-		    pstmt.setInt(3, singer.getSinger_Age());
+		    pstmt.setInt(1, singer.getSingerId());
+		    pstmt.setString(2, singer.getSingerName());
+		    pstmt.setInt(3, singer.getSingerAge());
 		    
 		    
 		}catch(SQLException e){

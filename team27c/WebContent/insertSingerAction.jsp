@@ -18,8 +18,8 @@
 	System.out.println("singerAge");
 	
 	Singer singer = new Singer();
-	singer.setSinger_Name(singerName);
-	singer.setSinger_Age(singerAge);
+	singer.setSingerName(singerName);
+	singer.setSingerAge(singerAge);
 	
 	SingerDao singerDao = new SingerDao();
 	singerDao.insertSingerList(singer);
