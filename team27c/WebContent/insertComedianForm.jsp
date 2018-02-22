@@ -7,7 +7,7 @@
 <title>insertComedianForm</title>
 </head>
 <body>
-		<h1>Insert Actor Form</h1>
+		<h1>Insert Comedian Form</h1>
 			<form action="<%= request.getContextPath() %>/insertComedianAction.jsp" method="post">
 				<table border="1">
 					<tr>

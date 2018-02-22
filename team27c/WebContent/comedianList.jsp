@@ -20,6 +20,8 @@
 						<td>comedian Id</td>
 						<td>comedian Name</td>
 						<td>comedian Age</td>
+						<td>수정</td>
+						<td>삭제</td>
 					</tr>
 				</thead>
 		<%
