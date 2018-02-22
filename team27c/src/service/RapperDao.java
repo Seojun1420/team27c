@@ -10,6 +10,42 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class RapperDao {
+	Connection connection = null;
+	PreparedStatement statement = null;
+	ResultSet resultSet = null;
+	
+	public void insertRapperList(Rapper rapper) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("드라이버로딩완료");
+			//DB연결시작:포트번호,ip주소,DB명,DBid,DBpw 작성
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?" + "useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			System.out.println("DB연결");
+			
+			statement = connection.prepareStatement("INSERT INTO rapper VALUES (?, ?, ?)");
+			statement.setInt(1,  rapper.getRapperId());
+			statement.setString(2, rapper.getRapperName());
+			statement.setInt(3, rapper.getRapperAge());
+			statement.executeUpdate();
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (statement != null) try {statement.close();} catch (SQLException ex) {}
+			if (connection != null) try {connection.close();} catch (SQLException ex) {}
+		}
+		}
+
+
+	private String rapperName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 	public ArrayList<Rapper> selectRapperList() {
@@ -21,6 +57,7 @@ public class RapperDao {
 		ResultSet rs = null;
 		
 		try {
+			
 			//드라이버 로딩 시작
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("드라이버로딩완료");

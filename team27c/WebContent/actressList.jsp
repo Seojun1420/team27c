@@ -50,15 +50,11 @@
 	%>
 	</table>
 	<br>
-	<table>
-		<tr>
 			<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
-		</tr>
-		<br>
-		<tr>
+	<br>
 			<a href="<%= request.getContextPath() %>/insertActressForm.jsp">여배우리스트 등록하기</a>
-		</tr>
-	</table>
+		
+
 	
 </body>
 </html>
