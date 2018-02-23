@@ -30,7 +30,7 @@ list=rapperDao.selectRapperList1();
 	for(Rapper rapper : list) { // for()
 //for문 사용 배열순서로 세팅
 %>		
-	<tr>
+	<tr><!-- rapper.getRapperId 는 rapper클래스를찾아가서  getting 한다RapperId값을. -->
 		<td><%=rapper.getRapperId() %></td>
 		<td><%=rapper.getRapperName() %></td>
 		<td><%=rapper.getRapperAge() %></td>
