@@ -20,7 +20,8 @@
 		}else {
 			%>
 				<h5 align ="center"><%= sId %> 님 로그인성공</h5>	
-				<h5 align ="center"><a href="<%= request.getContextPath() %>/login/logoutAction.jsp">로그아웃</a></h5>					
+				<h5 align ="center"><a href="<%= request.getContextPath() %>/login/logoutAction.jsp"><input type="submit" value="로그아웃"></a></h5>	
+						
 			<% 	
 		}
 		

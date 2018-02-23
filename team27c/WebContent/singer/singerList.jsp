@@ -12,8 +12,42 @@
 <body>
 <%
 	SingerDao singer = new SingerDao();
+	ArrayList<Singer> arraySinger = singer.selectSingerList();
+	if(session.getAttribute("sId") == null){	
 %>
 	<h1> Singer List</h1>
+	<table border="1">
+	<a href="<%= request.getContextPath() %>/index.jsp">홈가기</a>
+		<thead>
+			<tr>
+				<td>가수번호</td>
+				<td>가수이름</td>
+				<td>가수나이</td>
+				<td>수정</td>
+				<td>삭제</td>
+			</tr>	
+		</thead>
+		<tbody>
+			<%
+				for(Singer s : arraySinger){
+			%>
+				<tr>
+					<td><%= s.getSingerId() %></td>
+					<td><%= s.getSingerName() %></td>
+					<td><%= s.getSingerAge() %></td>
+					
+				
+				</tr>
+		<%
+				}
+		} else {	
+		%>
+		</table>
+		
+	
+	<h1> Singer List</h1>
+		<a href="<%= request.getContextPath() %>/index.jsp">홈가기</a>
+		<a href="<%= request.getContextPath() %>/singer/insertSingerForm.jsp"> 등록하기 </a>
 	<table border="1">
 		<thead>
 			<tr>
@@ -24,40 +58,29 @@
 				<td>삭제</td>
 			</tr>	
 		</thead>
-		
+		<tbody>
+			<%
+			for(Singer s : arraySinger){
+			%>
+			<tr>
+				<td><%= s.getSingerId() %></td>
+				<td><%= s.getSingerName() %></td>
+				<td><%= s.getSingerAge() %></td>
+				<td><a href="<%= request.getContextPath() %>/singer/updateSingerForm.jsp?singerId=<%= s.getSingerId()%>">수정</a></td>
+				<td><a href="<%= request.getContextPath() %>/singer/deleteSingerAction.jsp?singerId=<%=s.getSingerId()%>">삭제</a></td>
+			</tr>
+			
+	</tbody>
+
 <%
-	/* selectSinger 메서드를 실행하고 리턴받은 값이 ArrayList이기 때문에 
-	그내용을  리턴 받을려면 같은 타입인 ArrayList로 정보를 받아야하기 때문에
-	Singer에서도 ArrayList를 선언한다
-	*/
-	
-/* 메서드 실행후 리턴받은 값을 arrList에 담았기 때문에 for문을 이용해 그내용을 출력해 화면에 나타내준다 
-	접근지정자가 private이어서 get 메서드 를 사용해서만 값을 받아올수 있다.*/
-	ArrayList<Singer> arraySinger = singer.selectSingerList();
-	
-	
-	for(Singer s : arraySinger){
-%>		
-	<tr>
-		<td><%= s.getSingerId() %></td>
-		<td><%= s.getSingerName() %></td>
-		<td><%= s.getSingerAge() %></td>
-		<td><a href="<%= request.getContextPath() %>/singer/updateSingerForm.jsp?singerId=<%= s.getSingerId()%>">수정</a></td>
-		<td><a href="<%= request.getContextPath() %>/singer/deleteSingerAction.jsp?singerId=<%=s.getSingerId()%>">삭제</a></td>
-	</tr>
-<%
+		}
 	}
 %>
-</table>
-<br>
+	</table>
 
-				<br>
-					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
-				<br>
-					<a href="<%= request.getContextPath() %>/singer/insertSingerForm.jsp">가수리스트 등록하기</a>
 		
-</body>
-</html>
+	</body>
+	</html>
 
 	
 	
