@@ -15,6 +15,8 @@ public class ActorDao {
 	ResultSet resultSet = null;
 	Actor actor = null;
 	
+	
+	
 	public void actionUpdateActor(Actor actor) {
 		try {
 				/* forName() 메서드 : 클래스 전체 이름(패키지가 포함된 이름)을 매개값으로 받고  Class 객체를 리턴함. */
