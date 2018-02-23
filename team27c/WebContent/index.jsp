@@ -11,16 +11,24 @@
 			<h1 border="2" align ="center">team27c</h1>
 	</header>
 	
-		<form action="<%= request.getContextPath() %>/login/loginMemberAction.jsp" method="post" align="center">
+		<form action="<%= request.getContextPath() %>/login/loginAction.jsp" method="post" align="center">
 		<%if(session.getAttribute("member_id") == null) {%>
 			<td> 아이디 </td> 
 			 <input type="text" name="member_id" placeholder="아이디">
 			<td> 패스워드 </td> 
 			 <input type="password" name="member_pw" placeholder="패스워드">
 			<input type="submit" value="로그인">
+			<%-- <a href="<%= request.getContextPath() %>/">회원가입</a> --%>
 			<br>
 		 </form>
-		 <% } %>
+		 <%
+		 }else{
+		%>
+			<a href="<%= request.getContextPath() %>/">멤버 보기</a>
+			<a href="<%= request.getContextPath() %>/">로그아웃</a>
+		<%
+		 }
+		%>
 		 <table border="7" style="width: 40%" align ="center" >
 		<tr>
 			<br><td align ="center">팀명 : team27c</td><td align ="center">역할</td><td align ="center">사진</td><td align ="center">링크</td><br>
