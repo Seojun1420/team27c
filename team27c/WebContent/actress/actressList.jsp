@@ -10,6 +10,10 @@
 <title>Team27c</title> 
 </head> 
 <body>
+<%
+	String sId= (String)(session.getAttribute("sId"));
+
+%>
 	<h1>Actress list</h1> 
 	<table  border="1">
 		<thead>
@@ -17,8 +21,10 @@
 				<th>여배우번호</th>
 				<th>여배우이름</th>
 				<th>여배우나이</th>
+				<% if(sId!=null){%>
 				<th>수정</th>
 				<th>삭제</th>
+				<%}%>
 			</tr>
 		</thead>
 <%
@@ -45,8 +51,10 @@
 				<td><%=actress.getActressId() %></td>
 				<td><%=actress.getActressName() %></td>
 				<td><%=actress.getActressAge() %></td>
+				<% if(sId!=null){%>
 				<td><a href="<%=request.getContextPath()%>/actress/updateActressForm.jsp?actressId=<%=actress.getActressId()%>">수정</a></td>
 				<td><a href="<%=request.getContextPath()%>/actress/deleteActressAction.jsp?actressId=<%=actress.getActressId()%>">삭제</a></td>
+				<%}%>
 			</tr>
 		</tbody>
 	<%
