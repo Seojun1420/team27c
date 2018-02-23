@@ -20,10 +20,13 @@
 				</tr>
 			</thead>
 			<%
+				/* 수정버튼을 눌렀을때 넘어오는값 actressId 의값을 받아온다. */
 				int actressId = Integer.parseInt(request.getParameter("actressId"));
 				System.out.println(actressId);
 				ActressDao actressDao = new ActressDao();
 				Actress actress = new Actress();
+				/*  actressDao 객체참조변수를 통해 주솔르 찾아가 SelectUpdateActress메서드를 실행하고
+				actressId매개변수로 넘겨준다.*/
 				actress = actressDao.SelectUpdateActress(actressId);
 			%>
 			<tbody>
