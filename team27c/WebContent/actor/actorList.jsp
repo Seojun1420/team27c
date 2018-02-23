@@ -12,6 +12,8 @@
 <body>
 		<%
 			ActorDao actorDao = new ActorDao(); // ActorDao의 객체를 생성하여 객체참조변수 actorDao에 객체의 주소를 할당한다
+			String sId = (String)session.getAttribute("sId");
+			if(sId != null) {
 		%>
 		<h1>Actor list</h1>
 		<table border="1">
@@ -49,11 +51,17 @@
 			</tbody>
 		<% 
 			}
+				
 		%>	
+		
 		</table>
 			<br>
 					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
 					<br>
 					<a href="<%= request.getContextPath() %>/actor/insertActorForm.jsp">남배우리스트 등록하기</a>
+					
+	<%
+		}
+	%>
 </body>
 </html>
