@@ -10,6 +10,9 @@
 <title>AnaunseoList</title>
 </head>
 <body>
+<%
+	String sId=(String)(session.getAttribute("sId"));	
+%>
 	<h1>Anaunseo List</h1>
 		<table border="1">
 			<thead>			
@@ -17,8 +20,15 @@
 					<th>아나운서번호</th>
 					<th>아나운서이름</th>
 					<th>아나운서나이</th>
-					<th>수정</th>
-					<th>삭제</th>
+					<%
+						if(sId != null) {
+							%>
+								<th>수정</th>
+								<th>삭제</th>
+							<% 
+						}
+					%>
+
 				</tr>
 			</thead>
 		<%
@@ -35,8 +45,15 @@
 					<td><%= ana.getAnaunseoId() %></td>
 					<td><%= ana.getAnaunseoName() %></td>
 					<td><%= ana.getAnaunseoAge() %></td>
-					<td><a href="<%= request.getContextPath() %>/anaunseo/updateAnaunseoForm.jsp?anaunseoId=<%= ana.getAnaunseoId()%>">수정</a></td>
-					<td><a href="<%= request.getContextPath() %>/anaunseo/deleteAnaunseoAction.jsp?anaunseoId=<%= ana.getAnaunseoId()%>">삭제</a></td>
+										<%
+						if(sId != null) {
+							%>
+								<td><a href="<%= request.getContextPath() %>/anaunseo/updateAnaunseoForm.jsp?anaunseoId=<%= ana.getAnaunseoId()%>">수정</a></td>
+								<td><a href="<%= request.getContextPath() %>/anaunseo/deleteAnaunseoAction.jsp?anaunseoId=<%= ana.getAnaunseoId()%>">삭제</a></td>
+							<% 
+						}
+					%>
+					
 				</tr>
 		<%
 			}
@@ -45,6 +62,12 @@
 		<br>
 		<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
 		<br>
-		<a href="<%= request.getContextPath() %>/anaunseo/insertAnaunserForm.jsp">아나운서리스트 등록하기</a>
+<%
+								if(sId != null) {
+							%>
+										<a href="<%= request.getContextPath() %>/anaunseo/insertAnaunserForm.jsp">아나운서리스트 등록하기</a>
+							<% 
+						}
+					%>
 </body>
 </html>
