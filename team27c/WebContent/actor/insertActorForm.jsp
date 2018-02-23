@@ -9,7 +9,7 @@
 <body>
 		<h1>insertActorForm.jsp</h1>
 			<!-- POST방식으로 폼에서 입력한 정보들을 insertActorAction.jsp로 넘겨준다. -->
-			<form action="<%= request.getContextPath() %>/insertActorAction.jsp" method="post">
+			<form action="<%= request.getContextPath() %>/actor/insertActorAction.jsp" method="post">
 				<table border="1">
 					<tr>
 						<th>남배우이름</th>

@@ -32,7 +32,7 @@
 	System.out.println(actor + "<--actor");
 	/* response내장객체 :  클라이언트에 대한 응답 처리를 하는 객체, 실행결과를 브라우저로 되돌려 줄 때 사용하는 객체 
 	response객체의 sendRedirect()메서드를 사용하여 웹 서버가 브라우저에게 지정한 페이지로 이동할 때 사용한다. */
-	response.sendRedirect(request.getContextPath() + "/actorList.jsp");		
+	response.sendRedirect(request.getContextPath() + "/actor/actorList.jsp");		
 %>
 </body>
 </html>

@@ -26,7 +26,5 @@
 	
 	response.sendRedirect(request.getContextPath() + "/actor/actorList.jsp");		
 %>
-
-
 </body>
 </html>
