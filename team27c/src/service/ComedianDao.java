@@ -133,16 +133,19 @@ public class ComedianDao {
 	
 	
 	
-	//selectupdate
+	//select update
 	public Comedian selectupdateComedian(int comedianId) {
 		
 		try {	
 				Class.forName("com.mysql.jdbc.Driver"); //드라이버로딩시작
+				System.out.println("드라이버로딩");
+				
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 				String dbUser = "root";
 				String dbPass = "java0000";
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				System.out.println("DB연결");
+				
 				/*connection객체참조변수의 주소를 찾아가  prepareStatement메서드를 실행해주고, 쿼리실행을 준비한다.
 				 *쿼리문의 물음표자리에 get메서드를 실행해 겟팅해온 데이터를 순서대로 prepareStatement객체참조변수의 주소를 찾아가
 				 *set메서드를 이용해 입력해주고, 실행해준다.*/
@@ -150,63 +153,44 @@ public class ComedianDao {
 				preparedstatement.setInt(1, comedianId);
 				resultset=preparedstatement.executeQuery();
 				System.out.println("쿼리실행");
+				
 				if(resultset.next()) {
 					comedian = new Comedian();
 					comedian.setComedianId(resultset.getInt("comedian_id"));
 					comedian.setComedianName(resultset.getString("comedian_name"));
 					comedian.setComedianAge(resultset.getInt("comedian_age"));
 				}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (resultset != null) try {resultset.close();} catch (SQLException ex) {}
-			if (preparedstatement != null) try {preparedstatement.close();} catch (SQLException ex) {}
-			if (connection != null) try {connection.close();} catch (SQLException ex) {}
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					if (resultset != null) try {resultset.close();} catch (SQLException ex) {}
+					if (preparedstatement != null) try {preparedstatement.close();} catch (SQLException ex) {}
+					if (connection != null) try {connection.close();} catch (SQLException ex) {}
+				}
+				
+			return comedian;
 		}
-		
-		return comedian;
-	}
-	
-	public void updateComedian(Comedian comedian) {
+			
+
+	public void updateComedianAction(Comedian comedian) {		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("db실행");
+			
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
+			
 			connection=DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
-			preparedstatement=connection.prepareStatement("UPDATE comedian SET comedian_name=?,comedian_age=? WHERE comedian_id=?");	
+			preparedstatement=connection.prepareStatement("UPDATE comedian SET comedian_name=?,comedian_age=? WHERE comedian_id=?");
 			preparedstatement.setString(1, comedian.getComedianName());
 			preparedstatement.setInt(2, comedian.getComedianAge());
 			preparedstatement.setInt(3, comedian.getComedianId());
 			preparedstatement.executeUpdate();
+			System.out.println("쿼리실행");
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (preparedstatement != null) try {preparedstatement.close();} catch (SQLException ex) {}
-			if (connection != null) try {connection.close();} catch (SQLException ex) {}
-		}
-		}
-		
-	public void updateComedianAction(Comedian comediandao) {		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
-			String dbUser = "root";
-			String dbPass = "java0000";
-			
-			connection=DriverManager.getConnection(jdbcDriver,dbUser,dbPass);
-			preparedstatement=connection.prepareStatement("UPDATE actress SET actress_name=?,actress_age=? WHERE actress_id=?");
-			preparedstatement.setString(1, comediandao.getComedianName());
-			preparedstatement.setInt(2, comediandao.getComedianAge());
-			preparedstatement.setInt(3, comediandao.getComedianId());
-			
-			preparedstatement.executeUpdate();
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}catch(SQLException e) {

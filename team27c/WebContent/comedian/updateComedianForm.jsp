@@ -14,6 +14,7 @@
 	<%
 		int comedianId = Integer.parseInt(request.getParameter("comedianId"));
 		System.out.println(comedianId + "<--comdedianId");
+		
 		ComedianDao comediandao = new ComedianDao();
 		Comedian comedian = comediandao.selectupdateComedian(comedianId);
 	%>
