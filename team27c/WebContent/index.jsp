@@ -13,6 +13,7 @@
 	
 	<%@ include file="/login/loginForm.jsp" %>
 	
+	
 		 <table border="7" style="width: 40%" align ="center" >
 		<tr>
 			<br><td align ="center">팀명 : team27c</td><td align ="center">역할</td><td align ="center">사진</td><td align ="center">링크</td><br>

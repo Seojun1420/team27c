@@ -29,7 +29,9 @@
 	} else {
 		System.out.println("아이디불일치");
 	}
-	response.sendRedirect(request.getContextPath()+"/index.jsp");
+	
+	response.sendRedirect(request.getContextPath() + "/index.jsp");
+
 %>
 
 </body>
