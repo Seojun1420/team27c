@@ -10,9 +10,10 @@
 <title>insertComedianAction</title>
 </head>
 <body>
+
 <%
-	/* request에 할당된 주소값을 찾아가, getParameter("comedianName")을 겟팅해온다. 그리고 객체참조변수 comedian에 주소값을 저장한다 
-		integer는 자바에서 String을 숫자 값으로 변형할 때 사용하며, 원시데이터가 필요하면 parseInt()를 사용.*/
+	//request에 할당된 주소값을 찾아가, getParameter("comedianName")을 겟팅해온다. 그리고 객체참조변수 comedian에 주소값을 저장한다 
+	//integer는 자바에서 String을 숫자 값으로 변형할 때 사용하며, 원시데이터가 필요하면 parseInt()를 사용.
 	String comedianName = request.getParameter("comedianName");
 	int comedianAge = Integer.parseInt(request.getParameter("comedianAge"));
 	System.out.println(comedianName + "<-comedianName");
