@@ -188,11 +188,6 @@ public class SingerDao {
 		return list; //배열리턴
 		
 	}
-	
-	
-	
-	
-	
 	public void insertSinger(Singer singer) throws ClassNotFoundException, SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -219,6 +214,10 @@ public class SingerDao {
 			e.printStackTrace();
 		}catch(ClassNotFoundException e) { 
 			e.printStackTrace();
+		}finally {
+			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
+			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
+			if (conn != null) try { conn.close(); } catch(SQLException e) {}
 		}
 	}
 }
