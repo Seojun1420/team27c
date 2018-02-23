@@ -10,19 +10,17 @@
 <title>deleteComedianAction</title>
 </head>
 <body>
-<%
-//JSP파일에서 인코딩부분에서 문제가 생기지 않도록 하기 위해서 작성
-int comedianId = Integer.parseInt(request.getParameter("comedianId"));
-System.out.println(comedianId + "<- comedianId 출력확인");
-
-//comdiandao로 주소참조하여 DB를 연결시켜, 리턴시켜온다.
-ComedianDao comediandao = new ComedianDao();
-comediandao.deleteComedian(comedianId);
-
-
-//처리과 완료되면, comedianList.jsp로 이동한다.
-response.sendRedirect(request.getContextPath() + "/comedian/comedianList.jsp");
-
-%>
+	<%
+		/* integer는 자바에서 String을 숫자 값으로 변형할 때 사용하며, 원시데이터가 필요하면 parseInt()를 사용. 
+			integer는 자바에서 String을 숫자 값으로 변형할 때 사용하며, 원시데이터가 필요하면 parseInt()를 사용. */
+		int comedianId = Integer.parseInt(request.getParameter("comedianId"));
+		System.out.println(comedianId + "<- comedianId 출력확인");
+		
+		ComedianDao comediandao = new ComedianDao();
+		comediandao.deleteComedian(comedianId);
+		
+		response.sendRedirect(request.getContextPath() + "/comedian/comedianList.jsp");
+	
+	%>
 </body>
 </html>

@@ -33,8 +33,8 @@
 					<td><%= comedian.getComedianId() %></td>
 					<td><%= comedian.getComedianName() %></td>
 					<td><%= comedian.getComedianAge() %></td>
-					<!-- request.ge
-					tParameter("comedianId")
+					<!-- 
+						request.getParameter("comedianId")
 						삭제액션 : Delete from comedian where comedian_id=?
 						수정액션 : update comedian set comedian_name=?, comedian_age=? where comedian_id=?  
 						수정폼 : Select *form comedian where comedian_id=? -->
