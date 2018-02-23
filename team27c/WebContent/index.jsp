@@ -10,10 +10,20 @@
 	<header>
 			<h1 border="2" align ="center">team27c</h1>
 	</header>
-	
-	<%@ include file="/login/loginForm.jsp" %>
-	
-	
+	<% 
+		String sId=(String)(session.getAttribute("sId"));
+		System.out.println(sId+"<--sId");
+		if(sId == null) {
+			%>
+				<%@ include file="/login/loginForm.jsp" %>
+			<% 
+		}else {
+			%>
+				<h5 align ="center"><%= sId %> 님 로그인성공</h5>						
+			<% 	
+		}
+		
+	%>
 		 <table border="7" style="width: 40%" align ="center" >
 		<tr>
 			<br><td align ="center">팀명 : team27c</td><td align ="center">역할</td><td align ="center">사진</td><td align ="center">링크</td><br>
