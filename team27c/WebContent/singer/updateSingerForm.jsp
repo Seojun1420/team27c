@@ -12,7 +12,7 @@
 <body>
 
 		<h1> Singer UPDATE Form</h1>
-		<form action="<%=request.getContextPath()%>/singer/singerList.jsp" method="post">
+		<form action="<%=request.getContextPath()%>/singer/updateSingerAction.jsp" method="post">
 		<table border="1">
 			<thead>
 				<tr>
