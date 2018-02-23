@@ -9,7 +9,9 @@
 <title>updateActorForm.jsp</title>
 </head>
 <body>
-<%
+<%	
+	/* Integer.parseInt(String) : 문자열을 int값으로 변환한다.
+	request.getParameter() : 이 메서드는 HTTP요청의 파라미터 값을 얻기 위한 메서드이다. */
 	int actorId = Integer.parseInt(request.getParameter("actorId"));
 	System.out.println(actorId + "<--actorId");
 	ActorDao actorDao = new ActorDao();

@@ -17,6 +17,7 @@ public class ActorDao {
 	
 	public void actionUpdateActor(Actor actor) {
 		try {
+				/* forName() 메서드 : 클래스 전체 이름(패키지가 포함된 이름)을 매개값으로 받고  Class 객체를 리턴함. */
 				Class.forName("com.mysql.jdbc.Driver");
 				System.out.println("드라이버로딩");
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
@@ -24,6 +25,7 @@ public class ActorDao {
 				String dbPass = "java0000";
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				System.out.println("DB연결");
+				
 				statement = connection.prepareStatement("UPDATE actor SET actor_name=?, actor_age=? WHERE actor_id=?");
 				statement.setString(1, actor.getActorName());
 				statement.setInt(2, actor.getActorAge());
@@ -51,6 +53,7 @@ public class ActorDao {
 				String dbPass = "java0000";
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				System.out.println("DB연결");
+				
 				statement = connection.prepareStatement("SELECT * FROM actor WHERE actor_id=?");
 				statement.setInt(1, actorId);
 				resultSet = statement.executeQuery();
@@ -75,9 +78,11 @@ public class ActorDao {
 	}
 	
 	
-	
+	/* deleteActor메서드를 int타입의 actorId를 매개변수로 실행 */	
 	public void deleteActor(int actorId) {
 		try {
+				/* forName() 메서드 : 클래스 전체 이름(패키지가 포함된 이름)을 매개값으로 받고  Class 객체를 리턴함.
+				 * Class.forName()드라이버 로딩 */
 				Class.forName("com.mysql.jdbc.Driver");
 				System.out.println("드라이버로딩");
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
@@ -85,6 +90,7 @@ public class ActorDao {
 				String dbPass = "java0000";
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				System.out.println("DB연결");
+				
 				statement = connection.prepareStatement("DELETE FROM actor WHERE actor_id=?");
 				statement.setInt(1, actorId);
 				statement.executeUpdate();
@@ -101,10 +107,11 @@ public class ActorDao {
 		
 	}
 
-	
+	 
 	public void insertActor(Actor actor) {
 		try {	
-				/*드라이버로딩, db연결을 한다.*/
+				/* forName() 메서드 : 클래스 전체 이름(패키지가 포함된 이름)을 매개값으로 받고  Class 객체를 리턴함.
+				 * 드라이버로딩, db연결을 한다.*/
 				Class.forName("com.mysql.jdbc.Driver");
 				System.out.println("드라이버로딩");
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
@@ -113,10 +120,10 @@ public class ActorDao {
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				System.out.println("DB연결");
 				
-				/*connection객체참조변수의 주소를 찾아가 insert쿼리문을 매개변수로 prepareStatement메서드를 실행해
+				/* connection객체참조변수의 주소를 찾아가 insert쿼리문을 매개변수로 prepareStatement메서드를 실행해
 				 쿼리실행을 위한 준비를 한다.
 				 각각의 물음표 자리에 actor의 get메서드를 실행해 겟팅해온 데이터들을 순서대로 참조변수statement 주소
-				 를 찾아가 set메서드를 사용해 입력해준다. 그리고 쿼리문장을 실행*/
+				 를 찾아가 set메서드를 사용해 입력해준다. 그리고 쿼리문장을 실행 */
 				statement = connection.prepareStatement("INSERT INTO actor VALUES (?, ?, ?)");
 				statement.setInt(1, actor.getActorId());
 				statement.setString(2, actor.getActorName());
@@ -152,7 +159,7 @@ public class ActorDao {
 			/*
 			 * 쿼리 as : 별명으로 지정하기 위해 사용한다, 긴 테이블명이나 컬럼명을 계속 쓰기 힘들기 때문에 별명으로 지정해서 사용가능하다
 			 * ORDER BY : 선택한 행을 리턴할 특정 순서를 지정한다. 순서는 열 또는 표현식 값의 오름차순 또는 내림차순 배열 순서로 정렬된다.
-			 * SELECT 쿼리 문을 String형 sql변수에 초기화한다. ORDER BY로 나이순으로 오름차순으로 정렬하였다.
+			 * SELECT 쿼리 문을 String형 sql변수에 초기화한다. ORDER BY로 번호(아이디)순서로 오름차순으로 정렬하였다.
 			 */
 			String sql = "SELECT actor_id as actorId,actor_name as actorName,actor_age as actorAge FROM actor ORDER BY actor_id ASC";
 			// DB연결에 필요한 정보들을 담아 connection객체참조변수에 할당한다

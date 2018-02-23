@@ -12,8 +12,10 @@
 </head>
 <body>
 <%  
-	/* 폼에서 입력받은 actorName을 매개변수로 getParameter메서드를 실행해 String타입의 actorName변수로 받는다.
-	마찬가지로 actorAge도 int타입의 actorAge변수로 받는다*/
+	/* getParameter메서드 : 웹브라우저에서 전송받은 request영역에서 name값을 찾아 그 값을 읽는다.
+	Integer.parseInt메서드 : 문자열을 int값으로 변환한다. 
+	폼에서 입력받은 actorName을 매개변수로 getParameter메서드를 실행해 String타입의 actorName변수로 받는다.
+	마찬가지로 actorAge도 int타입의 actorAge변수로 받는다 */
 	String actorName = request.getParameter("actorName");
 	int actorAge = Integer.parseInt(request.getParameter("actorAge"));
 	System.out.println(actorName +"," + actorAge + "<--actorName, actorAge");

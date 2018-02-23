@@ -11,7 +11,7 @@
 </head>
 <body>
 		<%
-		ActorDao actorDao = new ActorDao(); // ActorDao의 객체를 생성하여 객체참조변수 actorDao에 객체의 주소를 할당한다
+			ActorDao actorDao = new ActorDao(); // ActorDao의 객체를 생성하여 객체참조변수 actorDao에 객체의 주소를 할당한다
 		%>
 		<h1>Actor list</h1>
 		<table border="1">
