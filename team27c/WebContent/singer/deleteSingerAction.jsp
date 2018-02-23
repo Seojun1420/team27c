@@ -6,10 +6,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>deleteSingerAction.jsp</title>
+	<title> deleteSingerAction </title>
 </head>
 <body>
-		<%
+		<%	
+		
 			int singerId = Integer.parseInt(request.getParameter("singerId"));
 			System.out.println(singerId+":결과");
 			

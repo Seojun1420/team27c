@@ -1,7 +1,6 @@
 //team27c 왕서준
 package service;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,6 +39,7 @@ public class SingerDao {
 		 //순서대로 가장 늦게 실행된 객체부터 닫아준다.
 			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
 			if (conn != null) try { conn.close(); } catch(SQLException e) {}
+			System.out.println(" pstmt & conn 종료");
 		}
 		
 	}
@@ -57,6 +57,7 @@ public class SingerDao {
 		try {
 			//db를 접속하기 위한 id, pw, 주소 설정코드이며 String은 변수형태로 사용!
 			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("드라이버 로딩 & jjdevdb연결 root & java000 접속완료");
 			
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
@@ -82,6 +83,7 @@ public class SingerDao {
 			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
 			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
 			if (conn != null) try { conn.close(); } catch(SQLException e) {}
+			System.out.println("rs & pstmt & conn 종료");
 		}
 		return singer;
 	}
@@ -118,6 +120,7 @@ public class SingerDao {
 			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
 			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
 			if (conn != null) try { conn.close(); } catch(SQLException e) {}
+			System.out.println("rs & pstmt & conn 종료");
 		}
 		
 	}
@@ -189,6 +192,7 @@ public class SingerDao {
 			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
 			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
 			if (conn != null) try { conn.close(); } catch(SQLException e) {}
+			System.out.println("rs & pstmt & conn 종료");
 		}
 		return list; //배열리턴
 		
