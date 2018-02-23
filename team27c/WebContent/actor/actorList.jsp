@@ -13,17 +13,19 @@
 		<%
 			ActorDao actorDao = new ActorDao(); // ActorDao의 객체를 생성하여 객체참조변수 actorDao에 객체의 주소를 할당한다
 			String sId = (String)session.getAttribute("sId");
-			if(sId != null) {
+			
 		%>
-		<h1>Actor list</h1>
+	  	<h1>Actor list</h1>
 		<table border="1">
 			<thead> 
 				<tr>
 					<th>남배우번호</th>
 		     		<th>남배우이름</th>
 		     		<th>남배우나이</th>
+		     		<% if(sId != null) { %>
 		     		<th>수정</th>
 		     		<th>삭제</th> 
+		     		<% } %>
 		  		</tr>
 	  		</thead>
 	  		<tbody>
@@ -45,23 +47,22 @@
 						삭제액션
 						DELETE FROM actor WHERE actor_id=?
 					 -->
+					<% if(sId != null) { %>
 					<td><a href="updateActorForm.jsp?actorId=<%=actor.getActorId()%>">수정</a></td>
 					<td><a href="deleteActorAction.jsp?actorId=<%=actor.getActorId()%>">삭제</a></td>
+					<% } %>
 				</tr>
 			</tbody>
-		<% 
-			}
-				
-		%>	
-		
+			<%
+				}
+			%>
+	
 		</table>
 			<br>
 					<a href="<%= request.getContextPath() %>/index.jsp">홈으로 돌아가기</a>
 					<br>
+					<% if(sId != null) { %>
 					<a href="<%= request.getContextPath() %>/actor/insertActorForm.jsp">남배우리스트 등록하기</a>
-					
-	<%
-		}
-	%>
+					<% } %>
 </body>
 </html>
