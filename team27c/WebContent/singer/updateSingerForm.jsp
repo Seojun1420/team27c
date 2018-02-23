@@ -25,7 +25,7 @@
 				System.out.println(singerId);
 				SingerDao singerDao = new SingerDao();
 				Singer singer = new Singer();
-				singer = singerDao.updateSinger(singerId);
+				singer = singerDao.selectSinger(singerId);
 			%>
 			<tbody>
 					<tr>

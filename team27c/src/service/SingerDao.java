@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.sql.ResultSet;
 
 public class SingerDao {
-	
+	//UPDATE쿼리문을 이용해서 수정처리를 하는 메소드
 	public void updateSingerAction(Singer singerDao) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -18,8 +18,9 @@ public class SingerDao {
 		String sql = "UPDATE singer SET singerName=?, singerAge=? WHERE singerId = ?";
 		
 		try {
+			//드라이버로딩
 			Class.forName("com.mysql.jdbc.Driver");
-			
+			//db를 접속하기 위한 id, pw, 주소 설정코드이며 String은 변수형태로 사용!
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev? useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
@@ -43,7 +44,8 @@ public class SingerDao {
 		
 	}
 	
-	public Singer updateSinger(int singerId) {
+	public Singer selectSinger(int singerId) {
+		//수정화면에서 Singer의 Name과 Age의 값을 받아오기 위해서 SELECT쿼리문을 이용해 검색하는 메서드, Singer의 Id, Name, Age를 리턴한다.
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -76,6 +78,7 @@ public class SingerDao {
 		}catch(ClassNotFoundException e) { 
 			e.printStackTrace();
 		}finally {
+			//순서대로 객체를 종료한다
 			if (rs != null) try { rs.close(); } catch(SQLException e) {} //순서대로 가장 늦게 실행된 객체부터 닫아준다.
 			if (pstmt != null) try {pstmt.close(); } catch(SQLException e) {}			
 			if (conn != null) try { conn.close(); } catch(SQLException e) {}
@@ -120,6 +123,8 @@ public class SingerDao {
 	}
 	
 	public ArrayList<Singer> selectSingerList(){
+		//Signer Id, Name, Age를 모두 검색하여 조회하는 메서드
+		//Singer의 Id, Name, Age의 값을 담은 list을 배열을 리턴한다.
 		//기본적으로 필요한 변수 선언 및 ArrayList 선언
 		ArrayList<Singer> list = new ArrayList<Singer>();
 		Connection conn = null;
