@@ -76,7 +76,13 @@
 		<br>
 			<a href="<%= request.getContextPath() %>/index.jsp">홈으로</a>
 			<br>
+			<%
+				if(session.getAttribute("sId") != null) {
+			%>
 			<a href="<%= request.getContextPath() %>/comedian/insertComedianForm.jsp">리스트등록하기</a>
-		
+			<%
+				}else{
+			}
+			%>
 	</body>
 </html>
