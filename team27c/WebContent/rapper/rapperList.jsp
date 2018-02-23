@@ -1,66 +1,104 @@
-<!-- //team27c ¹ÚÁöÇÏ -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<!-- //team27c ë°•ì§€í•˜ -->
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<%@ page import = "service.RapperDao"%>
-<%@ page import = "service.Rapper"%>
-<%@ page import = "java.util.ArrayList" %><!-- import ÇØ¼­ ±æ°Ô ¾µ °ÍÀ» ÁÙ¿©ÁÖ´Â°É·Î ¾Ë°íÀÖ´Ù. -->
+<%@ page import="service.RapperDao"%>
+<%@ page import="service.Rapper"%>
+<%@ page import="java.util.ArrayList"%><!-- import í•´ì„œ ê¸¸ê²Œ ì“¸ ê²ƒì„ ì¤„ì—¬ì£¼ëŠ”ê±¸ë¡œ ì•Œê³ ìˆë‹¤. -->
 
-<title>·¡ÆÛ ¸ñ·Ï</title>
+<title>ë˜í¼ ëª©ë¡</title>
 </head>
 <body>
-
+	<%
+		//session ì„ í™œìš©í•˜ì—¬ sIdê°€ nullì´ ì•„ë‹ë–„ë§Œ ë³´ì´ê²Œí•¨.
+		if (session.getAttribute("sId") != null) {
+	%>
 	<table border="1">
-		
 		<tr>
-			<th>·¡ÆÛ ¼ø¼­</th>
-			<th>·¡ÆÛ ÀÌ¸§</th>
-			<th>·¡ÆÛ ³ªÀÌ</th>
-			<th>¼öÁ¤</th>
-			<th>»èÁ¦</th>
+			<th>ë˜í¼ ìˆœì„œ</th>
+			<th>ë˜í¼ ì´ë¦„</th>
+			<th>ë˜í¼ ë‚˜ì´</th>
+			<th>ìˆ˜ì •</th>
+			<th>ì‚­ì œ</th>
 		</tr>
+		<%
+			} else {
+		%>
+		<table border="1">
+			<tr>
+				<th>ë˜í¼ ìˆœì„œ</th>
+				<th>ë˜í¼ ì´ë¦„</th>
+				<th>ë˜í¼ ë‚˜ì´</th>
+				<%
+					}
+				%>
 
-<%//¾î·¹ÀÌ ¸®½ºÆ® »ç¿ëÇØ¼­ °´Ã¼ÂüÁ¶º¯¼ö ¼±¾ğ
-ArrayList<Rapper> list = new ArrayList<Rapper>();
-RapperDao rapperDao = new RapperDao();
-list=rapperDao.selectRapperList1();
+				<%
+					//ì–´ë ˆì´ ë¦¬ìŠ¤íŠ¸ ì‚¬ìš©í•´ì„œ ê°ì²´ì°¸ì¡°ë³€ìˆ˜ ì„ ì–¸
+					ArrayList<Rapper> list = new ArrayList<Rapper>();
+					RapperDao rapperDao = new RapperDao();
+					list = rapperDao.selectRapperList1();
 
-	for(Rapper rapper : list) { // for()
-//for¹® »ç¿ë ¹è¿­¼ø¼­·Î ¼¼ÆÃ
-%>		
-	<tr><!-- rapper.getRapperId ´Â rapperÅ¬·¡½º¸¦Ã£¾Æ°¡¼­  getting ÇÑ´ÙRapperId°ªÀ». -->
-		<td><%=rapper.getRapperId() %></td>
-		<td><%=rapper.getRapperName() %></td>
-		<td><%=rapper.getRapperAge() %></td>
-<!-- 		request.getParameter("rapperId");
-		¼öÁ¤Æû
+					for (Rapper rapper : list) { // for()
+						//forë¬¸ ì‚¬ìš© ë°°ì—´ìˆœì„œë¡œ ì„¸íŒ…
+				%>
+			
+			<tr>
+				<!-- rapper.getRapperId ëŠ” rapperí´ë˜ìŠ¤ë¥¼ì°¾ì•„ê°€ì„œ  getting í•œë‹¤RapperIdê°’ì„. -->
+				<td><%=rapper.getRapperId()%></td>
+				<td><%=rapper.getRapperName()%></td>
+				<td><%=rapper.getRapperAge()%></td>
+				<!-- 		request.getParameter("rapperId");
+		ìˆ˜ì •í¼
 		SELECT * FROM rapper WHERE rapper_id = ?
-		¼öÁ¤¾×¼Ç
+		ìˆ˜ì •ì•¡ì…˜
 		UPDATE actor SET rapper_name=?,rapper_age=?WHERE rapper id =?
-		»èÁ¦¾×¼Ç
+		ì‚­ì œì•¡ì…˜
 		DELETE FROM rapper WHERER actor_id = ?
- -->		
- 		<td><a href="<%= request.getContextPath() %>/rapper/updateRapperForm.jsp?rapperId=<%=rapper.getRapperId() %>">¼öÁ¤</a></td>
-		<td><a href="<%= request.getContextPath() %>/rapper/deleteRapperAction.jsp?rapperId=<%=rapper.getRapperId() %>">»èÁ¦</a></td>
-	</tr>
-<% 
-	}//·¹ÆÛ ¾ÆÀÌµğ ÀÌ¸§ ³ªÀÌ ¹Ş¾Æ¿È
-%>
-</table>
-<table>
-	<br>
-	<tr>
-		<a href="<%= request.getContextPath() %>/index.jsp">È¨À¸·Î</a>
-	</tr>
-	<tr>
-		<a> </a>
-	</tr>
-	<tr>
-		<a href="<%= request.getContextPath() %>/rapper/insertRapperForm.jsp">µî·ÏÇÏ±â</a>
-	</tr>
-</table>
+ -->
+				<%
+					if (session.getAttribute("sId") != null) {
+				%>
+				<td><a
+					href="<%=request.getContextPath()%>/rapper/updateRapperForm.jsp?rapperId=<%=rapper.getRapperId()%>">ìˆ˜ì •</a></td>
+				<td><a
+					href="<%=request.getContextPath()%>/rapper/deleteRapperAction.jsp?rapperId=<%=rapper.getRapperId()%>">ì‚­ì œ</a></td>
+				<%
+					} else {
+						}
+				%>
 
+
+
+			</tr>
+
+			<%
+				} //ë ˆí¼ ì•„ì´ë”” ì´ë¦„ ë‚˜ì´ ë°›ì•„ì˜´
+			%>
+		</table>
+		<table>
+			<br>
+			<tr>
+				<a href="<%=request.getContextPath()%>/index.jsp">í™ˆìœ¼ë¡œ</a>
+			</tr>
+			<tr>
+				<a> </a>
+			</tr>
+			<%
+				//ifë¬¸ ìœ¼ë¡œ ì„¸ì…˜ì˜ sIdê°€ nullì´ì•„ë‹ë•Œ ë“±ë¡í•˜ê¸° ë³´ì´ê²Œ
+				if (session.getAttribute("sId") != null) {
+			%>
+			<tr>
+				<a href="<%=request.getContextPath()%>/rapper/insertRapperForm.jsp">ë“±ë¡í•˜ê¸°</a>
+			</tr>
+			<%
+				// elseì¼ë–„ ë“±ë¡í•˜ê¸° ì•ˆë³´ì´ê²Œ
+				} else {
+				}
+			%>
+		</table>
 </body>
 </html>
