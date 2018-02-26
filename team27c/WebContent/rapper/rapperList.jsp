@@ -1,105 +1,96 @@
-<!-- //team27c ë°•ì§€í•˜ -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<% request.setCharacterEncoding("euc-kr"); %>
-<!DOCTYPE html>
+<!-- team27c ÀÓ°¡Çö -->
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page import = "service.Rapper" %>
+<%@ page import = "service.RapperDao" %>
+<%@ page import = "java.util.ArrayList" %>
+<!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<%@ page import="service.RapperDao"%>
-<%@ page import="service.Rapper"%>
-<%@ page import="java.util.ArrayList"%><!-- import í•´ì„œ ê¸¸ê²Œ ì“¸ ê²ƒì„ ì¤„ì—¬ì£¼ëŠ”ê±¸ë¡œ ì•Œê³ ìˆë‹¤. -->
-
-<title>ë˜í¼ ëª©ë¡</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<title>ComedianList</title>
 </head>
 <body>
-	<%
-		//session ì„ í™œìš©í•˜ì—¬ sIdê°€ nullì´ ì•„ë‹ë–„ë§Œ ë³´ì´ê²Œí•¨.
-		if (session.getAttribute("sId") != null) {
-	%>
-	<table border="1">
-		<tr>
-			<th>ë˜í¼ ìˆœì„œ</th>
-			<th>ë˜í¼ ì´ë¦„</th>
-			<th>ë˜í¼ ë‚˜ì´</th>
-			<th>ìˆ˜ì •</th>
-			<th>ì‚­ì œ</th>
-		</tr>
 		<%
-			} else {
+			RapperDao rapperDao = new RapperDao();//comedian °´Ã¼ÂüÁ¶º¯¼ö ¼±¾ğ
 		%>
-		<table border="1">
-			<tr>
-				<th>ë˜í¼ ìˆœì„œ</th>
-				<th>ë˜í¼ ì´ë¦„</th>
-				<th>ë˜í¼ ë‚˜ì´</th>
-				<%
+			<h1>RapperList</h1>
+			<table border = "1"> <!-- Ç¥ »ı¼º -->
+				<thead>
+					<%
+						if(session.getAttribute("sId") != null) {
+					%>
+					<tr>
+						<td>·¡ÆÛ¼øÀ§</td>
+						<td>·¡ÆÛÀÌ¸§</td>
+						<td>·¡ÆÛ³ªÀÌ</td>
+						<td>¼öÁ¤</td>
+						<td>»èÁ¦</td>
+					</tr>
+					<% 
+					}else{
+					%>
+					<tr>
+						<td>·¡ÆÛ¼øÀ§</td>
+						<td>·¡ÆÛÀÌ¸§</td>
+						<td>·¡ÆÛ³ªÀÌ</td>
+					</tr>
+					<%
 					}
-				%>
-
+					%>
+				</thead>
+		<%
+			// comedian¿¡ ´ã±ä ÁÖ¼Ò°ªÀ» Ã£¾Æ°¡, selectComedianList¸¦ È£Ãâ, ½ÇÇàÇØÁØ µÚ arrList·Î ´ã´Â´Ù.
+			ArrayList<Rapper> arrayList = rapperDao.selectRapperList();
+			for(Rapper rapper : arrayList) {
+		%>
+					<%
+						if(session.getAttribute("sId") != null) {
+					%>
+				<tr>
+					<td><%= rapper.getRapperId() %></td>
+					<td><%= rapper.getRapperName() %></td>
+					<td><%= rapper.getRapperAge() %></td>
+					<!-- 
+						request.getParameter("comedianId")
+						»èÁ¦¾×¼Ç : Delete from comedian where comedian_id=?
+						¼öÁ¤¾×¼Ç : update comedian set comedian_name=?, comedian_age=? where comedian_id=?  
+						¼öÁ¤Æû : Select *form comedian where comedian_id=? -->
+					<td><a href="<%= request.getContextPath() %>/rapper/updateRapperForm.jsp?RapperId=<%=rapper.getRapperId()%>">¼öÁ¤</a></td>
+					<td><a href="<%= request.getContextPath() %>/rapper/deleteRapperAction.jsp?RapperId=<%=rapper.getRapperId()%>">»èÁ¦</a></td>
+				</tr>
 				<%
-					//ì–´ë ˆì´ ë¦¬ìŠ¤íŠ¸ ì‚¬ìš©í•´ì„œ ê°ì²´ì°¸ì¡°ë³€ìˆ˜ ì„ ì–¸
-					ArrayList<Rapper> list = new ArrayList<Rapper>();
-					RapperDao rapperDao = new RapperDao();
-					list = rapperDao.selectRapperList1();
-
-					for (Rapper rapper : list) { // for()
-						//forë¬¸ ì‚¬ìš© ë°°ì—´ìˆœì„œë¡œ ì„¸íŒ…
-				%>
-			
-			<tr>
-				<!-- rapper.getRapperId ëŠ” rapperí´ë˜ìŠ¤ë¥¼ì°¾ì•„ê°€ì„œ  getting í•œë‹¤RapperIdê°’ì„. -->
-				<td><%=rapper.getRapperId()%></td>
-				<td><%=rapper.getRapperName()%></td>
-				<td><%=rapper.getRapperAge()%></td>
-				<!-- 		request.getParameter("rapperId");
-		ìˆ˜ì •í¼
-		SELECT * FROM rapper WHERE rapper_id = ?
-		ìˆ˜ì •ì•¡ì…˜
-		UPDATE actor SET rapper_name=?,rapper_age=?WHERE rapper id =?
-		ì‚­ì œì•¡ì…˜
-		DELETE FROM rapper WHERER actor_id = ?
- -->
-				<%
-					if (session.getAttribute("sId") != null) {
-				%>
-				<td><a
-					href="<%=request.getContextPath()%>/rapper/updateRapperForm.jsp?rapperId=<%=rapper.getRapperId()%>">ìˆ˜ì •</a></td>
-				<td><a
-					href="<%=request.getContextPath()%>/rapper/deleteRapperAction.jsp?rapperId=<%=rapper.getRapperId()%>">ì‚­ì œ</a></td>
-				<%
-					} else {
-						}
-				%>
-
-
-
-			</tr>
-
-			<%
-				} //ë ˆí¼ ì•„ì´ë”” ì´ë¦„ ë‚˜ì´ ë°›ì•„ì˜´
-			%>
-		</table>
-		<table>
-			<br>
-			<tr>
-				<a href="<%=request.getContextPath()%>/index.jsp">í™ˆìœ¼ë¡œ</a>
-			</tr>
-			<tr>
-				<a> </a>
-			</tr>
-			<%
-				//ifë¬¸ ìœ¼ë¡œ ì„¸ì…˜ì˜ sIdê°€ nullì´ì•„ë‹ë•Œ ë“±ë¡í•˜ê¸° ë³´ì´ê²Œ
-				if (session.getAttribute("sId") != null) {
-			%>
-			<tr>
-				<a href="<%=request.getContextPath()%>/rapper/insertRapperForm.jsp">ë“±ë¡í•˜ê¸°</a>
-			</tr>
-			<%
-				// elseì¼ë–„ ë“±ë¡í•˜ê¸° ì•ˆë³´ì´ê²Œ
-				} else {
+				}else{
+				%>	
+				<tr>
+					<td><%= rapper.getRapperId() %></td>
+					<td><%= rapper.getRapperName() %></td>
+					<td><%= rapper.getRapperAge() %></td>
+				</tr>	
+		<%
 				}
-			%>
+			}
+		%>
+				
 		</table>
+		<br>
+		<table>
+				<tr>
+					<a href="<%= request.getContextPath() %>/index.jsp">È¨À¸·Î</a>
+				</tr>
+				<tr>
+				<br>
+				</tr>
+				<%
+				if(session.getAttribute("sId") != null) {
+				%>
+				<tr>
+					<a href="<%= request.getContextPath() %>/rapper/insertRapperForm.jsp">¸®½ºÆ®µî·ÏÇÏ±â</a>
+				</tr>
+				<%
+				}else{
+				}
+				
+				%>
+		</table>	
 </body>
 </html>

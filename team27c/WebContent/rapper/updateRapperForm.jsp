@@ -10,7 +10,7 @@
 </head>
 <body>
 <%
-	int rapperId = Integer.parseInt(request.getParameter("rapperId"));
+	int rapperId = Integer.parseInt(request.getParameter("RapperId"));
 	System.out.println(rapperId);
 	
 	RapperDao rapperDao = new RapperDao();

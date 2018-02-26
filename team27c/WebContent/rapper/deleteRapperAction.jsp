@@ -15,7 +15,7 @@
 	System.out.println(Member_Id);
 	System.out.println(Member_pw);
 	//int 형 rapper_Id 에 String 형 rapper_id 를 Integer.parseInt를 이용하여 int 로 형식변환 하여 넣어줌.
-	int rapperId=Integer.parseInt(request.getParameter("rapperId"));
+	int rapperId=Integer.parseInt(request.getParameter("RapperId"));
 	System.out.println(rapperId+"<--rapperId");
 	//rapperDao 객체생성 하고 rapperdao에 있는 주소를 찾아가서 deleteRapper을 호출 rapperId값을 가져와서 rapperList로 리스폰 시킨다.
 	RapperDao rapperdao = new RapperDao();

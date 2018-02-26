@@ -13,6 +13,7 @@ public class RapperDao {
 	Connection connection  = null;
 	PreparedStatement statement = null;
 	ResultSet resultset = null;
+	Rapper rapper = null;
 	
 	public void UpdateRapper(int rapperId,String rapperName,int rapperAge) {
 		try {
@@ -136,13 +137,7 @@ public class RapperDao {
 		}
 
 
-	private String rapperName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public ArrayList<Rapper> selectRapperList1() {
+	public ArrayList<Rapper> selectRapperList() {
 		ArrayList<Rapper> list = new ArrayList<Rapper>();
 		PreparedStatement pstmt = null;//이부분을 잘 모르는데 잘 모르는건 심각한거겠지? 방법 자체는 오류나는 거 클릭해서 수정하는걸로 알고있다.
 		
