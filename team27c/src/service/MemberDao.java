@@ -48,7 +48,9 @@ public class MemberDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			
+			if (resultSet != null) try {resultSet.close();} catch (SQLException ex) {}
+			if (statement != null) try {statement.close();} catch (SQLException ex) {}
+			if (connection != null) try {connection.close();} catch (SQLException ex) {}
 		}
 		
 		

@@ -15,9 +15,9 @@ public class ActorDao {
 	ResultSet resultSet = null;
 	Actor actor = null;
 	
+	/*Actor클래스타입의 actor를 매개변수로 받아 셋팅해준 정보들로 수정처리하는 메서드*/
 	public void actionUpdateActor(Actor actor) {
 		try {
-				/* forName() 메서드 : 클래스 전체 이름(패키지가 포함된 이름)을 매개값으로 받고  Class 객체를 리턴함. */
 				Class.forName("com.mysql.jdbc.Driver");
 				System.out.println("드라이버로딩");
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
@@ -43,7 +43,8 @@ public class ActorDao {
 	}
 	
 
-	
+	/*int 타입의 actorId를 매개변수로 받아 selectUpdateActor메서드를 실행해 업데이트할 해당아이디의 ID,NAME,AGE정보를 셋팅해
+	 *  셋팅한 actor클래스 리턴하여 수정화면에서 정보들을 조회*/
 	public Actor selectUpdateActor(int actorId) {
 		try {
 				Class.forName("com.mysql.jdbc.Driver");
@@ -54,6 +55,9 @@ public class ActorDao {
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				System.out.println("DB연결");
 				
+				/*resultSet객체참조변수에 statement객체참조변수의 주소를 찾아가 executeQuery메서드를 실행해 그 결과의 주소값을 담는다
+				 * resultSet의 객체참조변수의 주소를 찾아 next메서드를 실행하고 resultSet객체참조변수의 주소를 찾아 결과의 actor_id컬럼에 
+				 * 담겨있는 값의 주소를 매개변수로 가져와 actor 객체참조변수의 주소를 찾아 set메서드를 실행해 actor클래스에 셋팅한다 나머지도 동일하다 */
 				statement = connection.prepareStatement("SELECT * FROM actor WHERE actor_id=?");
 				statement.setInt(1, actorId);
 				resultSet = statement.executeQuery();
@@ -63,7 +67,7 @@ public class ActorDao {
 					actor.setActorId(resultSet.getInt("actor_id"));
 					actor.setActorName(resultSet.getString("actor_name"));
 					actor.setActorAge(resultSet.getInt("actor_age"));
-				}
+				}	
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -74,15 +78,17 @@ public class ActorDao {
 			if (connection != null) try {connection.close();} catch (SQLException ex) {}
 		}
 		
-		return actor;
+		return actor; /*actor의 주소를 리턴해준다*/
 	}
 	
 	
-	/* deleteActor메서드를 int타입의 actorId를 매개변수로 실행 */	
+	/* int타입의 actorId를 매개변수로 삭제처리하는 deleteActor 메서드 실행 */	
 	public void deleteActor(int actorId) {
 		try {
 				/* forName() 메서드 : 클래스 전체 이름(패키지가 포함된 이름)을 매개값으로 받고  Class 객체를 리턴함.
-				 * Class.forName()드라이버 로딩 */
+				 * Class.forName()드라이버 로딩
+				 * DriverManager클래스의 getConnetion메서드를 db연결에 필요한 정보가 담겨있는 매개변수로 실행해 
+				 * connection 객체참조변수에 담는다 */
 				Class.forName("com.mysql.jdbc.Driver");
 				System.out.println("드라이버로딩");
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
@@ -91,11 +97,15 @@ public class ActorDao {
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				System.out.println("DB연결");
 				
+				/* connection객체참조변수의 주소를 찾아가 삭제쿼리문인 DELETE FROM~을 매개변수로 prepareStatement메서드를 실행해 쿼리실행을 위한 준비를
+				 * statement 객체참조변수에 담는다.
+				 * 쿼리문의 첫번째 물음표에 int 타입의 actorId를 매개변수로 statement객체참조변수의 주소에 찾아가 setInt메서드를 실행해 셋팅
+				 * statement의 주소를 찾아가 executeUpdate메서드를 실행해 해당아이디를 삭제하는 쿼리문장을 실행한다*/
 				statement = connection.prepareStatement("DELETE FROM actor WHERE actor_id=?");
 				statement.setInt(1, actorId);
 				statement.executeUpdate();
 				System.out.println("쿼리실행");
-				
+		/* 닫아준다 */	
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
