@@ -29,9 +29,11 @@
 					<% 
 					}else{
 					%>
+					<tr>
 						<td>comedian Id</td>
 						<td>comedian Name</td>
 						<td>comedian Age</td>
+					</tr>
 				<%
 					}
 				%>
@@ -62,14 +64,16 @@
 				<%
 					}else{
 				%>
+				<tr>
 					<td><%= comedian.getComedianId() %></td>
 					<td><%= comedian.getComedianName() %></td>
 					<td><%= comedian.getComedianAge() %></td>
+				</tr>
 				<%
 						}
 					}
 				%>
-		
+			</tbody>
 				
 				
 		</table>
